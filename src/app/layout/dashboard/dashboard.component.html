@@ -1,78 +1,70 @@
 <div [@routerTransition]>
-
+    <div class="container-fluid"> 
+            <table class="card-header">
+                    <thead>
+                    <tr>
+                        <th> <button type="button" class="btn btn-lg btn-primary">Add </button></th>
+                        <th> <button type="button" class="btn btn-lg btn-primary">Update </button></th>
+                        <th> <button type="button" class="btn btn-lg btn-primary">Delete </button></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                </table>
+               
+               
+ 
+     </div>
+    <p></p>
     <div class="row">
-            <div class="col-sm-4"> 
-                    <li class="list-group-item"><button type="button" class="btn btn-lg btn-primary">Add Interviewer</button></li>
-                    <li class="list-group-item"><button type="button" class="btn btn-lg btn-primary">Add Recuriter</button></li>
-            </div>
-            <div class="col col-xl-6 col-lg-12">
+            
+            <div class="col col-xl-11 col-lg-12">
                 <div class="card mb-3">
                     <div class="card-header">INTERVIEWERS</div>
                     <table class="card-body table table-hover">
                         <thead>
-                        <tr>
+                        <tr onclick="updateValue()">
                             <th>#</th>
+                            <th>Emp ID</th>
                             <th>First Name</th>
                             <th>Last Name</th>
-                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Experience</th>
+                            <th>Phone</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <td>67224</td>
+                            <td>krishna</td>
+                            <td>Arjunan</td>
+                            <td>krishnakumar.arjunan@softvision.com</td>
+                            <td>11</td>
+                            <td>9886780405</td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                                <th scope="row">1</th>
+                                <td>67224</td>
+                                <td>krishna</td>
+                                <td>Arjunan</td>
+                                <td>krishnakumar.arjunan@softvision.com</td>
+                                <td>11</td>
+                                <td>9886780405</td>
+                            </tr>
+                            <tr>
+                                    <th scope="row">1</th>
+                                    <td>67224</td>
+                                    <td>krishna</td>
+                                    <td>Arjunan</td>
+                                    <td>krishnakumar.arjunan@softvision.com</td>
+                                    <td>11</td>
+                                    <td>9886780405</td>
+                                </tr>
                         </tbody>
                     </table>
             </div>
-            <p></p>
-            
-            <div class="card mb-3">
-                        <div class="card-header">RECURITERS</div>
-                        <table class="card-body table table-hover">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-            </div>
+            <p></p>    
+    </div>
             
     </div>
     
