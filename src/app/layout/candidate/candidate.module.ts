@@ -4,10 +4,9 @@ import { ChartsModule as Ng2Charts } from 'ng2-charts';
 
 import { CandidateRoutingModule } from './candidate-routing.module';
 import { CandidateComponent } from './candidate.component';
-import { PageHeaderModule } from '../../shared';
 
 @NgModule({
-    imports: [CommonModule, Ng2Charts, CandidateRoutingModule, PageHeaderModule],
+    imports: [CommonModule, Ng2Charts, CandidateRoutingModule],
     declarations: [CandidateComponent]
 })
 export class CandidateModule {}

@@ -1,16 +1,16 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
     <div class="list-group">
-        <a [routerLink]="['/dashboard']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Interviewer' | translate }}
+        <a [routerLink]="['/interviewer']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-bar-chart-o"></i>&nbsp;{{ 'Interviewer'}}
         </a>
-        <a [routerLink]="['/tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-                <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Recuriter' | translate }}
+        <a [routerLink]="['/candidate']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+                <i class="fa fa-fw fa-table"></i>&nbsp;{{ 'Recuriter'}}
         </a>
         <a routerLink="/candidate" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Candiate' | translate  }}
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Candiate'}}
         </a>
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Manager' | translate  }}
+        <a routerLink="/interviewer" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-dashboard"></i>&nbsp;{{ 'Manager'}}
         </a>
         
         
@@ -20,13 +20,13 @@
             </a>
             <div class="nested-menu">
                 <a class="list-group-item" (click)="addExpandClass('languages')">
-                    <span><i class="fa fa-language"></i>&nbsp; {{ 'Language' | translate }} <b class="caret"></b></span>
+                    <span><i class="fa fa-language"></i>&nbsp; {{ 'Language'}} <b class="caret"></b></span>
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'languages'">
                     <ul class="submenu">
                         <li>
                             <a href="javascript:void(0)" (click)="changeLang('en')">
-                                {{ 'English' | translate }}
+                                {{ 'English'}}
                             </a>
                         </li>
                     </ul>
@@ -40,22 +40,22 @@
                     <ul class="submenu">
                         <li>
                             <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}</span>
+                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile'}}</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox' | translate }}</span>
+                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox'}}</span>
                             </a>
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}</span>
+                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings'}}</span>
                             </a>
                         </li>
                         <li>
                             <a [routerLink]="['/login']" (click)="onLoggedout()">
-                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}</span>
+                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out'}}</span>
                             </a>
                         </li>
                     </ul>
