@@ -13,6 +13,6 @@ export class CandidateService {
   constructor(private http:HttpClient) { }
 
   getCandidates(){
-    return this.http.get('http://svrbd029.spi.com:9095/candidateService/candidates');
+    return this.http.get('/server/candidateService/candidates');
   }
 }

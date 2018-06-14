@@ -1,0 +1,11 @@
+{
+	"/server": {
+		"target": "http://svrbd029.spi.com:9095",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+	}
+}
