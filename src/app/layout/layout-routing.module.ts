@@ -10,6 +10,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'interviewer' },
             { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
             { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' },
+            { path: 'login', loadChildren: './login/login.module#LoginModule' },
             
             
         ]
