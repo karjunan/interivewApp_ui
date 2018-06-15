@@ -7,11 +7,11 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'interviewer' },
+            { path: '', redirectTo: 'dashboard' },
+            { path: 'dashboard', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
             { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
             { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' },
-            { path: 'login', loadChildren: './login/login.module#LoginModule' },
-            
+            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
             
         ]
     }
