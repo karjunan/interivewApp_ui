@@ -8,7 +8,14 @@ import { routerTransition } from '../../router.animations';
     styleUrls: ['./interviewer.component.scss'],
     animations: [routerTransition()]
 })
-export class InterviewerComponent implements OnInit {    
+export class InterviewerComponent implements OnInit {
+    interviewer: any [];
+    loadAddTemplate:boolean = false;
+
+    loadTemplate(): void {
+        this.loadAddTemplate = !this.loadAddTemplate;
+    }
+
     ngOnInit() {}
 
 }

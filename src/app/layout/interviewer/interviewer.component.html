@@ -1,4 +1,26 @@
 <div>
+    <div class="col col-xl-11"> 
+                <table class="card-header *ngIf='interviewer && interviewer.length">
+                        <thead>
+                        <tr>
+                            <th> 
+                                <button class="btn rounded-btn" (click)='loadTemplate()' > Add </button>
+                            </th>
+                            <th> 
+                                <a class="btn rounded-btn"> Update </a>
+                            </th>
+                            <th> 
+                                <a class="btn rounded-btn"> Delete </a>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    </table>
+    </div>
+    <div>
         <list-interviewer></list-interviewer>
+    </div>
+    <div *ngIf='loadAddTemplate'>
         <add-interviewer></add-interviewer>
+    </div>
 </div>
