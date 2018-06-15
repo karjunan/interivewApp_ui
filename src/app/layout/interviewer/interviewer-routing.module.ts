@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InterviewerComponent } from './interviewer.component';
 import { AddInterviewerComponent } from './add/addInterviewer.component';
-import { DeleteInterviewerComponent } from './delete/deleteInterviewer.component';
 
 const routes: Routes = [
     {

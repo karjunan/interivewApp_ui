@@ -1,6 +1,9 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
+import { Router, NavigationEnd } from '@angular/router';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 
 @Component({
@@ -10,6 +13,8 @@ import { routerTransition } from '../../../router.animations';
     animations: [routerTransition()]
 })
 export class AddInterviewerComponent implements OnInit {    
-    ngOnInit() {}
+   constructor() {
 
+   }
+    ngOnInit() {}
 }

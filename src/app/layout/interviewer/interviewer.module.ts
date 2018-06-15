@@ -5,6 +5,7 @@ import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { InterviewerComponent } from './interviewer.component';
 import { AddInterviewerComponent } from './add/addInterviewer.component';
+import { ListInterviewerComponent } from './list/listInterviewer.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { AddInterviewerComponent } from './add/addInterviewer.component';
     ],
     declarations: [
         InterviewerComponent,
-        AddInterviewerComponent
+        AddInterviewerComponent,
+        ListInterviewerComponent
     ]
 })
 export class InterviewerModule {}
