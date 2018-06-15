@@ -7,12 +7,9 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'dashboard' },
-            { path: 'dashboard', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
+            {path:'', redirectTo: 'interviewer'},
             { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
-            { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' },
-            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
-            
+            { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' }, 
         ]
     }
 ];

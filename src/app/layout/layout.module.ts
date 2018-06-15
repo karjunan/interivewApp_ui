@@ -6,15 +6,17 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InterviewerModule } from './interviewer/interviewer.module';
+import { CandidateModule } from './candidate/candidate.module';
 
 
 @NgModule({
     imports: [
         CommonModule,
+        NgbDropdownModule.forRoot(),
+        CandidateModule,
+        InterviewerModule,
         LayoutRoutingModule,
-        BrowserAnimationsModule,
-        NgbDropdownModule.forRoot()
     ],
     declarations: [LayoutComponent, 
                    SidebarComponent,
