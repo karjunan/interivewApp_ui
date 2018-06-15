@@ -1,22 +1,23 @@
-<div [@routerTransition]>
     <div class="container-fluid"> 
             <table class="card-header">
                     <thead>
                     <tr>
-                        <th> <button type="button" class="btn btn-lg btn-primary">Add </button></th>
-                        <th> <button type="button" class="btn btn-lg btn-primary">Update </button></th>
-                        <th> <button type="button" class="btn btn-lg btn-primary">Delete </button></th>
+                        <th> 
+                            <a class="btn rounded-btn" [routerLink]="['/interviewer']" (click)="onLoggedin()"> Add </a>
+                        </th>
+                        <th> 
+                            <a class="btn rounded-btn" [routerLink]="['/candidate']" (click)="onLoggedin()"> Update </a>
+                        </th>
+                        <th> 
+                            <a class="btn rounded-btn" [routerLink]="['/interviewer']" (click)="onLoggedin()"> Delete </a>
+                        </th>
                     </tr>
                     </thead>
                     <tbody>
                 </table>
-               
-               
- 
-     </div>
-    <p></p>
-    <div class="row">
-            
+</div>
+<p></p>
+<div class="row">
             <div class="col col-xl-11 col-lg-12">
                 <div class="card mb-3">
                     <div class="card-header">INTERVIEWERS</div>
@@ -67,5 +68,4 @@
     </div>
             
     </div>
-    
-</div>
+

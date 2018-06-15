@@ -4,7 +4,7 @@ import { InterviewerComponent } from './interviewer.component';
 
 const routes: Routes = [
     {
-        path: '', component: InterviewerComponent
+        path: '', component: InterviewerComponent,
     }
 ];
 
