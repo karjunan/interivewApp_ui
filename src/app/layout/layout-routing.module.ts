@@ -8,8 +8,9 @@ const routes: Routes = [
         children: [
             { path: '', redirectTo: 'interviewer' },
             { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
-            { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' }
- 
+            { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' },
+            { path: 'recruiter', loadChildren: './recruiter/recruiter.module#RecruiterModule' }
+
         ]
 
     }
