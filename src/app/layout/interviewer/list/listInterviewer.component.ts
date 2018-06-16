@@ -1,6 +1,8 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
+import { InterviewerService } from '../../../services/interviewer.service';
+import { IInterviewer } from '../../../services/IInterviewer';
 
 
 @Component({
@@ -9,9 +11,16 @@ import { routerTransition } from '../../../router.animations';
     styleUrls: ['./listInterviewer.component.scss'],
     animations: [routerTransition()]
 })
-export class ListInterviewerComponent implements OnInit {    
-   constructor() {
+export class ListInterviewerComponent implements OnInit {   
+    errorMessage: String;
+    interviewers : IInterviewer[];
+
+   constructor(private _interviewerService: InterviewerService) {
 
    }
-    ngOnInit() {}
+    ngOnInit():void {
+        this._interviewerService.getInterviewers()
+                .subscribe(data => this.interviewers = data,
+                            error => this.errorMessage = <any>error);
+    }
 }
