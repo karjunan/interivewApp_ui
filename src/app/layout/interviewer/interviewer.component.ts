@@ -11,8 +11,8 @@ import { routerTransition } from '../../router.animations';
 export class InterviewerComponent implements OnInit {
     interviewer: any [];
     loadAddTemplate:boolean = false;
-
-    loadTemplate(): void {
+  
+    addTemplate(): void {
         this.loadAddTemplate = !this.loadAddTemplate;
     }
 

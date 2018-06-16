@@ -1,15 +1,44 @@
-
-<div class="row">
-        <div class="col col-xl-11 col-lg-12">
-        <h1>Interview Application</h1>
-                <form role="form">
-                     <div class="form-content">
-                            <div class="form-group">
-                                <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
-                            </div>
-                            </div>
-                            <a class="btn rounded-btn" [routerLink]="['/']"> save </a>&nbsp;
-                            <a class="btn rounded-btn" [routerLink]="['/']"> reset </a>
-                        </form>
-        </div>
+<div class="col-lg-6">
+        <!-- <h1>Add Interivewer</h1> -->
+        <p></p>
+            <form role="form">
+                <div class="form-content">
+                        <fieldset class="form-group">
+                                <label>FirstName</label>
+                                <input class="form-control" placeholder="Enter FirstName">
+                            </fieldset>
+            
+                            <fieldset class="form-group">
+                                <label>lastName</label>
+                                <input class="form-control" placeholder="Enter LastName">
+                            </fieldset>
+            
+                            <fieldset class="form-group">
+                                    <label>Employee ID</label>
+                                    <input class="form-control" placeholder="Enter Employee ID">
+                            </fieldset>
+                            <fieldset class="form-group">
+                                    <label>Experience</label>
+                                    <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                            </fieldset>
+                            <fieldset class="form-group">
+                                    <label>Community </label>
+                                    <select class="form-control">
+                                            <option>Java</option>
+                                            <option>DotNet</option>
+                                            <option>Mainframe</option>
+                                            <option>Testing</option>
+                                            <option>Drupal</option>
+                                        </select>
+                            </fieldset>
+                </div>
+                <a class="btn rounded-btn" [routerLink]="['/']"> save </a>&nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/']"> reset </a>
+            </form>
 </div>
