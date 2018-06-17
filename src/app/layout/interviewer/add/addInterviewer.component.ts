@@ -24,15 +24,16 @@ export class AddInterviewerComponent implements OnInit {
 
     addInterviewer() {
         // console.log(this.addInterviewerForm.get("interviewerID").errors.required);
+        console.log('Saved: ' + JSON.stringify(this.addInterviewerForm.value));
     
     }   
    
     ngOnInit():void {
         this.addInterviewerForm = this.fb.group({
-            interviewerID:['',[Validators.required,Validators.minLength(3)]],
-            firstName: ['',[Validators.required,Validators.minLength(3)]],
-            lastName: ['',[Validators.required,Validators.minLength(3)]],
-            email: ['',[Validators.required,Validators.minLength(3)]]
+            // interviewerID:['',[Validators.required,Validators.minLength(3)]],
+            firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
+            lastName: ['', [Validators.required,  Validators.minLength(3),Validators.maxLength(50)]],
+            emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]]
         })
     }
 }
