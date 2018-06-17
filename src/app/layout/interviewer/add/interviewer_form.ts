@@ -4,6 +4,9 @@ export class InterviewerForm {
         public interviewerID ='',
         public firstName = '',
         public lastName = '',
-        public email = '') 
+        public emailId = '',
+        public phone: '',
+        public exp:'',
+        public technology:'')
         { }
 }

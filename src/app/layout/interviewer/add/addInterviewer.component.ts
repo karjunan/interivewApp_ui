@@ -30,13 +30,13 @@ export class AddInterviewerComponent implements OnInit {
    
     ngOnInit():void {
         this.addInterviewerForm = this.fb.group({
-            // interviewerID:['',[Validators.required,Validators.minLength(3)]],
+            interviewerID:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
             firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
             lastName: ['', [Validators.required,  Validators.minLength(3),Validators.maxLength(50)]],
             emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
             phone: '',
             exp:'',
-            tecchnology:''
+            technology:''
         })
     }
 }

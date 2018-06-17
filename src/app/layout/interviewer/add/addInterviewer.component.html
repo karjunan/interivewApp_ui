@@ -6,6 +6,64 @@
                           (ngSubmit)="addInterviewer()"
                           [formGroup]="addInterviewerForm">
                         <fieldset>
+
+                         <div class="form-group"
+                                 [ngClass]="{'has-error': (addInterviewerForm.get('interviewerID').touched || 
+                                                                 addInterviewerForm.get('interviewerID').dirty) &&
+                                                                  !addInterviewerForm.get('interviewerID').valid }">
+                                <label class="col-md-2 control-label" 
+                                               for="interviewerID">Employee ID</label>
+                    
+                                <div class="col-md-8">
+                                        <input class="form-control" 
+                                                   id="interviewerID" 
+                                                   type="text" 
+                                                   placeholder="Employee ID (required)" 
+                                                   formControlName="interviewerID" />
+                                            <span class="help-block" *ngIf="(addInterviewerForm.get('interviewerID').touched || 
+                                                                                 addInterviewerForm.get('interviewerID').dirty) && 
+                                                                        addInterviewerForm.get('interviewerID').errors">
+                                                <span *ngIf="addInterviewerForm.get('interviewerID').errors.required">
+                                                    Please the Employee ID.
+                                                </span>
+                                                <span *ngIf="addInterviewerForm.get('interviewerID').errors.minlength">
+                                                    The Employee ID must be longer than 3 characters.
+                                                </span>
+                                                <span *ngIf="addInterviewerForm.get('interviewerID').errors.maxlength">
+                                                        The Employee ID must be less than 5 characters.
+                                                </span>
+                                            </span>
+                                        </div>
+                        </div>
+        
+
+                            <div class="form-group"
+                                [ngClass]="{'has-error': (addInterviewerForm.get('firstName').touched || 
+                                                         addInterviewerForm.get('firstName').dirty) &&
+                                                          !addInterviewerForm.get('firstName').valid }">
+                                <label class="col-md-2 control-label" 
+                                       for="firstNameId">First Name</label>
+            
+                                <div class="col-md-8">
+                                    <input class="form-control" 
+                                           id="firstNameId" 
+                                           type="text" 
+                                           placeholder="First Name (required)" 
+                                           formControlName="firstName" />
+                                    <span class="help-block" *ngIf="(addInterviewerForm.get('firstName').touched || 
+                                                                         addInterviewerForm.get('firstName').dirty) && 
+                                                                addInterviewerForm.get('firstName').errors">
+                                        <span *ngIf="addInterviewerForm.get('firstName').errors.required">
+                                            Please enter your first name.
+                                        </span>
+                                        <span *ngIf="addInterviewerForm.get('firstName').errors.minlength">
+                                            The first name must be longer than 3 characters.
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+
+                                
                             <div class="form-group"
                                 [ngClass]="{'has-error': (addInterviewerForm.get('firstName').touched || 
                                                          addInterviewerForm.get('firstName').dirty) &&
@@ -149,8 +207,8 @@
                     </form>
                 </div>
             </div>
-            <br>Dirty: {{ addInterviewerForm.dirty }} 
+            <!-- <br>Dirty: {{ addInterviewerForm.dirty }} 
             <br>Touched: {{ addInterviewerForm.touched }}
             <br>Valid: {{ addInterviewerForm.valid }}
-            <br>Value: {{ addInterviewerForm.value | json }}
+            <br>Value: {{ addInterviewerForm.value | json }} -->
          
