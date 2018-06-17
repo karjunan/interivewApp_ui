@@ -18,9 +18,12 @@ export class ListInterviewerComponent implements OnInit {
    constructor(private _interviewerService: InterviewerService) {
 
    }
+
     ngOnInit():void {
         this._interviewerService.getInterviewers()
                 .subscribe(data => this.interviewers = data,
                             error => this.errorMessage = <any>error);
     }
+
+   
 }

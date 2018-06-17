@@ -1,7 +1,16 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpHeaders,HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
-import { IInterviewer } from "./IInterviewer";
 import { Observable } from "rxjs";
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
+
+
+import { IInterviewer, Interviewer } from "./IInterviewer";
+
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -11,16 +20,56 @@ const httpOptions = {
     providedIn: 'root'
   })
 export class InterviewerService {
-    private _interviewerURL ="http://localhost:8089/admin/interviewer/";
+    private  _interviewerURL="http://localhost:8089/admin/interviewer/";
 
     constructor(private _http: HttpClient) {}
 
-    getInterviewers() :Observable<IInterviewer[]>{
-        return this._http.get<IInterviewer[]>(this._interviewerURL+"all?sort=ASC");
+    getInterviewers(): Observable<IInterviewer[]> {
+        return this._http.get(this._interviewerURL+"all?sort=ASC",httpOptions)
+            .map(this.extractData)
+            .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
+            .catch(this.handleError);
     }
 
-    saveInterviewer(interviewer: IInterviewer) :Observable<IInterviewer>{
-        return this._http.post<IInterviewer>(this._interviewerURL+"add", interviewer);
+    // getInterviewers() : Observable<IInterviewer[]>{
+    //     return this._http.get(this._interviewerURL+"all?sort=ASC")
+    //             .map(this.extractData)
+    //             .do(data => console.log('getProducts: ' + JSON.stringify(data)))
+    //          .catch(this.handleError);       
+    // }
+
+    saveInterviewer(interviewer: IInterviewer) : Observable<IInterviewer>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.createInterviewer(interviewer, options);
     }
+
+    private createInterviewer(interviewer: IInterviewer, options: RequestOptions): Observable<IInterviewer> {
+        return this._http.post(this._interviewerURL+"add", interviewer)
+            .map(this.extractData)
+            .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    private extractData(response: Response) {
+        let body = response.json();
+        return body.data || {};
+    }
+
+    private handleError(error: Response): Observable<any> {
+        // in a real world app, we may send the server to some remote logging infrastructure
+        // instead of just logging it to the console
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server error');
+    }
+    // saveProduct(product: IProduct): Observable<IProduct> {
+    //     let headers = new Headers({ 'Content-Type': 'application/json' });
+    //     let options = new RequestOptions({ headers: headers });
+
+    //     if (product.id === 0) {
+    //         return this.createProduct(product, options);
+    //     }
+    //     return this.updateProduct(product, options);
+    // }
 
 }
