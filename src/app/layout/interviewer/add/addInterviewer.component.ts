@@ -45,6 +45,7 @@ export class AddInterviewerComponent implements OnInit {
     onSaveComplete(): void {
         // Reset the form to clear the flags
         this.addInterviewerForm.reset();
+        this.router.navigate(['/interviewer']);
         
     }
    
