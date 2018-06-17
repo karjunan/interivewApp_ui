@@ -26,17 +26,11 @@ export class InterviewerService {
 
     getInterviewers(): Observable<IInterviewer[]> {
         return this._http.get(this._interviewerURL+"all?sort=ASC",httpOptions)
-            .map(this.extractData)
-            .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
+            // .map(this.extractData)
+            // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    // getInterviewers() : Observable<IInterviewer[]>{
-    //     return this._http.get(this._interviewerURL+"all?sort=ASC")
-    //             .map(this.extractData)
-    //             .do(data => console.log('getProducts: ' + JSON.stringify(data)))
-    //          .catch(this.handleError);       
-    // }
 
     saveInterviewer(interviewer: IInterviewer) : Observable<IInterviewer>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -46,8 +40,8 @@ export class InterviewerService {
 
     private createInterviewer(interviewer: IInterviewer, options: RequestOptions): Observable<IInterviewer> {
         return this._http.post(this._interviewerURL+"add", interviewer)
-            .map(this.extractData)
-            .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
+            // .map(this.extractData)
+            // .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 

@@ -5,7 +5,7 @@ import { InterviewerForm } from './interviewer_form';
 import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { InterviewerService } from '../../../services/interviewer.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -45,7 +45,7 @@ export class AddInterviewerComponent implements OnInit {
     onSaveComplete(): void {
         // Reset the form to clear the flags
         this.addInterviewerForm.reset();
-        // this.router.navigate(['/products']);
+        
     }
    
     ngOnInit():void {

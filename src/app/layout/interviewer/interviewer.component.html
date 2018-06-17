@@ -1,11 +1,14 @@
 <div>
    
     <div class="col col-xl-11">    
-        <button type="button" class="btn btn-sm btn-primary"  (click)='addTemplate()'> Add Interviewer</button>
+        <!-- <button type="button" class="btn btn-sm btn-primary"  (click)='addTemplate()'> Add Interviewer</button> -->
+        <a routerLink="/interviewer/add" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-user"></i>&nbsp;{{ 'Add Interviewer'}}
+            </a>
     </div>
 
-    <div *ngIf='loadAddTemplate'>
-            <add-interviewer></add-interviewer>
+    <div>
+        <!-- <add-interviewer></add-interviewer> -->
     </div>
 
     <div>
