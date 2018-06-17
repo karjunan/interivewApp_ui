@@ -6,10 +6,12 @@ import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { InterviewerComponent } from './interviewer.component';
 import { AddInterviewerComponent } from './add/addInterviewer.component';
 import { ListInterviewerComponent } from './list/listInterviewer.component';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         InterviewerRoutingModule,

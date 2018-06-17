@@ -19,4 +19,8 @@ export class InterviewerService {
         return this._http.get<IInterviewer[]>(this._interviewerURL+"all?sort=ASC");
     }
 
+    saveInterviewer(interviewer: IInterviewer) :Observable<IInterviewer>{
+        return this._http.post<IInterviewer>(this._interviewerURL+"add", interviewer);
+    }
+
 }

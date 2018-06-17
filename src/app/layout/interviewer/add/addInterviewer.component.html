@@ -1,46 +1,90 @@
 <div class="col-lg-6">
         <!-- <h1>Add Interivewer</h1> -->
-        <p></p>
-            <form role="form">
-                <div class="form-content">
-                        <fieldset class="form-group">
-                                <label>FirstName</label>
-                                <input class="form-control" placeholder="Enter FirstName">
-                            </fieldset>
-            
-                            <fieldset class="form-group">
-                                <label>lastName</label>
-                                <input class="form-control" placeholder="Enter LastName">
-                            </fieldset>
-            
-                            <fieldset class="form-group">
-                                    <label>Employee ID</label>
-                                    <input class="form-control" placeholder="Enter Employee ID">
-                            </fieldset>
-                            <fieldset class="form-group">
-                                    <label>Experience</label>
-                                    <select class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
-                                        </select>
-                            </fieldset>
-                            <fieldset class="form-group">
-                                    <label>Community </label>
-                                    <select class="form-control">
-                                            <option>Java</option>
-                                            <option>DotNet</option>
-                                            <option>Mainframe</option>
-                                            <option>Testing</option>
-                                            <option>Drupal</option>
-                                        </select>
-                            </fieldset>
-                </div>
+        <form (ngSubmit)="addInterviewer()" [formGroup] = "addInterviewerForm">
+                <div class="form-group" [ngClass]= "{'has-error':(addInterviewerForm.get('interviewerID').touched) ||
+                                                                (addInterviewerForm.get('interviewerID').dirty) &&   
+                                                                (!addInterviewerForm.get('interviewerID').valid)}">
+                
                 <div>
-                        <button type="submit" class="btn btn-sm btn-primary" style='margin-right:16px'> Save</button>
-                        <button type="reset" class="btn btn-sm btn-primary" style='margin-right:16px'>Reset</button>
-                 </div>
-            </form>
+                        <fieldset>              
+                                <label>interviewer ID </label>
+                                <input class="form-control" id="interviewerID" 
+                                        type = "text"
+                                        placeholder="Enter Employee ID(Required)"
+                                        formControlName="interviewerID"/>
+                                
+                                <div>
+                                        <span class="help-block" *ngIf= "(addInterviewerForm.get('interviewerID').touched) ||
+                                                                (addInterviewerForm.get('interviewerID').dirty) &&   
+                                                                 (!addInterviewerForm.get('interviewerID').valid)">
+
+                                                 <span *ngIf="addInterviewerForm.get('interviewerID').errors.required">
+                                                        Please enter the Interviewer ID
+                                                </span>
+                                        </span>
+                                 </div>
+                        
+                        </fieldset>
+                </div>
+                </div>
+
+                <div class="form-group" [ngClass]= "{'has-error':(addInterviewerForm.get('firstName').touched) ||
+                                                                (addInterviewerForm.get('firstName').dirty) &&   
+                                                                (!addInterviewerForm.get('firstName').valid)}">
+                
+                <div>
+                        <fieldset>              
+                                <label>First Name </label>
+                                <input class="form-control" id="firstName" 
+                                        type = "text"
+                                        placeholder="Enter First Name(Required)"
+                                        formControlName="firstName"/>
+                                
+                                <div>
+                                        <span class="help-block" *ngIf= "(addInterviewerForm.get('firstName').touched) ||
+                                                                (addInterviewerForm.get('firstName').dirty) &&   
+                                                                 (!addInterviewerForm.get('firstName').valid)">
+
+                                                 <span *ngIf="addInterviewerForm.get('firstName').errors.required">
+                                                        Please enter the First Name
+                                                </span>
+                                        </span>
+                                 </div>
+                        
+                        </fieldset>
+                </div>
+                </div>
+                
+                <div class="form-group" [ngClass]= "{'has-error':(addInterviewerForm.get('lastName').touched) ||
+                                                                (addInterviewerForm.get('lastName').dirty) &&   
+                                                                (!addInterviewerForm.get('lastName').valid)}">
+                
+                <div>
+                        <fieldset>              
+                                <label>Last Name </label>
+                                <input class="form-control" id="lastName" 
+                                        type = "text"
+                                        placeholder="Enter Last Name (Required)"
+                                        formControlName="lastName"/>
+                                
+                                <div>
+                                        <span class="help-block" *ngIf= "(addInterviewerForm.get('lastName').touched) ||
+                                                                (addInterviewerForm.get('lastName').dirty) &&   
+                                                                 (!addInterviewerForm.get('lastName').valid)">
+
+                                                 <span *ngIf="addInterviewerForm.get('lastName').errors.required">
+                                                        Please enter the Last Name
+                                                </span>
+                                        </span>
+                                 </div>
+                        
+                        </fieldset>
+                </div>
+                </div>
+
+                <div class="form-group">
+                        <button class="btn btn-primary" type="submit" [disabled]="!addInterviewerForm.valid">Save</button>
+                        <!-- <button class="btn btn-primary" type="submit" [disabled]="!addInterviewerForm.valid">populateTest</button> -->
+                </div>
+        </form>
 </div>

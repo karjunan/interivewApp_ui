@@ -1,9 +1,9 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
-import { Router, NavigationEnd } from '@angular/router';
-import { SidebarComponent } from '../../components/sidebar/sidebar.component';
-import { HeaderComponent } from '../../components/header/header.component';
+import { InterviewerForm } from './interviewer_form';
+import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
+import { validateConfig } from '@angular/router/src/config';
 
 
 @Component({
@@ -12,9 +12,27 @@ import { HeaderComponent } from '../../components/header/header.component';
     styleUrls: ['./addInterviewer.component.scss'],
     animations: [routerTransition()]
 })
-export class AddInterviewerComponent implements OnInit {    
-    constructor() {
+export class AddInterviewerComponent implements OnInit {
+    addInterviewerForm: FormGroup;
+    
+    interviewer: InterviewerForm = new InterviewerForm();
 
-   }
-    ngOnInit() {}
+    constructor(private fb: FormBuilder) {
+        
+
+    }
+
+    addInterviewer() {
+        // console.log(this.addInterviewerForm.get("interviewerID").errors.required);
+    
+    }   
+   
+    ngOnInit():void {
+        this.addInterviewerForm = this.fb.group({
+            interviewerID:['',[Validators.required,Validators.minLength(3)]],
+            firstName: ['',[Validators.required,Validators.minLength(3)]],
+            lastName: ['',[Validators.required,Validators.minLength(3)]],
+            email: ['',[Validators.required,Validators.minLength(3)]]
+        })
+    }
 }
