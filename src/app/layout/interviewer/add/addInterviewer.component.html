@@ -75,6 +75,57 @@
                            </span>
                         </div>
                     </div>
+
+                <div class="form-group"
+                    [ngClass]="{'has-error': !addInterviewerForm.get('phone').valid }">
+                    <label class="col-md-2 control-label" 
+                        for="phoneId">Phone</label>
+
+                    <div class="col-md-8">
+                        <input class="form-control" 
+                               id="phoneId" 
+                               type="tel" 
+                               placeholder="Phone" 
+                               formControlName = "phone" />
+                        <span class="help-block" *ngIf="addInterviewerForm.get('phone').errors">
+                            <span *ngIf="addInterviewerForm.get('phone').errors.required">
+                                Please enter your phone number.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label class="col-md-2 control-label"> Experience</label>
+                        <div class="col-md-3">
+                                <select class="form-control"
+                                        id="{{'exp' + i}}"
+                                        formControlName="exp">
+                                    <option value="" disabled selected hidden>Select a value...</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                </select>
+                         </div>
+                </div>
+                <div class="form-group">
+                                <label class="col-md-8"> Technology community</label>
+                                <div class="col-md-3">
+                                        <select class="form-control"
+                                                id="{{'tecchnology' + i}}"
+                                                formControlName="tecchnology">
+                                            <option value="" disabled selected hidden>Select a value...</option>
+                                            <option value="JAVA">Java</option>
+                                            <option value="DOTNET">Dotnet</option>
+                                            <option value="TESTING">Testing</option>
+                                            <option value="MAINFRAME">Mainframe</option>
+                                        </select>
+                                 </div>
+                        </div>
                       
                             <div class="form-group">
                                 <div class="col-md-4 col-md-offset-2">

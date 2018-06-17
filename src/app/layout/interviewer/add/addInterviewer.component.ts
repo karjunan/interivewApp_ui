@@ -33,7 +33,10 @@ export class AddInterviewerComponent implements OnInit {
             // interviewerID:['',[Validators.required,Validators.minLength(3)]],
             firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
             lastName: ['', [Validators.required,  Validators.minLength(3),Validators.maxLength(50)]],
-            emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]]
+            emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
+            phone: '',
+            exp:'',
+            tecchnology:''
         })
     }
 }
