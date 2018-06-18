@@ -1,10 +1,24 @@
+
 <p></p>
 <div class="row">
-        <div class="col col-xl-11 col-lg-12">
-            <div class="table-responsive'">
+        <div class="col col-xl-11 col-lg-12 ">
+
+            <div class="panel panel-primary no-padding">
                 <!-- <div class="card-header">INTERVIEWERS</div> -->
-                <table class="card-body table table-hover">
+                <table class="table outer-brdr">
                     <thead>
+                        <tr>
+                            <td colspan="8"  class="no-padding">
+                                    <div class="topnav bg-clr">
+                                            <a class="active" href="#home">&nbsp;</a>
+                                            
+                                            <div class="search-container">                                             
+                                                <input type="text" placeholder="Search.." name="search">
+                                                <button type="submit"><i class="fa fa-search"></i></button>                                             
+                                            </div>
+                                          </div>
+                            </td>
+                        </tr>
                     <tr>
                         <th>Emp ID</th>
                         <th>First Name</th>
@@ -12,16 +26,23 @@
                         <th>Email</th>
                         <th>Experience</th>
                         <th>Phone</th>
+                        <th class="outer-brdr-tbl"></th>
                     </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                         <tr *ngFor='let interviewer of interviewers'>
-                            <td>{{interviewer.interviewerID}}</td>
+                            <td hidden >{{interviewer.id}} </td>
+                            <td>{{interviewer.interviewerID}} </td>
                             <td>{{interviewer.firstName}}</td>
                             <td>{{interviewer.lastName}}</td>
                             <td>{{interviewer.emailId}}</td>
-                            <td>{{interviewer.bandExperience}}</td>
-                            <td>{{interviewer.contactNumber}}</td>
+                            <td>{{interviewer.technologyCommunity}}</td>
+                            <td>{{interviewer.contactNumber}} </td>
+                            <td class="outer-brdr-tbl">
+                                    <a (click)="delete(interviewer.id)" class="fa fa-trash" aria-hidden="true"></a>
+                                    &nbsp; &nbsp;
+                                    <a (click)="delete(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a>
+                                 </td>
                         </tr>
                     </tbody>
                 </table>

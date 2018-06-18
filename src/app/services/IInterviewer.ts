@@ -3,7 +3,7 @@ import { NumberFormatStyle } from "@angular/common";
 
 
 export interface IInterviewer {
-
+    id:String,
     interviewerID: String,
     firstName: String,
     lastName: String,
@@ -17,7 +17,9 @@ export interface IInterviewer {
 
 export class Interviewer implements IInterviewer {
     
-    constructor(public interviewerID: String ='',
+    constructor(
+                public id: String ='',
+                public interviewerID: String ='',
                 public firstName: String = '',
                 public lastName: String = '',
                 public emailId: String = '',

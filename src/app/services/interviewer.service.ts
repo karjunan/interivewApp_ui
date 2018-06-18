@@ -38,6 +38,13 @@ export class InterviewerService {
         return this.createInterviewer(interviewer, options);
     }
 
+    deleteInterviewer(id:String) : Observable<IInterviewer>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.delete("/server/admin/interviewer/"+id,httpOptions)
+                    .catch(this.handleError);
+    }
+
     private createInterviewer(interviewer: IInterviewer, options: RequestOptions): Observable<IInterviewer> {
         return this._http.post("/server/admin/interviewer/add", interviewer)
             // .map(this.extractData)

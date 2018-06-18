@@ -18,7 +18,7 @@ export class AddInterviewerComponent implements OnInit {
     addInterviewerForm: FormGroup;
     errorMessage: string;
     interviewer: InterviewerForm = new InterviewerForm(
-        '','','','','','','');
+        '','','','','','','','');
 
     constructor(private fb: FormBuilder,
                 private router: Router,
@@ -30,8 +30,9 @@ export class AddInterviewerComponent implements OnInit {
     addInterviewer() {
         if (this.addInterviewerForm.dirty && this.addInterviewerForm.valid) {
             // Copy the form values over the product object values
-            let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
-
+            // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
+            let p = Object.assign({},this.addInterviewerForm.value)
+            
             this.interviewerService.saveInterviewer(p)
                 .subscribe(
                     () => this.onSaveComplete(),

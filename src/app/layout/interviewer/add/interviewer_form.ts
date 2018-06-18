@@ -1,6 +1,7 @@
 export class InterviewerForm {
 
     constructor(
+        public id  = '',
         public interviewerID ='',
         public firstName = '',
         public lastName = '',
