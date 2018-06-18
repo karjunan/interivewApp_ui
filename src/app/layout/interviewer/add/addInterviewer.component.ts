@@ -17,7 +17,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AddInterviewerComponent implements OnInit {
     addInterviewerForm: FormGroup;
     errorMessage: string;
-    interviewer: InterviewerForm = new InterviewerForm();
+    interviewer: InterviewerForm = new InterviewerForm(
+        '','','','','','','','');
 
     constructor(private fb: FormBuilder,
                 private router: Router,
@@ -29,8 +30,9 @@ export class AddInterviewerComponent implements OnInit {
     addInterviewer() {
         if (this.addInterviewerForm.dirty && this.addInterviewerForm.valid) {
             // Copy the form values over the product object values
-            let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
-
+            // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
+            let p = Object.assign({},this.addInterviewerForm.value)
+            
             this.interviewerService.saveInterviewer(p)
                 .subscribe(
                     () => this.onSaveComplete(),
@@ -55,9 +57,9 @@ export class AddInterviewerComponent implements OnInit {
             firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
             lastName: ['', [Validators.required,  Validators.minLength(3),Validators.maxLength(50)]],
             emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
-            phone:  ['', [Validators.required, Validators.pattern('[0-9]+')]],
-            exp:'',
-            technology:''
+            contactNumber:  ['', [Validators.required, Validators.pattern('[0-9]+')]],
+            bandExperience:'',
+            technologyCommunity:''
         })
     }
 }

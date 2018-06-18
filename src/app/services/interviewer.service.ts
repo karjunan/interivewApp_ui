@@ -20,12 +20,12 @@ const httpOptions = {
     providedIn: 'root'
   })
 export class InterviewerService {
-    private  _interviewerURL="http://localhost:8089/admin/interviewer/";
+    private  _interviewerURL="";
 
     constructor(private _http: HttpClient) {}
 
     getInterviewers(): Observable<IInterviewer[]> {
-        return this._http.get(this._interviewerURL+"all?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/interviewer/all?sort=ASC",httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -38,8 +38,15 @@ export class InterviewerService {
         return this.createInterviewer(interviewer, options);
     }
 
+    deleteInterviewer(id:String) : Observable<IInterviewer>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this._http.delete("/server/admin/interviewer/"+id,httpOptions)
+                    .catch(this.handleError);
+    }
+
     private createInterviewer(interviewer: IInterviewer, options: RequestOptions): Observable<IInterviewer> {
-        return this._http.post(this._interviewerURL+"add", interviewer)
+        return this._http.post("/server/admin/interviewer/add", interviewer)
             // .map(this.extractData)
             // .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
             .catch(this.handleError);

@@ -3,12 +3,12 @@ import { NumberFormatStyle } from "@angular/common";
 
 
 export interface IInterviewer {
-
+    id:String,
     interviewerID: String,
     firstName: String,
     lastName: String,
     emailId: String,
-    phoneNumber: String,
+    contactNumber: String,
     createdDate: String,
     modifiedDate: String,
     technologyCommunity: String,
@@ -17,11 +17,13 @@ export interface IInterviewer {
 
 export class Interviewer implements IInterviewer {
     
-    constructor(public interviewerID: String ='',
+    constructor(
+                public id: String ='',
+                public interviewerID: String ='',
                 public firstName: String = '',
                 public lastName: String = '',
                 public emailId: String = '',
-                public phoneNumber: String ='',
+                public contactNumber: String ='',
                 public createdDate: String ='',
                 public modifiedDate: String = '',
                 public technologyCommunity: String ='',

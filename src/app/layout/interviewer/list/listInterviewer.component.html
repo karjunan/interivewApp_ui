@@ -1,27 +1,47 @@
-<p></p>
+<p>&nbsp;</p>
 <div class="row">
-        <div class="col col-xl-11 col-lg-12">
-            <div class="table-responsive'">
+        <div class="col col-xl-11 col-lg-12 ">
+
+            <div class="panel panel-primary no-padding">
                 <!-- <div class="card-header">INTERVIEWERS</div> -->
-                <table class="card-body table table-hover">
+                <table class="table outer-brdr table-hover">
                     <thead>
-                    <tr>
-                        <th>Emp ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Experience</th>
-                        <th>Phone</th>
+                        <tr>
+                            <td colspan="8"  class="no-padding">
+                                    <div class="topnav bg-clr">
+                                            <a class="active" href="#home">&nbsp;</a>
+                                            
+                                            <div class="search-container">                                             
+                                                <input class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
+                                                &nbsp;&nbsp;                 
+                                            </div>
+                                          </div>
+                            </td>
+                        </tr>
+                    <tr >
+                        <th class="hght">Emp ID</th>
+                        <th class="hght">First Name</th>
+                        <th class="hght">Last Name</th>
+                        <th class="hght">Email</th>
+                        <th class="hght">Experience</th>
+                        <th class="hght">Phone</th>
+                        <th class="outer-brdr-tbl hght"></th>
                     </tr>
                     </thead>
-                    <tbody >
+                    <tbody>
                         <tr *ngFor='let interviewer of interviewers'>
-                            <td>{{interviewer.interviewerID}}</td>
-                            <td>{{interviewer.firstName}}</td>
-                            <td>{{interviewer.lastName}}</td>
-                            <td>{{interviewer.emailId}}</td>
-                            <td>{{interviewer.bandExperience}}</td>
-                            <td>{{interviewer.contactNumber}}</td>
+                            <td hidden >{{interviewer.id}} </td>
+                            <td class="hght_td">{{interviewer.interviewerID}} </td>
+                            <td class="hght_td">{{interviewer.firstName}}</td>
+                            <td class="hght_td">{{interviewer.lastName}}</td>
+                            <td class="hght_td">{{interviewer.emailId}}</td>
+                            <td class="hght_td">{{interviewer.technologyCommunity}}</td>
+                            <td class="hght_td">{{interviewer.contactNumber}} </td>
+                            <td class="outer-brdr-tbl hght_td">
+                                    <a (click)="delete(interviewer.id)" class="fa fa-trash" aria-hidden="true"></a>
+                                    &nbsp; &nbsp;
+                                    <a (click)="delete(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a>
+                                 </td>
                         </tr>
                     </tbody>
                 </table>
