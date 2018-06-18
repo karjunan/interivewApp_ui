@@ -1,6 +1,6 @@
 {
 	"/server": {
-    "target": "http://192.168.0.107:8089",
+    "target": "http://spicity956.SPI.COM:8089",
 		"secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

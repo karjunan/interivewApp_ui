@@ -17,7 +17,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AddInterviewerComponent implements OnInit {
     addInterviewerForm: FormGroup;
     errorMessage: string;
-    interviewer: InterviewerForm = new InterviewerForm();
+    interviewer: InterviewerForm = new InterviewerForm(
+        '','','','','','','');
 
     constructor(private fb: FormBuilder,
                 private router: Router,
