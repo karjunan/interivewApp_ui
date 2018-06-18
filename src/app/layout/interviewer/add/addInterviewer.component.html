@@ -117,9 +117,9 @@
                                type="tel" 
                                placeholder="contactNumber" 
                                formControlName = "contactNumber" />
-                        <span class="help-block" *ngIf="addInterviewerForm.get('contactNumber').errors">
-                            <span *ngIf="addInterviewerForm.get('contactNumber').errors.required">
-                                Please enter your phone number.
+                        <span class="help-block" *ngIf="(addInterviewerForm.get('contactNumber').touched || addInterviewerForm.get('contactNumber').dirty) && addInterviewerForm.get('contactNumber').errors">
+                            <span  *ngIf="addInterviewerForm.get('contactNumber').errors">
+                                    please enter a number.
                             </span>
                         </span>
                     </div>
@@ -128,9 +128,9 @@
                         <label class="col-md-2 control-label"> Experience</label>
                         <div class="col-md-3">
                                 <select class="form-control"
-                                        id="{{'exp' + i}}"
-                                        formControlName="exp">
-                                    <option value="" disabled selected hidden>Select a value...</option>
+                                        id="bandExperience"
+                                        formControlName="bandExperience">
+                                    <!-- <option value="" disabled selected hidden>Select a value...</option> -->
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -146,9 +146,9 @@
                                 <label class="col-md-8"> Technology community</label>
                                 <div class="col-md-3">
                                         <select class="form-control"
-                                                id="{{'technology' + i}}"
-                                                formControlName="technology">
-                                            <option value="" disabled selected hidden>Select a value...</option>
+                                                id="technologyCommunity"
+                                                formControlName="technologyCommunity">
+                                            <!-- <option value="" disabled selected hidden>Select a value...</option> -->
                                             <option value="JAVA">Java</option>
                                             <option value="DOTNET">Dotnet</option>
                                             <option value="TESTING">Testing</option>

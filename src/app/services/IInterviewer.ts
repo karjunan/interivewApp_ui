@@ -11,8 +11,8 @@ export interface IInterviewer {
     contactNumber: String,
     createdDate: String,
     modifiedDate: String,
-    technology: String,
-    exp: number;   
+    technologyCommunity: String,
+    bandExperience: number;   
 }
 
 export class Interviewer implements IInterviewer {
@@ -24,8 +24,8 @@ export class Interviewer implements IInterviewer {
                 public contactNumber: String ='',
                 public createdDate: String ='',
                 public modifiedDate: String = '',
-                public technology: String ='',
-                public exp: number) {
+                public technologyCommunity: String ='',
+                public bandExperience: number) {
                 }
 
 }
