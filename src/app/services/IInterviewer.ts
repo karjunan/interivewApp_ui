@@ -8,11 +8,11 @@ export interface IInterviewer {
     firstName: String,
     lastName: String,
     emailId: String,
-    phoneNumber: String,
+    contactNumber: String,
     createdDate: String,
     modifiedDate: String,
-    technologyCommunity: String,
-    bandExperience: number;   
+    technology: String,
+    exp: number;   
 }
 
 export class Interviewer implements IInterviewer {
@@ -21,11 +21,11 @@ export class Interviewer implements IInterviewer {
                 public firstName: String = '',
                 public lastName: String = '',
                 public emailId: String = '',
-                public phoneNumber: String ='',
+                public contactNumber: String ='',
                 public createdDate: String ='',
                 public modifiedDate: String = '',
-                public technologyCommunity: String ='',
-                public bandExperience: number) {
+                public technology: String ='',
+                public exp: number) {
                 }
 
 }

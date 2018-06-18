@@ -56,7 +56,7 @@ export class AddInterviewerComponent implements OnInit {
             firstName: ['', [Validators.required, Validators.minLength(3),Validators.maxLength(50)]],
             lastName: ['', [Validators.required,  Validators.minLength(3),Validators.maxLength(50)]],
             emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
-            phone:  ['', [Validators.required, Validators.pattern('[0-9]+')]],
+            contactNumber:  ['', [Validators.required, Validators.pattern('[0-9]+')]],
             exp:'',
             technology:''
         })

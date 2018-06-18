@@ -108,18 +108,17 @@
                     </div>
 
                 <div class="form-group"
-                    [ngClass]="{'has-error': !addInterviewerForm.get('phone').valid }">
-                    <label class="col-md-2 control-label" 
-                        for="phoneId">Phone</label>
+                    [ngClass]="{'has-error': !addInterviewerForm.get('contactNumber').valid }">
+                    <label class="col-md-2 control-label" for="contactNumber">Phone</label>
 
                     <div class="col-md-8">
                         <input class="form-control" 
-                               id="phoneId" 
+                               id="contactNumber" 
                                type="tel" 
-                               placeholder="Phone" 
-                               formControlName = "phone" />
-                        <span class="help-block" *ngIf="addInterviewerForm.get('phone').errors">
-                            <span *ngIf="addInterviewerForm.get('phone').errors.required">
+                               placeholder="contactNumber" 
+                               formControlName = "contactNumber" />
+                        <span class="help-block" *ngIf="addInterviewerForm.get('contactNumber').errors">
+                            <span *ngIf="addInterviewerForm.get('contactNumber').errors.required">
                                 Please enter your phone number.
                             </span>
                         </span>
