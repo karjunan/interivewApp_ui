@@ -12,7 +12,7 @@ const routes: Routes = [
         path: 'add', component: AddInterviewerComponent
     },
     {
-        path: 'edit', component: EditInterviewerComponent
+        path: 'edit/:id', component: EditInterviewerComponent
     }
 ]; 
 

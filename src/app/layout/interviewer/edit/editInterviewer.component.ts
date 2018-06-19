@@ -6,6 +6,25 @@ import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { InterviewerService } from '../../../services/interviewer.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, FormArray, Validators, FormControlName } from '@angular/forms';
+import { ActivatedRoute, Router  } from '@angular/router';
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/merge';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
+
+
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/merge';
+
+import { IInterviewer, Interviewer } from "../../IInterviewer";
 
 
 @Component({
@@ -14,21 +33,44 @@ import { Router, ActivatedRoute } from '@angular/router';
     styleUrls: ['./editInterviewer.component.scss'],
     animations: [routerTransition()]
 })
-export class EditInterviewerComponent implements OnInit {
+export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestroy  {
+    
     editInterviewerForm: FormGroup;
+
     errorMessage: string; 
+    displayMessage: { [key: string]: string } = {};
     interviewer: InterviewerForm = new InterviewerForm(
         '','','','','','','','');
 
+    private sub: Subscription;
+   
     constructor(private fb: FormBuilder,
+                private route: ActivatedRoute,
                 private router: Router,
                 private interviewerService: InterviewerService) {
-        
+
+            console.log(this.route.snapshot.paramMap.get('id'));
+            this.validationMessages = {
+                productName: {
+                    required: 'Product name is required.',
+                    minlength: 'Product name must be at least three characters.',
+                    maxlength: 'Product name cannot exceed 50 characters.'
+                },
+                productCode: {
+                    required: 'Product code is required.'
+                },
+                starRating: {
+                    range: 'Rate the product between 1 (lowest) and 5 (highest).'
+                }
+            };
 
     }
 
-    editInterviewer() {
+    
+    editInterviewer1() {
+
         if (this.editInterviewerForm.dirty && this.editInterviewerForm.valid) {
+            console.log(this.route.snapshot.paramMap.get('id'));
             // Copy the form values over the product object values
             // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
             let p = Object.assign({},this.editInterviewerForm.value)
@@ -44,22 +86,75 @@ export class EditInterviewerComponent implements OnInit {
     
     }   
 
+    getInterviewer(id:String): void {
+        this.interviewerService.getInterviewer(id)
+            .subscribe(
+                    (interviewer: InterviewerForm) => this.onInterviewerReterived(interviewer),
+                    (error: any) => this.errorMessage = <any>error
+        );
+    }
+
+    onInterviewerReterived(interviewer InterviewerForm) {
+        if (this.editInterviewerForm) {
+            this.editInterviewerForm.reset();
+        }
+
+        this.interviewer = interviewer;
+        this.editInterviewerForm.patchValue({
+            interviewerID: this.interviewer.interviewerID,
+            firstName: this.interviewer.firstName,
+            lastName:this.interviewer.lastName,
+            emailId:this.interviewer.emailId,
+            contactNumber:this.interviewer.contactNumber,
+            technologyCommunity:this.interviewer.technologyCommunity,
+            bandExperience:this.interviewer.bandExperience
+        });
+    }
+
+
     onSaveComplete(): void {
         // Reset the form to clear the flags
         this.editInterviewerForm.reset();
-        this.router.navigate(['/interviewer']);
+        // this.router.navigate(['/interviewer']);
         
     }
+
+    ngOnDestroy(): void {
+        this.sub.unsubscribe();
+    }
+
    
     ngOnInit():void {
         this.editInterviewerForm = this.fb.group({
-            interviewerID:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
-            firstName: ['', [Validators.required, Validators.maxLength(50)]],
-            lastName: ['', [Validators.required,  Validators.maxLength(50)]],
-            emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
-            contactNumber:  ['', [Validators.required, Validators.maxLength(10),Validators.pattern('[0-9]+')]],
+            interviewerID:'',
+            firstName: '',
+            lastName:'',
+            emailId: '',
+            contactNumber:  [''],
             bandExperience:'',
             technologyCommunity:''
         })
+
+        // let id = this.route.snapshot.paramMap.get('id');
+        this.sub = this.route.params.subscribe(
+            params => {
+                let id = params['id'];
+                console.log("ID is ::"+ id)
+                this.getInterviewer(id);
+            }
+        );
+        
     }
+
+    ngAfterViewInit(): void {
+        // // Watch for the blur event from any input element on the form.
+        // let controlBlurs: Observable<any>[] = this.formInputElements
+        //     .map((formControl: ElementRef) => Observable.fromEvent(formControl.nativeElement, 'blur'));
+
+        // // Merge the blur event observable with the valueChanges observable
+        // Observable.merge(this.productForm.valueChanges, ...controlBlurs).debounceTime(800).subscribe(value => {
+        //     this.displayMessage = this.genericValidator.processMessages(this.productForm);
+        // });
+    }
+
 }

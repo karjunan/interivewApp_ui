@@ -40,7 +40,7 @@
                             <td class="outer-brdr-tbl hght_td">
                                     <a (click)="delete(interviewer.id)" class="fa fa-trash" aria-hidden="true"></a>
                                     &nbsp; &nbsp;
-                                    <a class="fa fa-edit" aria-hidden="true" routerLink="/interviewer/edit" [routerLinkActive]="['router-link-active']"></a>
+                                    <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/interviewer/edit',interviewer.id]"></a>
                                     <!-- <a (click)="edit(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a> -->
                                  </td>
                         </tr>
