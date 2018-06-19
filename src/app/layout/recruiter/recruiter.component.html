@@ -1,0 +1,15 @@
+<div>
+   
+    <div class="col col-xl-11">    
+        <button type="button" class="btn btn-sm btn-primary"  (click)='addTemplate()'> Add Recruiter</button>
+    </div>
+
+    <div *ngIf='loadAddTemplate'>
+            <add-recruiter></add-recruiter>
+    </div>
+
+    <div *ngIf='!loadAddTemplate'>
+        <list-recruiter></list-recruiter>
+    </div>
+   
+</div>
