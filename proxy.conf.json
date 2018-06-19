@@ -1,5 +1,5 @@
 {
-	"/server": {
+	"/local": {
     "target": "http://localhost:8089",
 		"secure": false,
     "changeOrigin": true,
@@ -9,7 +9,7 @@
     }
   },
   
-  "/server1": {
+  "/server": {
     "target": "http://spicity956.SPI.COM:8089",
 		"secure": false,
     "changeOrigin": true,
