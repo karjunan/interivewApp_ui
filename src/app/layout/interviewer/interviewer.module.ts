@@ -6,6 +6,8 @@ import { InterviewerRoutingModule } from './interviewer-routing.module';
 import { InterviewerComponent } from './interviewer.component';
 import { AddInterviewerComponent } from './add/addInterviewer.component';
 import { ListInterviewerComponent } from './list/listInterviewer.component';
+import { EditInterviewerComponent } from './edit/editInterviewer.component';
+
 import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -19,7 +21,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     declarations: [
         InterviewerComponent,
         AddInterviewerComponent,
-        ListInterviewerComponent
+        ListInterviewerComponent,
+        EditInterviewerComponent
     ]
 })
 export class InterviewerModule {}
