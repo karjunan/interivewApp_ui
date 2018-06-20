@@ -1,4 +1,3 @@
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { InterviewerForm } from './interviewer_form';
@@ -6,11 +5,9 @@ import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { InterviewerService } from '../../../services/interviewer.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validators, FormControlName } from '@angular/forms';
-import { ActivatedRoute, Router  } from '@angular/router';
 
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';

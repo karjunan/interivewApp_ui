@@ -32,7 +32,8 @@
         "rxjs": "^6.2.1",
         "rxjs-compat": "^6.2.1",
         "yarn": "^1.6.0",
-        "zone.js": "^0.8.26"
+        "zone.js": "^0.8.26",
+        "circular-dependency-plugin": "^3.0.0"
     },
     "devDependencies": {
         "@angular/cli": "6.0.0",
