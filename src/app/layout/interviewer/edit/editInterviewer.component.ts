@@ -1,4 +1,3 @@
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { InterviewerForm } from './interviewer_form';
@@ -6,11 +5,9 @@ import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { InterviewerService } from '../../../services/interviewer.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs/Subscription';
+
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validators, FormControlName } from '@angular/forms';
-import { ActivatedRoute, Router  } from '@angular/router';
 
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
@@ -41,6 +38,8 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
     displayMessage: { [key: string]: string } = {};
     interviewer: InterviewerForm = new InterviewerForm(
         '','','','','','','','');
+    
+    _interviewer: IInterviewer;
 
     private sub: Subscription;
    
@@ -51,31 +50,23 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
 
             console.log(this.route.snapshot.paramMap.get('id'));
             this.validationMessages = {
-                productName: {
-                    required: 'Product name is required.',
-                    minlength: 'Product name must be at least three characters.',
-                    maxlength: 'Product name cannot exceed 50 characters.'
+                firstName: {
+                    required: '**',
                 },
-                productCode: {
-                    required: 'Product code is required.'
-                },
-                starRating: {
-                    range: 'Rate the product between 1 (lowest) and 5 (highest).'
-                }
             };
 
     }
-
     
-    editInterviewer1() {
+    editInterviewer() {
 
         if (this.editInterviewerForm.dirty && this.editInterviewerForm.valid) {
-            console.log(this.route.snapshot.paramMap.get('id'));
+            let _id = this.route.snapshot.paramMap.get('id')
+            console.log("Current id is :" +this.route.snapshot.paramMap.get('id'));
             // Copy the form values over the product object values
             // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
-            let p = Object.assign({},this.editInterviewerForm.value)
-            
-            this.interviewerService.saveInterviewer(p)
+            console.log("Current Interviewer value before merge : " + this.editInterviewerForm.value)
+            let p = Object.assign({},this.editInterviewerForm.value);
+            this.interviewerService.updateInterviewer(p,_id)
                 .subscribe(
                     () => this.onSaveComplete(),
                     (error: any) => this.errorMessage = <any>error
@@ -115,7 +106,7 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
     onSaveComplete(): void {
         // Reset the form to clear the flags
         this.editInterviewerForm.reset();
-        // this.router.navigate(['/interviewer']);
+        this.router.navigate(['/interviewer']);
         
     }
 
