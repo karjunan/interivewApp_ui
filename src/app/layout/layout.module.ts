@@ -7,6 +7,7 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InterviewerModule } from './interviewer/interviewer.module';
+import { RecruiterModule } from './recruiter/recruiter.module';
 import { CandidateModule } from './candidate/candidate.module';
 
 
@@ -16,6 +17,7 @@ import { CandidateModule } from './candidate/candidate.module';
         NgbDropdownModule.forRoot(),
         CandidateModule,
         InterviewerModule,
+        RecruiterModule,
         LayoutRoutingModule,
     ],
     declarations: [LayoutComponent, 
