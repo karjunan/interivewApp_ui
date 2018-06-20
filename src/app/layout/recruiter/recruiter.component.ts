@@ -9,7 +9,7 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class RecruiterComponent implements OnInit {
-    interviewer: any [];
+    recruiter: any [];
     loadAddTemplate:boolean = false;
   
     addTemplate(): void {
