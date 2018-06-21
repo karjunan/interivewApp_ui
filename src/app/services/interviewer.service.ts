@@ -39,6 +39,14 @@ export class InterviewerService {
     }
 
 
+    searchInterviewer(str:String): Observable<IInterviewer[]> {
+        return this._http.get("/server/admin/interviewer?str="+str,httpOptions)
+            // .map(this.extractData)
+            // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+
     saveInterviewer(interviewer: IInterviewer) : Observable<IInterviewer>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
