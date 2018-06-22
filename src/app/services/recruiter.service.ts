@@ -25,7 +25,7 @@ export class RecruiterService {
     constructor(private _http: HttpClient) {}
 
     getRecruiters(): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter/all?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/recruiter/getAll?sort=ASC",httpOptions)
             .catch(this.handleError);
     }
 
@@ -43,7 +43,8 @@ export class RecruiterService {
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        return this._http.post("/server/admin/recruiter/add", recruiter)
+        console.log("Recuriter added : " + recruiter);
+        return this._http.post("/server/admin/recruiter", recruiter,options)
             .catch(this.handleError);
     }
 
