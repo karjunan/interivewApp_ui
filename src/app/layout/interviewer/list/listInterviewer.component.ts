@@ -19,13 +19,14 @@ export class ListInterviewerComponent implements OnInit {
     errorMessage: String;
     interviewers : IInterviewer[];
     interviewer: IInterviewer;
-    listFilter: String = 'card';
+    listFilter: String = '';
     list : any [] = new  Array();
     conString : String = ''; 
     keys: any [] = new Array(0,1,2,3,4,5,6,7,8,9,'a','b'
     ,'c','d','e','f','g','h','i','j','k','l','m','n','o','p','r'
     ,'q','s','t','u','v','w','x','y','z');
     search : any = "";
+
 
     filteredInterviewers: IInterviewer[];
 
@@ -46,27 +47,23 @@ export class ListInterviewerComponent implements OnInit {
                 );
     }
 
-    onKey(event: any) { // without type info
-        console.log("char codes " + this.search.value);
-        let ev = event.key.toLowerCase() 
-        console.log("char codes " + event.keyCode + "," ev);
-        console.log("valide key " + this.validateKeyCode(ev))
-        // this.list.push(ev)
-        console.log("List size before backspace :" + this.list.length)
-        if( this.validateKeyCode(ev) {
-            this.conString = this.conString.concat(ev);
-            this.list.push(ev)
-            console.log("List size after push " + this.list)         
-        }
-        if(Object.keys(this.list).length === 3) {
-            console.log(" String to be searched is :  " + this.conString);
-            this._interviewerService.searchInterviewer( this.conString  )
-                         .subscribe(data => this.interviewers = data,
-                                     this.onSaveComplete(),
-                                    error => this.errorMessage = <any>error);
-        }
+    // onKey(event: any) { // without type info
+    //     console.log("char codes " + this.search.value);
+    //     let ev = event.key.toLowerCase() 
+    //     console.log("valide key " + this.validateKeyCode(ev))
+    //     if( this.validateKeyCode(ev) {
+    //         this.conString = this.conString.concat(ev);
+    //         this.list.push(ev)
+    //         console.log("List size after push " + this.list)         
+    //     }
+    //     if(Object.keys(this.list).length === 3) {
+    //         console.log(" String to be searched is :  " + this.conString);
+        //     this._interviewerService.searchInterviewer( this.conString  )
+        //                  .subscribe(data => this.interviewers = data,
+        //                             error => this.errorMessage = <any>error);
+        // }
        
-      }
+    //   }
 
     
     private validateKeyCode ( key : String )  {

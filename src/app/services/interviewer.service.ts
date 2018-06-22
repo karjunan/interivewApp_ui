@@ -39,7 +39,7 @@ export class InterviewerService {
     }
 
 
-    searchInterviewer(str:String): Observable<IInterviewer[]> {
+    searchInterviewer(str:String): IInterviewer[] {
         return this._http.get("/server/admin/interviewer?str="+str,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))

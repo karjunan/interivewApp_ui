@@ -10,8 +10,8 @@
                                         <a class="active" href="#home">&nbsp;</a>
                                         
                                         <div class="search-container">             
-                                            <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search...">
-                                            <!-- <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search"> -->
+                                            <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                            <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
                                             <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
                                             &nbsp;&nbsp;                 
                                         </div>
@@ -31,7 +31,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let interviewer of interviewers'>
+                        <tr *ngFor='let interviewer of interviewers | filter : listFilter'>
                             <td hidden >{{interviewer.id}} </td>
                             <td class="hght_td">{{interviewer.interviewerID}} </td>
                             <td class="hght_td">{{interviewer.firstName}}</td>
@@ -50,6 +50,7 @@
                 </table>
         </div>
         <p></p>    
+    
 </div>
         
 </div>

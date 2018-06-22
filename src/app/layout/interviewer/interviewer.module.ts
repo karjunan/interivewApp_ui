@@ -9,6 +9,8 @@ import { AddInterviewerComponent } from './add/addInterviewer.component';
 import { ListInterviewerComponent } from './list/listInterviewer.component';
 import { EditInterviewerComponent } from './edit/editInterviewer.component';
 
+import { FilterPipe } from './list/filter.pipe';
+
 import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -18,13 +20,15 @@ import {  ReactiveFormsModule } from '@angular/forms';
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         FormsModule,
-        InterviewerRoutingModule,
+        InterviewerRoutingModule
+       
     ],
     declarations: [
         InterviewerComponent,
         AddInterviewerComponent,
         ListInterviewerComponent,
-        EditInterviewerComponent
+        EditInterviewerComponent,
+        FilterPipe
     ]
 })
 export class InterviewerModule {}
