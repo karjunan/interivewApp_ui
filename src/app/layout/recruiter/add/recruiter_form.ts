@@ -2,12 +2,10 @@ export class RecruiterForm {
 
     constructor(
         public id  = '',
-        public recruiterID ='',
+        public recruiterId ='',
         public firstName = '',
         public lastName = '',
         public emailId = '',
-        public contactNumber: '',
-        public bandExperience:'',
-        public technologyCommunity:'')
+        public contactNumber: '')
         { }
 }
