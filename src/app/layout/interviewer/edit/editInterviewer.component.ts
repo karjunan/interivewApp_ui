@@ -85,7 +85,7 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
         );
     }
 
-    onInterviewerReterived(interviewer: InterviewerForm) {
+    onInterviewerReterived(interviewer InterviewerForm) { 
         if (this.editInterviewerForm) {
             this.editInterviewerForm.reset();
         }
