@@ -13,24 +13,24 @@ import { identifierModuleUrl } from '@angular/compiler';
     styleUrls: ['./listRecruiter.component.scss'],
     animations: [routerTransition()]
 })
-export class ListRecruiterComponent implements OnInit {    
+export class ListRecruiterComponent implements OnInit {
     errorMessage: String;
-    recruiters : IRecruiter[];
+    recruiters: IRecruiter[];
     recruiter: IRecruiter;
 
-   constructor(  private router: Router,
-                private _recruiterService: RecruiterService) {
+    constructor(private router: Router,
+        private _recruiterService: RecruiterService) {
 
-   }
-    
-   ngOnInit():void {
-     this.load();
-   }
+    }
+
+    ngOnInit(): void {
+        this.load();
+    }
 
     load() {
-      this._recruiterService.getRecruiters()
-        .subscribe(data => this.recruiters = data,
-            error => this.errorMessage = <any>error);
+        this._recruiterService.getRecruiters()
+            .subscribe(data => this.recruiters = data,
+                error => this.errorMessage = <any>error);
     }
 
     delete(id: String) {
@@ -38,9 +38,9 @@ export class ListRecruiterComponent implements OnInit {
             .subscribe(() => this.onSaveComplete(),
                 error => this.errorMessage = <any>error);
 
-    }   
+    }
 
     onSaveComplete(): void {
-       this.load();
+        this.load();
     }
 }

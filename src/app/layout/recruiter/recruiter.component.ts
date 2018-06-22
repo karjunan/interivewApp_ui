@@ -9,13 +9,13 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class RecruiterComponent implements OnInit {
-    recruiter: any [];
-    loadAddTemplate:boolean = false;
-  
+    recruiter: any[];
+    loadAddTemplate: boolean = false;
+
     addTemplate(): void {
         this.loadAddTemplate = !this.loadAddTemplate;
     }
 
-    ngOnInit() {}
+    ngOnInit() { }
 
 }
