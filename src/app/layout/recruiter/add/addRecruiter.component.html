@@ -45,18 +45,6 @@
                                                 />
                                           </div>
                                     </div>
-                                    <div class="form-group" [ngClass]="{'has-error': (addRecruiterForm.get('lastName').touched || addRecruiterForm.get('lastName').dirty) && !addRecruiterForm.get('lastName').valid }">
-                                          <label class="col-md-12 control-label" for="lastNameId">Last Name
-                                                <span class="help-block" *ngIf="(addRecruiterForm.get('lastName').touched || addRecruiterForm.get('lastName').dirty) && addRecruiterForm.get('lastName').errors">
-                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('lastName').errors.required">
-                                                            **
-                                                      </span>
-                                                </span>
-                                          </label>
-                                          <div class="col-md-12">
-                                                <input class="form-control" id="lastNameId" type="text" placeholder="Last Name (required)" formControlName="lastName" />
-                                          </div>
-                                    </div>
                                     <div class="form-group" [ngClass]="{'has-error': !addRecruiterForm.get('contactNumber').valid }">
                                           <label class="col-md-12 control-label" for="contactNumber">Phone
                                                 <span class="help-block" *ngIf="(addRecruiterForm.get('contactNumber').touched || addRecruiterForm.get('contactNumber').dirty) && addRecruiterForm.get('contactNumber').errors">
@@ -93,6 +81,18 @@
                                           </label>
                                           <div class="col-md-12">
                                                 <input class="form-control" id="emailId" type="text" placeholder="Email (required)" formControlName="emailId" />
+                                          </div>
+                                    </div>
+                                    <div class="form-group" [ngClass]="{'has-error': (addRecruiterForm.get('lastName').touched || addRecruiterForm.get('lastName').dirty) && !addRecruiterForm.get('lastName').valid }">
+                                          <label class="col-md-12 control-label" for="lastNameId">Last Name
+                                                <span class="help-block" *ngIf="(addRecruiterForm.get('lastName').touched || addRecruiterForm.get('lastName').dirty) && addRecruiterForm.get('lastName').errors">
+                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('lastName').errors.required">
+                                                            **
+                                                      </span>
+                                                </span>
+                                          </label>
+                                          <div class="col-md-12">
+                                                <input class="form-control" id="lastNameId" type="text" placeholder="Last Name (required)" formControlName="lastName" />
                                           </div>
                                     </div>
                               </div>
