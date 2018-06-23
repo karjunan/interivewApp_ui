@@ -1,27 +1,17 @@
-import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../../router.animations';
 import { InterviewerForm } from './interviewer_form';
-import { FormGroup,FormControl, FormBuilder, Validators } from '@angular/forms';
-import { validateConfig } from '@angular/router/src/config';
 import { InterviewerService } from '../../../services/interviewer.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChildren, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, FormArray, Validators, FormControlName } from '@angular/forms';
 
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/merge';
-import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 
-
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/observable/merge';
-
-import { IInterviewer, Interviewer } from "../../IInterviewer";
+import { IInterviewer } from '../../../services/IInterviewer';
 
 
 @Component({
@@ -36,10 +26,10 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
 
     errorMessage: string; 
     displayMessage: { [key: string]: string } = {};
-    interviewer: InterviewerForm = new InterviewerForm(
-        '','','','','','','','');
+    // interviewer: InterviewerForm = new InterviewerForm(
+    //     '','','','','','','','');
     
-    _interviewer: IInterviewer;
+    interviewer: IInterviewer;
 
     private sub: Subscription;
    
@@ -49,11 +39,6 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
                 private interviewerService: InterviewerService) {
 
             console.log(this.route.snapshot.paramMap.get('id'));
-            this.validationMessages = {
-                firstName: {
-                    required: '**',
-                },
-            };
 
     }
     
@@ -80,16 +65,15 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
     getInterviewer(id:String): void {
         this.interviewerService.getInterviewer(id)
             .subscribe(
-                    (interviewer: InterviewerForm) => this.onInterviewerReterived(interviewer),
+                    (interviewer) => this.onInterviewerReterived(interviewer),
                     (error: any) => this.errorMessage = <any>error
         );
     }
 
-    onInterviewerReterived(interviewer InterviewerForm) { 
+    onInterviewerReterived(interviewer: IInterviewer) { 
         if (this.editInterviewerForm) {
             this.editInterviewerForm.reset();
         }
-
         this.interviewer = interviewer;
         this.editInterviewerForm.patchValue({
             interviewerID: this.interviewer.interviewerID,

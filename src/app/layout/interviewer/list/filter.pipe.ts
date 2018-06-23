@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { InterviewerService } from '../../../services/interviewer.service';
 import { Subscription } from 'rxjs/Subscription';
+import { IInterviewer } from '../../../services/IInterviewer';
 
 @Pipe({
   name: 'filter'
@@ -37,7 +38,7 @@ export class FilterPipe implements PipeTransform {
     }
 }
 
-    filterRecords(interviewer: IInterviewer[] , searchText: string): IInterviewer[] {
+    private filterRecords(interviewer: IInterviewer[] , searchText: string): IInterviewer[] {
         return this.transformInterviewers.filter((inter) => {
             return inter.firstName.toLowerCase().includes(searchText)||
                      inter.lastName.toLowerCase().includes(searchText) ||

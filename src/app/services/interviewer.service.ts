@@ -31,7 +31,7 @@ export class InterviewerService {
             .catch(this.handleError);
     }
 
-    getInterviewer(id:String): Observable<IInterviewer[]> {
+    getInterviewer(id:String): Observable<IInterviewer> {
         return this._http.get("/server/admin/interviewer/"+id,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
@@ -39,7 +39,7 @@ export class InterviewerService {
     }
 
 
-    searchInterviewer(str:String): IInterviewer[] {
+    searchInterviewer(str:String): Observable<IInterviewer[]> {
         return this._http.get("/server/admin/interviewer?str="+str,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
