@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 const routes: Routes = [
-    { path: '', loadChildren: './layout/layout.module#LayoutModule' }, 
+    { path: '', loadChildren: './layout/layout.module#LayoutModule' },
     { path: 'login', loadChildren: './login/login.module#LoginModule' },
-    { path: '**', redirectTo: 'not-found' }
+    { path: 'signup', loadChildren: './signup/signup.module#SignupModule' },
 ]; 
 
 @NgModule({

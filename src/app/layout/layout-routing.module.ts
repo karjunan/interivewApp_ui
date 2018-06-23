@@ -5,14 +5,13 @@ import { LayoutComponent } from './layout.component';
 const routes: Routes = [
     {
         path: '', component: LayoutComponent,
-        children: [
-            { path: '', redirectTo: 'interviewer' },
-            { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
-            { path: 'candidate', loadChildren: './candidate/candidate.module#CandidateModule' },
-            { path: 'recruiter', loadChildren: './recruiter/recruiter.module#RecruiterModule' }
+    
+    children: [
+        // { path: '', redirectTo: 'dashboard' },
+        { path: 'interviewer', loadChildren: './interviewer/interviewer.module#InterviewerModule' },
+        { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' }
 
-        ]
-
+    ]
     }
 ];
 

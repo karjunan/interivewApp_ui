@@ -18,7 +18,7 @@ import { IInterviewer } from '../../../services/IInterviewer';
     selector: 'edit-interviewer',
     templateUrl: './editInterviewer.component.html',
     styleUrls: ['./editInterviewer.component.scss'],
-    animations: [routerTransition()]
+    // animations: [routerTransition()]
 })
 export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestroy  {
     

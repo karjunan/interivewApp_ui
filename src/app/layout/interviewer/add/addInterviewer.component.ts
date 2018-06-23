@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     selector: 'add-interviewer',
     templateUrl: './addInterviewer.component.html',
     styleUrls: ['./addInterviewer.component.scss'],
-    animations: [routerTransition()]
+    // animations: [routerTransition()]
 })
 export class AddInterviewerComponent implements OnInit {
     addInterviewerForm: FormGroup;

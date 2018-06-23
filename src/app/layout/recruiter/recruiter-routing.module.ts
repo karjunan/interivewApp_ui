@@ -5,7 +5,7 @@ import { RecruiterComponent } from './recruiter.component';
 
 const routes: Routes = [
     {
-        path: '', component: RecruiterComponent
+        path: 'recruiter', component: RecruiterComponent
     },
     {
         path: 'add', component: AddRecruiterComponent

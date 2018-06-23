@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgbCarouselModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 
 import { InterviewerRoutingModule } from './interviewer-routing.module';
@@ -17,11 +17,9 @@ import {  ReactiveFormsModule } from '@angular/forms';
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        NgbCarouselModule.forRoot(),
-        NgbAlertModule.forRoot(),
-        FormsModule,
-        InterviewerRoutingModule
-       
+        InterviewerRoutingModule,
+        NgbDropdownModule.forRoot(),
+        FormsModule
     ],
     declarations: [
         InterviewerComponent,
