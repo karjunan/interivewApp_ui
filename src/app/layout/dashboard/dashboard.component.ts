@@ -8,7 +8,8 @@ import { routerTransition } from '../../router.animations';
     styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
+    public alerts: Array<any> = [];
+    public sliders: Array<any> = [];
     constructor(){}
 
     ngOnInit() {}

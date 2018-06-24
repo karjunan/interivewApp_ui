@@ -17,9 +17,10 @@ import {  ReactiveFormsModule } from '@angular/forms';
     imports: [
         CommonModule,
         ReactiveFormsModule,
+        FormsModule,
         InterviewerRoutingModule,
-        NgbDropdownModule.forRoot(),
-        FormsModule
+        NgbDropdownModule.forRoot()
+        
     ],
     declarations: [
         InterviewerComponent,
