@@ -1,8 +1,31 @@
-<div class="login-page">
-    <div class="row justify-content-md-center">
+<div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> Sign In </h2>
+          <h2 class="inactive underlineHover">Sign Up </h2>
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="./assets/images/login_icon.svg" id="icon" alt="User Icon" />
+          </div>
+      
+          <!-- Login Form -->
+          <form [formGroup]="loginForm" (ngSubmit)="onLoggedin()">
+            <input type="text" id="user" formControlName="user" class="fadeIn second"  placeholder="Email">
+            <input type="password"  id="pass" formControlName="pass" class="fadeIn third" placeholder="Password">
+            <input type="submit" class="fadeIn fourth" [disabled]="!loginForm.valid" value="login">
+          </form> 
+      
+          <!-- Remind Passowrd -->
+        
+        </div>
+</div>
+
+<!-- <div class="body">
+    <div class="row justify-content-md-center loginbox">
         <div class="col-md-4">
             <h1>Interview Application</h1>
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onLoggedin()">
                 <div class="form-content">
                     <div class="form-group">
                         <input type="text"  
@@ -17,11 +40,19 @@
                     </div>
                 </div>
                 <!-- <a class="btn rounded-btn" [routerLink]="['/login']" (click)="onLoggedin()"> Log in </a> -->
-                &nbsp;
-                <a class="btn rounded-btn" (click)="onLoggedin()"> Log in </a>
- 
-                <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a>
+                <!-- &nbsp;
+                <button class="btn rounded-btn" type="submit" [disabled]="!loginForm.valid "> -->
+                     <!-- <i class="fa fa-floppy-o" aria-hidden="true"></i> -->
+                     <!-- &nbsp;&nbsp; Save &nbsp;&nbsp;
+                </button>
+                &nbsp;&nbsp;
+                <button class="btn rounded-btn" [routerLink]="['/signup']" type="submit">
+                 Register</button>
             </form>
         </div>
     </div>
-</div>
+</div>  -->
+
+<!-- <a class="btn rounded-btn" [routerLink]="['/signup']">Register</a> -->
+<!-- <a class="btn rounded-btn" (click)="onLoggedin()" [disabled]="!loginForm.valid"> Log in  </a> -->
+              

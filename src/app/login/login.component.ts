@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ILogin } from '../services/ILogin';
 
 @Component({
@@ -23,13 +23,15 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.fb.group({
-            user:'',
-            pass: ''
+            user:[null,[Validators.required,Validators.email]],
+            pass:[null,[Validators.required]] 
           })
 
     }
 
     onLoggedin() {
+        // console.log("User Name " + this.loginForm.value.user);
+        // console.log(" Pass " + this.loginForm.value.pass);
         this._loginService.getUser(this.loginForm.value.user,this.loginForm.value.pass)
                 .subscribe(data => {
                     console.log("data :::: " + data);
