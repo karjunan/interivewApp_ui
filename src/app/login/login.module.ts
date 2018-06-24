@@ -10,7 +10,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
     imports: [CommonModule,
              LoginRoutingModule,
-             ReactiveFormsModule
+             ReactiveFormsModule,
+             FormsModule
              ],
     declarations: [LoginComponent]
 })

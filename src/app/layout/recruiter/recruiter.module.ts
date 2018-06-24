@@ -19,8 +19,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ],
     declarations: [
         RecruiterComponent,
-        ListRecruiterComponent 
-        // AddRecruiterComponent,
+        ListRecruiterComponent, 
+        AddRecruiterComponent
     ]
 })
 export class RecruiterModule { }

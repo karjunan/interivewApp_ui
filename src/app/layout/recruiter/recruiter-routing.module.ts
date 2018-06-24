@@ -7,10 +7,10 @@ const routes: Routes = [
     {
         path: '', component: RecruiterComponent
      }
-    //  ,
-    // {
-    //     path: 'add', component: AddRecruiterComponent
-    // }
+     ,
+    {
+        path: 'add', component: AddRecruiterComponent
+    }
 ];
 
 @NgModule({
