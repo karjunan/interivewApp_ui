@@ -7,6 +7,7 @@ import { RecruiterComponent } from './recruiter.component';
 import { AddRecruiterComponent } from './add/addRecruiter.component';
 import { ListRecruiterComponent } from './list/listRecruiter.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EditRecruiterComponent } from './edit/editRecruiter.component';
 
 @NgModule({
     imports: [
@@ -20,7 +21,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     declarations: [
         RecruiterComponent,
         ListRecruiterComponent, 
-        AddRecruiterComponent
+        AddRecruiterComponent,
+        EditRecruiterComponent
+
     ]
 })
 export class RecruiterModule { }

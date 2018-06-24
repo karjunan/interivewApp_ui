@@ -34,6 +34,7 @@ export class ListRecruiterComponent implements OnInit {
     }
 
     delete(id: String) {
+        console.log("Pressed Delete ::: " + id)
         this._recruiterService.deleteRecruiter(id)
             .subscribe(() => this.onSaveComplete(),
                 error => this.errorMessage = <any>error);

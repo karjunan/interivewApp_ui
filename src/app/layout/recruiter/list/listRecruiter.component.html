@@ -35,7 +35,7 @@
                         <td class="outer-brdr-tbl hght_td">
                             <a (click)="delete(recruiter.id)" class="fa fa-trash" aria-hidden="true"></a>
                             &nbsp; &nbsp;
-                            <a (click)="delete(recruiter.id)" class="fa fa-edit" aria-hidden="true"></a>
+                            <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/recruiter/edit',recruiter.id]"></a>
                         </td>
                     </tr>
                 </tbody>
