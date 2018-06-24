@@ -31,17 +31,20 @@ export class LoginComponent implements OnInit {
 
     onLoggedin() {
         this._loginService.getUser(this.loginForm.value.user,this.loginForm.value.pass)
-                .toPromise().then(data => {
-                    console.log("data" + data);
+                .subscribe(data => {
+                    console.log("data :::: " + data);
                     this.iLogin = data;
-                    if(null == this.iLogin) {
+                    if(null === this.iLogin || undefined === this.iLogin) {
                         this.router.navigate(["/login"]);
+                        console.log("data null undefined :::" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'false');
                     } else {
+                        console.log("data" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'true');
-                        this.router.navigate(['/dashboard']);  
+                        this.router.navigate(['/dashboard']);   
                     }
-                    (error: any) => this.errorMessage = <any>error
-                }); 
+
+                },
+                (error: any) => this.errorMessage = <any>error); 
     }
 }
