@@ -5,11 +5,12 @@ import { RecruiterComponent } from './recruiter.component';
 
 const routes: Routes = [
     {
-        path: 'recruiter', component: RecruiterComponent
-    },
-    {
-        path: 'add', component: AddRecruiterComponent
-    }
+        path: '', component: RecruiterComponent
+     }
+    //  ,
+    // {
+    //     path: 'add', component: AddRecruiterComponent
+    // }
 ];
 
 @NgModule({
