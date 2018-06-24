@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.loginForm = this.fb.group({
             user:[null,[Validators.required,Validators.email]],
-            pass:[null,[Validators.required]] 
+            pass:[null,[Validators.required]]
           })
 
     }
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
                     console.log("data :::: " + data);
                     this.iLogin = data;
                     if(null === this.iLogin || undefined === this.iLogin) {
+                        this.errorMessage= "Email/Password Invalid"
                         this.router.navigate(["/login"]);
                         console.log("data null undefined :::" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'false');
