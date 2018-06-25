@@ -50,7 +50,7 @@ export class RecruiterService {
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        return this._http.post("/server/admin/recruiter", recruiter, httpOptions)
+        return this._http.post("/server/admin/recruiter/add", recruiter, httpOptions)
             .catch(this.handleError);
     }
 
