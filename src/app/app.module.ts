@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule,
+        NgbDropdownModule.forRoot()
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],

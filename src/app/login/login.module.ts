@@ -11,7 +11,8 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     imports: [CommonModule,
              LoginRoutingModule,
              ReactiveFormsModule,
-             FormsModule
+             FormsModule,
+             NgbDropdownModule.forRoot()
              ],
     declarations: [LoginComponent]
 })

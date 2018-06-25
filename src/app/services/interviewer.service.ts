@@ -50,13 +50,13 @@ export class InterviewerService {
     saveInterviewer(interviewer: IInterviewer) : Observable<IInterviewer>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this.createInterviewer(interviewer, options);
+        return this.createInterviewer(interviewer);
     }
 
-    updateInterviewer(interviewer: IInterviewer,id: String ): Observable<IProduct> {
+    updateInterviewer(interviewer: IInterviewer,id: String ): Observable<IInterviewer> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put("/server/admin/interviewer/update/"+id, interviewer, options)
+        return this._http.put("/server/admin/interviewer/update/"+id, interviewer, httpOptions)
             // .map(() => interviewer)
             // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -69,8 +69,8 @@ export class InterviewerService {
                     .catch(this.handleError);
     }
 
-    private createInterviewer(interviewer: IInterviewer, options: RequestOptions): Observable<IInterviewer> {
-        return this._http.post("/server/admin/interviewer/add", interviewer)
+    private createInterviewer(interviewer: IInterviewer): Observable<IInterviewer> {
+        return this._http.post("/server/admin/interviewer/add", interviewer,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
             .catch(this.handleError);
