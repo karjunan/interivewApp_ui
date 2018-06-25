@@ -17,6 +17,10 @@ export class ListRecruiterComponent implements OnInit {
     errorMessage: String;
     recruiters: IRecruiter[];
     recruiter: IRecruiter;
+    listFilter: String = '';
+    list : any [] = new  Array();
+    conString : String = ''; 
+    filteredRecruiters: IRecruiter[];
 
     constructor(private router: Router,
         private _recruiterService: RecruiterService) {

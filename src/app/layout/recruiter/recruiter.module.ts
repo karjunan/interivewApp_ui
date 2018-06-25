@@ -8,6 +8,7 @@ import { AddRecruiterComponent } from './add/addRecruiter.component';
 import { ListRecruiterComponent } from './list/listRecruiter.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { EditRecruiterComponent } from './edit/editRecruiter.component';
+import { FilterPipe } from './list/filter.pipe';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { EditRecruiterComponent } from './edit/editRecruiter.component';
         RecruiterComponent,
         ListRecruiterComponent, 
         AddRecruiterComponent,
-        EditRecruiterComponent
+        EditRecruiterComponent,
+        FilterPipe
 
     ]
 })

@@ -50,16 +50,14 @@ export class RecruiterService {
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        return this._http.post("/server/admin/recruiter", recruiter,options)
+        return this._http.post("/server/admin/recruiter", recruiter, httpOptions)
             .catch(this.handleError);
     }
 
     updateRecruiter(recruiter: IRecruiter,id: String ): Observable<IRecruiter> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put("/server/admin/recruiter/"+id, recruiter, options)
-            // .map(() => interviewer)
-            // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
+        return this._http.put("/server/admin/recruiter/"+id, recruiter, httpOptions)
             .catch(this.handleError);
     }
 
@@ -71,5 +69,9 @@ export class RecruiterService {
     private handleError(error: Response): Observable<any> {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
+    }
+    searchRecruiter(str:String): Observable<IRecruiter[]> {
+        return this._http.get("/server/admin/recruiter?str="+str,httpOptions)
+            .catch(this.handleError);
     }
 }
