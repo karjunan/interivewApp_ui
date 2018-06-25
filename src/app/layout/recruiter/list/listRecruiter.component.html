@@ -10,7 +10,7 @@
                             <div class="topnav bg-clr">
                                 <a class="active" href="#home">&nbsp;</a>
                                 <div class="search-container">
-                                    <input class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search"> &nbsp;&nbsp;
+                                     <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
                                 </div>
                             </div>
                         </td>
@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let recruiter of recruiters'>
+                    <tr *ngFor='let recruiter of recruiters | recruiterFilter : listFilter'>
                         <td hidden>{{recruiter.id}} </td>
                         <td class="hght_td">{{recruiter.recruiterId}} </td>
                         <td class="hght_td">{{recruiter.firstName}}</td>
