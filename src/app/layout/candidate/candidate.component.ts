@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CandidateService } from '../../services/candidate.service';
 
 @Component({
-  selector: 'app-candidate',
+
   templateUrl: './candidate.component.html',
   styleUrls: ['./candidate.component.scss']
 })
 export class CandidateComponent implements OnInit {
   public candidates;
 
-  constructor(private candidateService:CandidateService) { }
+  constructor(private candidateService: CandidateService) { }
 
   ngOnInit() {
-    this.getCandidates();
+    //this.getCandidates();
   }
 
   getCandidates(){
