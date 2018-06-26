@@ -19,7 +19,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule,
         FormsModule,
         InterviewerRoutingModule,
-        NgbDropdownModule.forRoot()
+        // NgbDropdownModule.forRoot()
         
     ],
     declarations: [
