@@ -26,8 +26,6 @@ export class RecruiterService {
 
     getRecruiter(id:String): Observable<IRecruiter> {
         return this._http.get("/server/admin/recruiter/"+id,httpOptions)
-            // .map(this.extractData)
-            // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -50,7 +48,7 @@ export class RecruiterService {
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        return this._http.post("/server/admin/recruiter/add", recruiter, httpOptions)
+        return this._http.post("/server/admin/recruiter", recruiter, httpOptions)
             .catch(this.handleError);
     }
 
