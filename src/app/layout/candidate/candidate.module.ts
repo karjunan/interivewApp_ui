@@ -8,19 +8,22 @@ import {ListCandidateComponent} from './list/listCandidate.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {FilterPipe} from './list/filter.pipe';
+import {AddCandidateComponent} from './add/addCandidate.component';
+import {EditCandidateComponent} from './edit/editCandidate.component';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        Ng2Charts,
         CandidateRoutingModule,
         NgbDropdownModule.forRoot()
     ],
     declarations: [
         CandidateComponent,
         ListCandidateComponent,
+        AddCandidateComponent,
+        EditCandidateComponent,
         FilterPipe
     ]
 })

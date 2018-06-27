@@ -17,8 +17,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AddCandidateComponent implements OnInit {
     addCandidateForm: FormGroup;
     errorMessage: string;
-    interviewer: CandidateForm = new CandidateForm(
-        '', '', '', '', '', '', '', '');
+    candidate: CandidateForm = new CandidateForm(
+        '', '', '', '', '', true, '', '', '',
+        '', '', '', '');
 
     constructor(private fb: FormBuilder,
         private router: Router,
@@ -27,13 +28,13 @@ export class AddCandidateComponent implements OnInit {
 
     }
 
-    addInterviewer() {
+    addCandidate() {
         if (this.addCandidateForm.dirty && this.addCandidateForm.valid) {
             // Copy the form values over the product object values
             // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
             let p = Object.assign({}, this.addCandidateForm.value)
 
-            this.candidateService.getCandidates()
+            this.candidateService.saveCandidate(p)
                 .subscribe(
                     () => this.onSaveComplete(),
                     (error: any) => this.errorMessage = <any>error
@@ -53,13 +54,17 @@ export class AddCandidateComponent implements OnInit {
 
     ngOnInit(): void {
         this.addCandidateForm = this.fb.group({
-            interviewerID: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]],
             firstName: ['', [Validators.required, Validators.maxLength(50)]],
             lastName: ['', [Validators.required, Validators.maxLength(50)]],
-            emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
-            contactNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]+')]],
-            bandExperience: '',
-            technologyCommunity: ''
-        })
+            email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
+            phoneNumber: ['', [Validators.required, Validators.maxLength(10), Validators.pattern('[0-9]+')]],
+            experience: '',
+            technologyStack: '',
+            gender: '',
+            isActive: '',
+            resume: '',
+            interviewDate: '',
+            interviewTime: ''
+        });
     }
 }
