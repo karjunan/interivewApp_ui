@@ -1,10 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from "rxjs";
+import {Observable} from 'rxjs';
 
-import {ICandidate, Candidate} from './ICandidate';
-import {Headers, RequestOptions, Response} from '@angular/http';
-import {IInterviewer} from './IInterviewer';
+import {ICandidate} from './ICandidate';
+import {Headers, Response} from '@angular/http';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/observable/of';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
