@@ -14,7 +14,7 @@ export class CandidateForm {
         public createdBy: '',
         public resume: '',
         public interviewDate: '',
-        public interviewTime: '',
+        public interviewTime: ''
 
     ) {
     }

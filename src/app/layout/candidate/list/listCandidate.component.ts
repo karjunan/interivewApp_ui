@@ -1,11 +1,9 @@
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit } from '@angular/core';
-import { routerTransition } from '../../../router.animations';
-import { Router, ActivatedRoute } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 
-import { CandidateService} from '../../../services/candidate.service';
-import { ICandidate} from '../../../services/ICandidate';
+import {CandidateService} from '../../../services/candidate.service';
+import {ICandidate} from '../../../services/ICandidate';
 
 
 @Component({
@@ -30,8 +28,8 @@ export class ListCandidateComponent implements OnInit {
 
    }
 
-    ngOnInit():void {
-        this.load();
+    ngOnInit() {
+       this.load();
     }
 
     private load() {

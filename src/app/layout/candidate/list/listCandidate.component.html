@@ -44,7 +44,7 @@
                             <a (click)="delete(candidate.candidateId)" class="fa fa-trash" aria-hidden="true"></a>
                             &nbsp; &nbsp;
 
-                             <a (click)="edit(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a>
+                            <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/candidate/edit',candidate.candidateId]"></a>
                         </td>
                     </tr>
                     </tbody>

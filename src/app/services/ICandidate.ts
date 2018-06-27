@@ -7,7 +7,7 @@ export interface ICandidate {
     lastName: String;
     gender: String;
     technologyStack: String;
-    isActive: String;
+    isActive: boolean ;
     experience: String;
     phoneNumber: String;
     email: String;
@@ -27,7 +27,7 @@ export class Candidate implements ICandidate {
         public lastName: '',
         public gender: '',
         public technologyStack: '',
-        public isActive: '',
+        public isActive: true,
         public experience: '',
         public phoneNumber: '',
         public email: '',

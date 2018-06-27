@@ -21,7 +21,7 @@ export class CandidateService {
   constructor(private http: HttpClient) { }
 
   getCandidates(): Observable<ICandidate[]> {
-    return this.http.get('/server/admin/candidateService/candidates', httpOptions).catch(this.handleError);
+    return this.http.get('/server/admin/candidateService/candidates').catch(this.handleError);
 
   }
 
