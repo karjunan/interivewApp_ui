@@ -3,18 +3,14 @@
     <div class="col col-xl-11 col-lg-12 ">
 
         <div class="panel panel-primary no-padding">
+            <div class="topnav bg-clr">
+               <a class="active" href="#home">&nbsp;</a>
+                  <div class="search-container">             
+                      <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">&nbsp;&nbsp;                 
+                  </div>
+            </div>
             <table class="table outer-brdr table-hover">
                 <thead>
-                    <tr>
-                        <td colspan="8" class="no-padding">
-                            <div class="topnav bg-clr">
-                                <a class="active" href="#home">&nbsp;</a>
-                                <div class="search-container">
-                                     <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
                     <tr>
                         <th class="hght">Emp ID</th>
                         <th class="hght">First Name</th>
