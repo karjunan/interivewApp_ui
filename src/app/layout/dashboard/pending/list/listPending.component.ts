@@ -13,14 +13,14 @@ import { IPendingService } from '../../../../services/IPendingService';
     styleUrls: ['./listPending.component.scss'],
     // animations: [routerTransition()]
 })
-export class ListPendingComponent implements OnInit {   
+export class ListPendingComponent implements OnInit {
     errorMessage: String;
     ipendingList: IPending[];
     ipending: IPending;
-    listFilter: String = '';
+    listPendingFilter: String = '';
     list : any [] = new  Array();
-    conString : String = ''; 
-   
+    conString : String = '';
+
     filteredIpending: IPending[];
 
    constructor(  private router: Router,
@@ -33,19 +33,19 @@ export class ListPendingComponent implements OnInit {
     }
 
     private load() {
-        this._ipendingService.getPendingInterviews(this.ipending.id)
+        this._ipendingService.getPendingInterviews()
                 .subscribe(data => {
                     this.ipendingList = data,
                     error => this.errorMessage = <any>error;
                  }
-                       
+
                 );
     }
-    
+
 
     private onSaveComplete(): void {
         this.load();
-        
+
     }
-   
+
 }

@@ -1,5 +1,5 @@
 <p>&nbsp;</p>
-<div class="row">
+<div class="row"  ng-if="myVar">
         <div class="col col-xl-11 col-lg-12 ">
 
             <div class="panel panel-primary no-padding">
@@ -8,13 +8,13 @@
                         <td colspan="8"  class="no-padding"> -->
                                 <div class="topnav bg-clr">
                                         <a class="active" href="#home">&nbsp;</a>
-                                        
-                                        <div class="search-container">             
-                                            <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
-                                            <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
-                                            <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
-                                            &nbsp;&nbsp;                 
-                                        </div>
+
+                                        <!--<div class="search-container">-->
+                                            <!--&lt;!&ndash; <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> &ndash;&gt;-->
+                                            <!--<input [(ngModel)]='listPendingFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">-->
+                                            <!--&lt;!&ndash; <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> &ndash;&gt;-->
+                                            <!--&nbsp;&nbsp;-->
+                                        <!--</div>-->
                                 </div>
                         <!-- </td>
                     </tr> -->
@@ -31,8 +31,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let interviewer of interviewers | filter : listFilter'>
-                             
+                        <tr *ngFor='let interviewer of interviewers '>
+
                             <td hidden >{{interviewer.id}} </td>
                             <td class="hght_td">{{interviewer.interviewerID}} </td>
                             <td class="hght_td">{{interviewer.firstName}}</td>
@@ -40,19 +40,14 @@
                             <td class="hght_td">{{interviewer.emailId}}</td>
                             <td class="hght_td">{{interviewer.technologyCommunity}}</td>
                             <td class="hght_td">{{interviewer.contactNumber}} </td>
-                            <td class="outer-brdr-tbl hght_td">
-                                    <a (click)="delete(interviewer.id)" class="fa fa-trash" aria-hidden="true"></a>
-                                    &nbsp; &nbsp;
-                                    <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/interviewer/edit',interviewer.id]"></a>
-                                    <!-- <a (click)="edit(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a> -->
-                                 </td>
+
                         </tr>
                     </tbody>
                 </table>
         </div>
-        <p></p>    
-    
+        <p></p>
+
 </div>
-        
+
 </div>
 

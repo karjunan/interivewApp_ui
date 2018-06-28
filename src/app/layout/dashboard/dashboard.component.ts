@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
 
+    display: false;
     errorMessage: String;
     ipendingList: IPending[];
     iackList: IPending[];
@@ -24,7 +25,7 @@ export class DashboardComponent implements OnInit {
     pendingCount: Number;
     ackCount:Number;
     employeeID:string;
-    
+
 
     constructor(private router: Router,
         private _ipendingService: IPendingService){}
@@ -41,7 +42,7 @@ export class DashboardComponent implements OnInit {
                     this.pendingCount = this.ipendingList.length,
                     error => this.errorMessage = <any>error;
                  }
-                       
+
                 );
 
         this._ipendingService.getAcknowledgedInterviews(this.employeeID)
@@ -50,5 +51,10 @@ export class DashboardComponent implements OnInit {
                     this.ackCount = this.iackList.length,
                     error => this.errorMessage = <any>error;
                 });
+    }
+
+    private setDisplay(){
+        //this.display= view ;
+        this.edited = true;
     }
 }

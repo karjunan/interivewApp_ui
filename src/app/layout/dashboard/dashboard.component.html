@@ -14,7 +14,7 @@
               </div>
               <div class="card-footer">
                  <span class="float-left">View Details</span>
-                 <a href="javascript:void(0)" class="float-right card-inverse">
+                 <a (click)='setDisplay()' class="float-right card-inverse">
                  <span ><i class="fa fa-arrow-circle-right"></i></span>
                  </a>
               </div>
@@ -63,3 +63,5 @@
            </div>
         </div>
      </div>
+<hr>
+<list-pending *ngIf="edited"></list-pending>
