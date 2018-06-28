@@ -30,8 +30,8 @@ export class IPendingService {
     }
 
     
-    getAcknowledgedInterviews(id: String): Observable<IPending> {
-        return this._http.get("/interviewServer/interview/screen/pending/"+id,httpOptions)
+    getAcknowledgedInterviews(id: String): Observable<IPending[]> {
+        return this._http.get("/interviewServer/interview/screen/ack/"+id,httpOptions)
             .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        

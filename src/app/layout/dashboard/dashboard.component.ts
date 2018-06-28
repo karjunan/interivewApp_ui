@@ -16,25 +16,39 @@ export class DashboardComponent implements OnInit {
 
     errorMessage: String;
     ipendingList: IPending[];
+    iackList: IPending[];
     ipending: IPending;
-    listFilter: String = '';
+    iack :IPending;
+    listFilter: string = '';
     list : any [] = new  Array();
-    conString : String = ''; 
-   
+    pendingCount: Number;
+    ackCount:Number;
+    employeeID:string;
+    
+
     constructor(private router: Router,
         private _ipendingService: IPendingService){}
 
     ngOnInit() {
+        this.employeeID = localStorage.getItem('employeeID');
         this.load()
     }
 
     private load() {
-        this._ipendingService.getPendingInterviews(this.ipending.id)
+        this._ipendingService.getPendingInterviews(this.employeeID)
                 .subscribe(data => {
                     this.ipendingList = data,
+                    this.pendingCount = this.ipendingList.length,
                     error => this.errorMessage = <any>error;
                  }
                        
                 );
+
+        this._ipendingService.getAcknowledgedInterviews(this.employeeID)
+                .subscribe(data => {
+                    this.iackList = data,
+                    this.ackCount = this.iackList.length,
+                    error => this.errorMessage = <any>error;
+                });
     }
 }
