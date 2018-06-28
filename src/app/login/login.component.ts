@@ -37,13 +37,16 @@ export class LoginComponent implements OnInit {
                     console.log("data :::: " + data);
                     this.iLogin = data;
                     if(null === this.iLogin || undefined === this.iLogin) {
-                        this.errorMessage= "Email/Password Invalid"
+                        this.errorMessage= "id/Password Invalid"
                         this.router.navigate(["/login"]);
                         console.log("data null undefined :::" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'false');
                     } else {
                         console.log("data" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'true');
+                        localStorage.setItem('employeeID',this.iLogin.employeeID);
+                        localStorage.setItem('id',this.iLogin.id);
+                        localStorage.setItem('user',this.iLogin.userName);
                         this.router.navigate(['/dashboard']);   
                     }
 

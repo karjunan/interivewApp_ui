@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
     pushRightClass: string = 'push-right';
+    userName:String;
 
     constructor(public router: Router) {
          this.router.events.subscribe(val => {
@@ -21,7 +22,9 @@ export class HeaderComponent implements OnInit {
         });
     }
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.userName = localStorage.getItem('user');
+    }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');

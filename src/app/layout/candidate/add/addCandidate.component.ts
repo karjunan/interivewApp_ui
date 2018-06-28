@@ -18,8 +18,7 @@ export class AddCandidateComponent implements OnInit {
     addCandidateForm: FormGroup;
     errorMessage: string;
     candidate: CandidateForm = new CandidateForm(
-        '', '', '', '', '', true, '', '', '',
-        '', '', '', '');
+        '', '', '', '', '', '', '', '','','','','','');
 
     constructor(private fb: FormBuilder,
         private router: Router,

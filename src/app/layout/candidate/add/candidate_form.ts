@@ -7,7 +7,7 @@ export class CandidateForm {
         public lastName: '',
         public gender: '',
         public technologyStack: '',
-        public isActive: true,
+        public isActive: '',
         public experience: '',
         public phoneNumber: '',
         public email: '',

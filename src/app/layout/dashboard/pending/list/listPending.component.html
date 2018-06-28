@@ -1,0 +1,58 @@
+<p>&nbsp;</p>
+<div class="row">
+        <div class="col col-xl-11 col-lg-12 ">
+
+            <div class="panel panel-primary no-padding">
+                <!-- <div class="card-header">INTERVIEWERS</div> -->
+                <!-- <tr>
+                        <td colspan="8"  class="no-padding"> -->
+                                <div class="topnav bg-clr">
+                                        <a class="active" href="#home">&nbsp;</a>
+                                        
+                                        <div class="search-container">             
+                                            <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                            <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
+                                            <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                            &nbsp;&nbsp;                 
+                                        </div>
+                                </div>
+                        <!-- </td>
+                    </tr> -->
+                <table class="table outer-brdr table-hover">
+                    <thead>
+                    <tr >
+                        <th class="hght">Emp ID</th>
+                        <th class="hght">First Name</th>
+                        <th class="hght">Last Name</th>
+                        <th class="hght">Email</th>
+                        <th class="hght">Technology</th>
+                        <th class="hght">Phone</th>
+                        <th class="outer-brdr-tbl hght"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor='let interviewer of interviewers | filter : listFilter'>
+                             
+                            <td hidden >{{interviewer.id}} </td>
+                            <td class="hght_td">{{interviewer.interviewerID}} </td>
+                            <td class="hght_td">{{interviewer.firstName}}</td>
+                            <td class="hght_td">{{interviewer.lastName}}</td>
+                            <td class="hght_td">{{interviewer.emailId}}</td>
+                            <td class="hght_td">{{interviewer.technologyCommunity}}</td>
+                            <td class="hght_td">{{interviewer.contactNumber}} </td>
+                            <td class="outer-brdr-tbl hght_td">
+                                    <a (click)="delete(interviewer.id)" class="fa fa-trash" aria-hidden="true"></a>
+                                    &nbsp; &nbsp;
+                                    <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/interviewer/edit',interviewer.id]"></a>
+                                    <!-- <a (click)="edit(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a> -->
+                                 </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        <p></p>    
+    
+</div>
+        
+</div>
+

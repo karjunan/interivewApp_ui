@@ -11,7 +11,7 @@
       
           <!-- Login Form -->
           <form [formGroup]="loginForm" (ngSubmit)="onLoggedin()">
-            <input type="text" id="user" formControlName="user" class="fadeIn second"  placeholder="Email">
+            <input type="text" id="user" formControlName="user" class="fadeIn second"  placeholder="id">
             <input type="password"  id="pass" formControlName="pass" class="fadeIn third" placeholder="Password">
             <input type="submit" class="fadeIn fourth" [disabled]="!loginForm.valid" value="login">
             <div>

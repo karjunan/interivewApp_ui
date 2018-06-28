@@ -25,7 +25,7 @@ export class InterviewerService {
     constructor(private _http: HttpClient) {}
 
     getInterviewers(): Observable<IInterviewer[]> {
-        return this._http.get("/server/admin/interviewer/all?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/interviewer?sort=ASC",httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);

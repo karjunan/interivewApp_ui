@@ -30,7 +30,7 @@ export class RecruiterService {
     }
 
     getRecruiters(): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter/getAll?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/recruiter?sort=ASC",httpOptions)
             .catch(this.handleError);
     }
 
