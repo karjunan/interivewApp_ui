@@ -21,11 +21,12 @@
                 <table class="table outer-brdr table-hover">
                     <thead>
                     <tr >
-                        <th class="hght">Candidate ID</th>
+
                         <th class="hght">First Name</th>
                         <th class="hght">Last Name</th>
                         <th class="hght">Email</th>
                         <th class="hght">Technology</th>
+                        <th class="hght">Experience</th>
                         <th class="hght">Phone</th>
                         <th class="outer-brdr-tbl hght"></th>
                     </tr>
@@ -34,17 +35,19 @@
                     <tr *ngFor='let candidate of candidates | candidateFilter : listFilter'>
 
                         <td hidden >{{candidate.candidateId}} </td>
-                        <td class="hght_td">{{candidate.candidateId}} </td>
                         <td class="hght_td">{{candidate.firstName}}</td>
                         <td class="hght_td">{{candidate.lastName}}</td>
                         <td class="hght_td">{{candidate.email}}</td>
                         <td class="hght_td">{{candidate.technologyStack}}</td>
+                        <td class="hght_td">{{candidate.experiance}} </td>
                         <td class="hght_td">{{candidate.phoneNumber}} </td>
                         <td class="outer-brdr-tbl hght_td">
                             <a (click)="delete(candidate.candidateId)" class="fa fa-trash" aria-hidden="true"></a>
-                            &nbsp; &nbsp;
+                            &nbsp;
 
                             <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/candidate/edit',candidate.candidateId]"></a>
+                            &nbsp;
+                            <a (click)="publishInterview(candidate.candidateId, candidate.experiance, candidate.technologyStack)" class="fa fa-bell" aria-hidden="true"></a>
                         </td>
                     </tr>
                     </tbody>

@@ -48,6 +48,14 @@ export class ListCandidateComponent implements OnInit {
 
     }
 
+    private publishInterview(id: String, experience: String, technologyStack: String) {
+       this.candidateService.publishInterview(id, experience, technologyStack)
+            .subscribe(() => this.onSaveComplete(),
+                error => this.errorMessage = <any>error);
+
+    }
+
+
     private onSaveComplete(): void {
         this.load();
 
