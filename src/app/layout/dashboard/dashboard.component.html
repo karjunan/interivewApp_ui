@@ -1,10 +1,10 @@
 <div class="row">
         <div class="col-xl-4 col-lg-6">
-           <div class="card text-white bg-warning">
+           <div class="card text-white bg-pending-new">
               <div class="card-header">
                  <div class="row">
                     <div class="col col-xs-3">
-                       <i class="fa-comments fa-3x"></i>
+                       <i class="fa fa-spinner fa-spin fa-3x"></i>
                     </div>
                     <div class="col col-xs-9 text-right">
                        <div class="d-block huge">{{pendingCount}}</div>
@@ -21,15 +21,15 @@
            </div>
         </div>
         <div class="col-xl-4 col-lg-6">
-           <div class="card text-white bg-success">
+           <div class="card text-white bg-ack-new">
               <div class="card-header">
                  <div class="row">
                     <div class="col col-xs-3">
-                       <i class="fa-comments fa-3x"></i>
+                       <i class="fa fa-hand-rock-o fa-3x"></i>
                     </div>
                     <div class="col col-xs-9 text-right">
-                       <div class="d-block huge">{{ackCount}}</div>
-                       <div class="d-block">Approved</div>
+                       <div class="d-block huge" >{{ackCount}}</div>
+                       <div class="d-block">Acknowledged</div>
                     </div>
                  </div>
               </div>
@@ -42,15 +42,15 @@
            </div>
         </div>
         <div class="col-xl-4 col-lg-6">
-           <div class="card text-white bg-danger">
+           <div class="card text-white bg-approved-new">
               <div class="card-header">
                  <div class="row">
                     <div class="col col-xs-3">
-                       <i class="fa-comments fa-3x"></i>
+                       <i class="fa fa fa-thumbs-up fa-3x"></i>
                     </div>
                     <div class="col col-xs-9 text-right">
                        <div class="d-block huge">0</div>
-                       <div class="d-block">Rejected</div>
+                       <div class="d-block">Approved</div>
                     </div>
                  </div>
               </div>
