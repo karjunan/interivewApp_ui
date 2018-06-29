@@ -44,6 +44,13 @@ export class IPendingService {
        
     }
 
+    approveInterview(interviewObjectId: String): Observable<IPending[]> {
+        return this._http.get("/interviewServer/interview/screen/approve?id="+interviewObjectId,httpOptions)
+            // .do(data => console.log(JSON.stringify(data)))
+            .catch(this.handleError)
+       
+    }
+
 
     private handleError(error: Response): Observable<any> {
         // in a real world app, we may send the server to some remote logging infrastructure
