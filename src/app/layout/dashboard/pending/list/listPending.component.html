@@ -21,26 +21,19 @@
                 <table class="table outer-brdr table-hover">
                     <thead>
                     <tr >
-                        <th class="hght">Emp ID</th>
                         <th class="hght">First Name</th>
                         <th class="hght">Last Name</th>
-                        <th class="hght">Email</th>
                         <th class="hght">Technology</th>
-                        <th class="hght">Phone</th>
                         <th class="outer-brdr-tbl hght"></th>
                     </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor='let interviewer of interviewers '>
+                        <tr *ngFor='let candidate of icandidate '>
 
-                            <td hidden >{{interviewer.id}} </td>
-                            <td class="hght_td">{{interviewer.interviewerID}} </td>
-                            <td class="hght_td">{{interviewer.firstName}}</td>
-                            <td class="hght_td">{{interviewer.lastName}}</td>
-                            <td class="hght_td">{{interviewer.emailId}}</td>
-                            <td class="hght_td">{{interviewer.technologyCommunity}}</td>
-                            <td class="hght_td">{{interviewer.contactNumber}} </td>
-
+                            <td hidden >{{candidate.id}} </td>
+                            <td class="hght_td">{{candidate.firstName}}</td>
+                            <td class="hght_td">{{candidate.lastName}}</td>
+                            <td class="hght_td">{{interviewer.technologyStack}}</td> 
                         </tr>
                     </tbody>
                 </table>

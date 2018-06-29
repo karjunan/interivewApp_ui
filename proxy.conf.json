@@ -10,6 +10,16 @@
   },
 
   "/interviewServer": {
+    "target": "http://localhost:8082",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/interviewServer" : ""
+    }
+  },
+
+  "/interviewServer1": {
     "target": "http://spicity596:8082",
 		"secure": false,
     "changeOrigin": true,

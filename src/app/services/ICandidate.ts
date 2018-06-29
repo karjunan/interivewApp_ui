@@ -15,6 +15,7 @@ export interface ICandidate {
     resume: String;
     interviewDate: String;
     interviewTime: String;
+    interviewObjectID:String;
 
 }
 
@@ -35,6 +36,7 @@ export class Candidate implements ICandidate {
         public resume: '',
         public interviewDate: '',
         public interviewTime: '',
+        public interviewObjectID:''
 
     ) {
     }

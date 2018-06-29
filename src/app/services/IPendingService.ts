@@ -24,7 +24,7 @@ export class IPendingService {
 
     getPendingInterviews(id: String): Observable<IPending[]> {
         return this._http.get("/interviewServer/interview/screen/pending/"+id,httpOptions)
-            .do(data => console.log(JSON.stringify(data)))
+            // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
     }
@@ -32,7 +32,14 @@ export class IPendingService {
     
     getAcknowledgedInterviews(id: String): Observable<IPending[]> {
         return this._http.get("/interviewServer/interview/screen/ack/"+id,httpOptions)
-            .do(data => console.log(JSON.stringify(data)))
+            // .do(data => console.log(JSON.stringify(data)))
+            .catch(this.handleError)
+       
+    }
+
+    acknowledgeInterview(interviewObjectId: String, interviewerId:String): Observable<IPending[]> {
+        return this._http.get("/interviewServer/interview/screen/acknowledge?id="+interviewObjectId+"&interviewId="+interviewerId,httpOptions)
+            // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
     }

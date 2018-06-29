@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('employeeID',this.iLogin.employeeID);
                         localStorage.setItem('id',this.iLogin.id);
                         localStorage.setItem('user',this.iLogin.userName);
+                        console.log("Login details " + this.iLogin.employeeID);
                         this.router.navigate(['/dashboard']);   
                     }
 
