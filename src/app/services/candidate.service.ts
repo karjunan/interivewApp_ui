@@ -56,7 +56,7 @@ export class CandidateService {
 
     publishInterview(id: String, experience: String, technologyStack: String) : Observable<ICandidate>{
 
-        return this.http.post("/server/interview/screen/publish/candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
+        return this.http.get("/interviewServer/interview/screen/publish/?candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
             .catch(this.handleError);
     }
 
