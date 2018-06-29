@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit {
     }
 
     private acknowledge(candidate: ICandidate) {
-            this._ipendingService.acknowledgeInterview(candidate.interviewObjectID,candidate.candidateId)
+            this._ipendingService.acknowledgeInterview(candidate.interviewObjectID,this.employeeID)
             .subscribe(data => {
                 console.log("Subscribed the candidate : " + JSON.stringify(data));
             });
