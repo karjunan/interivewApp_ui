@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
     ipendingList: IPending[];
     iackList: IPending[];
     ipending: IPending;
-    icandidateList: ICandidate[] = new  Array();;
+    icandidateList: ICandidate[] = new  Array();
     iack :IPending;
     listFilter: string = '';
     list : any [] = new  Array();
@@ -78,8 +78,14 @@ export class DashboardComponent implements OnInit {
 
     private acknowledge(candidate: ICandidate) {
             this._ipendingService.acknowledgeInterview(candidate.interviewObjectID,this.employeeID)
-            .subscribe(data => {
-                console.log("Subscribed the candidate : " + JSON.stringify(data));
-            });
+            .subscribe(() => this.onSaveComplete(),
+                                        error => this.errorMessage = <any>error);
+
+    }   
+
+    private onSaveComplete(): void {
+        this.icandidateList = new Array();
+        this.load();
+        
     }
 }
