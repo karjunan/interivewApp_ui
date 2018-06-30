@@ -8,7 +8,7 @@ export interface ICandidate {
     gender: String;
     technologyStack: String;
     isActive: boolean ;
-    experiance: String;
+    experience: String;
     phoneNumber: String;
     email: String;
     createdBy: String;
@@ -29,7 +29,7 @@ export class Candidate implements ICandidate {
         public gender: '',
         public technologyStack: '',
         public isActive: true,
-        public experiance: '',
+        public experience: '',
         public phoneNumber: '',
         public email: '',
         public createdBy: '',

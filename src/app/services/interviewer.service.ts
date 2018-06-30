@@ -70,7 +70,7 @@ export class InterviewerService {
     }
 
     private createInterviewer(interviewer: IInterviewer): Observable<IInterviewer> {
-        return this._http.post("/server/admin/interviewer/add", interviewer,httpOptions)
+        return this._http.post("/server/admin/interviewer/", interviewer,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
             .catch(this.handleError);
