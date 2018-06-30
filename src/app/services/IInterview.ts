@@ -1,4 +1,4 @@
-export interface IPending {
+export interface IInterview {
     id: string,
     candidateId: string,
     interviewerId:string,

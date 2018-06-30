@@ -56,11 +56,11 @@ export class CandidateService {
             .catch(this.handleError);
     }
 
-    publishInterview(id: String, experience: String, technologyStack: String) : Observable<ICandidate>{
+    // publishInterview(id: String, experience: String, technologyStack: String) : Observable<ICandidate>{
 
-        return this.http.get("/interviewServer/interview/screen/publish/?candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
-            .catch(this.handleError);
-    }
+    //     return this.http.get("/interviewServer/interview/screen/publish/?candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
+    //         .catch(this.handleError);
+    // }
 
 
     private createCandidate(candidate: ICandidate): Observable<ICandidate> {

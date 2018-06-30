@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 
 import {CandidateService} from '../../../services/candidate.service';
 import {ICandidate} from '../../../services/ICandidate';
+import { IInterviewService } from '../../../services/IInterviewService';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class ListCandidateComponent implements OnInit {
 
    constructor(  private router: Router,
 
-                private candidateService: CandidateService) {
+                private candidateService: CandidateService,
+                private interviewService: IInterviewService) {
 
    }
 
@@ -49,7 +51,7 @@ export class ListCandidateComponent implements OnInit {
     }
 
     private publishInterview(id: String, experience: String, technologyStack: String) {
-       this.candidateService.publishInterview(id, experience, technologyStack)
+       this.interviewService.publishInterview(id, experience, technologyStack)
             .subscribe(() => this.onSaveComplete(),
                 error => this.errorMessage = <any>error);
 

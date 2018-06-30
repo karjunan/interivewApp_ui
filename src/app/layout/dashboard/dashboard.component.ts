@@ -1,11 +1,11 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { IPending } from '../../services/IPending';
-import { IPendingService } from '../../services/IPendingService';
 import { Router } from '@angular/router';
 import { CandidateService } from '../../services/candidate.service';
 import { ICandidate } from '../../services/ICandidate';
+import { IInterview } from '../../services/IInterview';
+import { IInterviewService } from '../../services/IInterviewService';
 
 @Component({
     selector: 'app-dashboard',
@@ -18,12 +18,12 @@ export class DashboardComponent implements OnInit {
 
     edited: boolean;
     errorMessage: String;
-    ipendingList: IPending[];
-    iackList: IPending[];
-    ipending: IPending;
+    ipendingList: IInterview[];
+    iackList: IInterview[];
+    ipending: IInterview;
     iPendingcandidateList: ICandidate[] = new  Array();
     iAckcandidateList: ICandidate[] = new  Array();
-    iack :IPending;
+    iack :IInterview;
     listFilter: string = '';
     list : any [] = new  Array();
     pendingCount: Number;
@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
     editedAck:boolean = false;
 
     constructor(private router: Router,
-        private _ipendingService: IPendingService,
+        private _ipendingService: IInterviewService,
         private _icandidateService: CandidateService){}
 
     ngOnInit() {

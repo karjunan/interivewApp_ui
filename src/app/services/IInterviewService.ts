@@ -7,7 +7,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import { IPending } from './IPending';
+import { IInterview } from './IInterview';
+
 
 
 const httpOptions = {
@@ -18,11 +19,11 @@ const httpOptions = {
     providedIn: 'root'
 })
 
-export class IPendingService {
+export class IInterviewService {
 
     constructor(private _http: HttpClient) {}
 
-    getPendingInterviews(id: String): Observable<IPending[]> {
+    getPendingInterviews(id: String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/pending/"+id,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
@@ -30,25 +31,32 @@ export class IPendingService {
     }
 
     
-    getAcknowledgedInterviews(id: String): Observable<IPending[]> {
+    getAcknowledgedInterviews(id: String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/ack/"+id,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
     }
 
-    acknowledgeInterview(interviewObjectId: String, interviewerId:String): Observable<IPending[]> {
+    acknowledgeInterview(interviewObjectId: String, interviewerId:String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/acknowledge?id="+interviewObjectId+"&interviewId="+interviewerId,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
     }
 
-    approveInterview(interviewObjectId: String): Observable<IPending[]> {
+    approveInterview(interviewObjectId: String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/approve?id="+interviewObjectId,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
+    }
+
+    publishInterview(id: String, experience: String, technologyStack: String) : Observable<IInterview>{
+
+        return this._http.get("/interviewServer/interview/screen/publish/?candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
+                .do(data => console.log(" Data from Publish Interview : " + JSON.stringify(data)))    
+            .catch(this.handleError);
     }
 
 

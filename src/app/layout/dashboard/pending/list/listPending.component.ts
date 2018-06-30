@@ -1,8 +1,8 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IPending } from '../../../../services/IPending';
-import { IPendingService } from '../../../../services/IPendingService';
+import { IInterviewService } from '../../../../services/IInterviewService';
+import { IInterview } from '../../../../services/IInterview';
 
 
 
@@ -15,16 +15,16 @@ import { IPendingService } from '../../../../services/IPendingService';
 })
 export class ListPendingComponent implements OnInit {
     errorMessage: String;
-    ipendingList: IPending[];
-    ipending: IPending;
+    ipendingList: IInterview[];
+    ipending: IInterview;
     listPendingFilter: String = '';
     list : any [] = new  Array();
     conString : String = '';
 
-    filteredIpending: IPending[];
+    filteredIpending: IInterview[];
 
    constructor(  private router: Router,
-                private _ipendingService: IPendingService) {
+                private _ipendingService: IInterviewService) {
 
    }
 

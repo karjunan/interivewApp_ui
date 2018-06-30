@@ -72,7 +72,7 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             email:this.candidate.email,
             phoneNumber:this.candidate.phoneNumber,
             technologyStack:this.candidate.technologyStack,
-            experiance:this.candidate.experiance,
+            experiance:this.candidate.experience,
             isActive:this.candidate.isActive,
             gender:this.candidate.gender
         });
