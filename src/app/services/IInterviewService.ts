@@ -39,7 +39,7 @@ export class IInterviewService {
     }
 
     acknowledgeInterview(interviewObjectId: String, interviewerId:String): Observable<IInterview[]> {
-        return this._http.get("/interviewServer/interview/screen/acknowledge?id="+interviewObjectId+"&interviewId="+interviewerId,httpOptions)
+        return this._http.get("/interviewServer/interview/screen/acknowledge?id="+interviewObjectId+"&interviewerId="+interviewerId,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
