@@ -9,6 +9,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared/guard/auth.guard';
+import { InterviewerGuard } from './shared/guard/interviewer.guard';
+import { AccessDeniedModule } from './access-denied/access-denied.module';
+import { RecruiterGuard } from './shared/guard/recruiter.guard';
 
 @NgModule({
     imports: [
@@ -20,7 +23,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
         NgbDropdownModule.forRoot()
     ],
     declarations: [AppComponent],
-    providers: [AuthGuard],
+    providers: [AuthGuard,InterviewerGuard,RecruiterGuard],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

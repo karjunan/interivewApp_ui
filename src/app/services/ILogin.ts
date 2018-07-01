@@ -5,6 +5,7 @@ export interface ILogin {
     userName:string,
     password: string,
     email:string,
-    employeeID: string
+    employeeID: string,
+    role:any[]
 
 }

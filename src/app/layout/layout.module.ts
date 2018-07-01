@@ -7,6 +7,8 @@ import { LayoutComponent } from './layout.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InterviewerModule } from './interviewer/interviewer.module';
+import { InterviewerGuard } from '../shared/guard/interviewer.guard';
+import { RecruiterGuard } from '../shared/guard/recruiter.guard';
 
 @NgModule({
     imports: [
@@ -16,6 +18,7 @@ import { InterviewerModule } from './interviewer/interviewer.module';
     ],
     declarations: [LayoutComponent,
                    HeaderComponent,
-                   SidebarComponent]
+                   SidebarComponent],
+    providers: [InterviewerGuard,RecruiterGuard],
 })
 export class LayoutModule {}
