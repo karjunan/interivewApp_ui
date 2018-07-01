@@ -21,16 +21,22 @@ export class DashboardComponent implements OnInit {
     ipendingList: IInterview[];
     iackList: IInterview[];
     ipending: IInterview;
+    iapprovedList: IInterview[];
+    iapproved: IInterview;
+
     iPendingcandidateList: ICandidate[] = new  Array();
     iAckcandidateList: ICandidate[] = new  Array();
+    iApprovedCandidateList: ICandidate[] = new  Array();
     iack :IInterview;
     listFilter: string = '';
     list : any [] = new  Array();
     pendingCount: Number;
     ackCount:Number;
+    approvedCount:Number;
     employeeID:string;
     editedPending:boolean = false;
     editedAck:boolean = false;
+    editedApproved:boolean = false;
 
     constructor(private router: Router,
         private _ipendingService: IInterviewService,
@@ -41,6 +47,7 @@ export class DashboardComponent implements OnInit {
         console.log("Employee ID at init: " + this.employeeID);
         this.loadPending();
         this.loadAck();
+        this.loadApproved();
     }
 
     private loadPending() {
@@ -94,6 +101,30 @@ export class DashboardComponent implements OnInit {
             );
     }
 
+    private loadApproved() {
+        this._ipendingService.getApprovedInterviews(this.employeeID)
+                .subscribe(data => {
+                    // console.log("Employee ID: " + this.employeeID);
+                    this.iapprovedList = data,
+                    this.approvedCount = this.iapprovedList.length,
+                    error => this.errorMessage = <any>error;
+                    for(let list of this.iapprovedList) {
+                         console.log("List dataa  :: " + list.candidateId);
+                         this._icandidateService.getCandidate(list.candidateId)
+                            .subscribe(candidateData => {
+                                candidateData.interviewObjectID=list.interviewerId;
+                                // console.log(" Candidate data : " + JSON.stringify(data));
+                                this.iApprovedCandidateList.push(candidateData);
+                                console.log(" Candidate data : " + JSON.stringify(this.iApprovedCandidateList));
+                                
+                            });
+                    }
+                    console.log("candidate data" + JSON.stringify(this.iApprovedCandidateList))
+                 }
+
+            );
+    }
+
 
     // private setDisplay(){
     //     //this.display= view ;
@@ -109,7 +140,7 @@ export class DashboardComponent implements OnInit {
     }   
 
     private approveInterview(candidate: ICandidate) {
-        this._ipendingService.approveInterview(candidate.interviewObjectID)
+        this._ipendingService.approveInterview(candidate.interviewObjectID,"6224","I")
         .subscribe(() => this.onSaveComplete(),
                     error => this.errorMessage = <any>error);
 
@@ -120,6 +151,7 @@ export class DashboardComponent implements OnInit {
         this.iAckcandidateList = new Array();
         this.loadPending();
         this.loadAck();
+        this.loadApproved();
         
     }
 
@@ -130,5 +162,9 @@ export class DashboardComponent implements OnInit {
     
     toggleAck(): void {
         this.editedAck = !this.editedAck;
+    }
+
+    toggleApproved(): void {
+        this.editedApproved = !this.editedApproved;
     }
 }

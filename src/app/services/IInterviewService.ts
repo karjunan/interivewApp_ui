@@ -38,6 +38,13 @@ export class IInterviewService {
        
     }
 
+    getApprovedInterviews(interviewerId: String): Observable<IInterview[]> {
+        return this._http.get("/interviewServer/interview/screen/approve/"+interviewerId,httpOptions)
+            // .do(data => console.log(JSON.stringify(data)))
+            .catch(this.handleError)
+       
+    }
+
     acknowledgeInterview(interviewObjectId: String, interviewerId:String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/acknowledge?id="+interviewObjectId+"&interviewerId="+interviewerId,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
@@ -45,8 +52,9 @@ export class IInterviewService {
        
     }
 
-    approveInterview(interviewObjectId: String): Observable<IInterview[]> {
-        return this._http.get("/interviewServer/interview/screen/approve?id="+interviewObjectId,httpOptions)
+    approveInterview(interviewObjectId: String,nextInterviewerId: String,interviewerType: String): Observable<IInterview[]> {
+        return this._http.get("/interviewServer/interview/screen/approve?id="+interviewObjectId
+                                +"&nextInterviewerId="+nextInterviewerId+"&interviewerType=I",httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
