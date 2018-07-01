@@ -149,6 +149,7 @@ export class DashboardComponent implements OnInit {
     private onSaveComplete(): void {
         this.iPendingcandidateList = new Array();
         this.iAckcandidateList = new Array();
+        this.iApprovedCandidateList = new Array();
         this.loadPending();
         this.loadAck();
         this.loadApproved();
@@ -157,14 +158,27 @@ export class DashboardComponent implements OnInit {
 
     togglePending(): void {
         this.editedPending = !this.editedPending;
+        if(this.editedPending) {
+            this.editedAck = false;
+            this.editedApproved = false;
+        }
+        
     }
 
     
     toggleAck(): void {
         this.editedAck = !this.editedAck;
+        if(this.editedAck) {
+            this.editedPending = false;
+            this.editedApproved = false;
+        }
     }
 
     toggleApproved(): void {
         this.editedApproved = !this.editedApproved;
+        if(this.editedApproved) {
+            this.editedPending = false;
+            this.editedAck = false;
+        }
     }
 }
