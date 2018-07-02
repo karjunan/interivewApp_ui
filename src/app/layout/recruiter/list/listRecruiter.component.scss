@@ -83,6 +83,40 @@
     background: #ccc;
   }
   
+   
+  .fa-edit  {
+    color: blue;
+    position: relative;
+    cursor: pointer;
+}
+
+.fa-edit-o:hover {
+  background-color:rgb(152, 214, 28)}
+
+
+.fa-edit:active.button:active {
+  background-color: blue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+  .fa-trash-o  {
+    color: red;
+    position: relative;
+    cursor: pointer;
+}
+
+.fa-trash-o:hover {
+  background-color:yellowgreen}
+
+
+.fa-trash-o:active.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
   @media screen and (max-width: 600px) {
     .topnav .search-container {
       float: none;
