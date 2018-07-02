@@ -177,10 +177,21 @@
                                 &nbsp; &nbsp;
                                 <a data-toggle="tooltip"  title="Reject"  (click)="rejectInterview(candidate)" class="fa fa-times-circle fa-2x " style="color: red" aria-hidden="true"></a>
                                 &nbsp; &nbsp;
-                                <a data-toggle="tooltip"  title="Next Round" (click)="nextRound(candidate)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" aria-hidden="true">
-
-                                </a>
+                                <a data-toggle="popover"  data-placement="left" title="Next Round" (click)="openModal(template)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" 
+                                aria-hidden="true"></a>
                                 &nbsp; &nbsp;
+                                <ng-template #template>
+                                    <div class="modal-header">
+                                        <h6 class="modal-title pull-left">Search Interviewer</h6>
+                                        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                                         <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
+                                             {{listFilter}}
+                                        </div>
+                                </ng-template>
                              </td>
                         </tr>
                     </tbody>

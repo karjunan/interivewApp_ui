@@ -12,6 +12,11 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { InterviewerGuard } from './shared/guard/interviewer.guard';
 import { AccessDeniedModule } from './access-denied/access-denied.module';
 import { RecruiterGuard } from './shared/guard/recruiter.guard';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+
 
 @NgModule({
     imports: [
@@ -20,7 +25,10 @@ import { RecruiterGuard } from './shared/guard/recruiter.guard';
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule,
-        NgbDropdownModule.forRoot()
+        NgbDropdownModule.forRoot(),
+        BsDropdownModule.forRoot(),
+        TooltipModule.forRoot(),
+        ModalModule.forRoot()
     ],
     declarations: [AppComponent],
     providers: [AuthGuard,InterviewerGuard,RecruiterGuard],

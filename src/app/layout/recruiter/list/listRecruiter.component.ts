@@ -7,6 +7,7 @@ import { RecruiterService } from '../../../services/recruiter.service';
 import { IRecruiter } from '../../../services/IRecruiter';
 import { identifierModuleUrl } from '@angular/compiler';
 
+
 @Component({
     selector: 'list-recruiter',
     templateUrl: './listRecruiter.component.html',
