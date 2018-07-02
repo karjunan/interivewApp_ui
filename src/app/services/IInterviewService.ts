@@ -60,10 +60,25 @@ export class IInterviewService {
        
     }
 
+    rejectInterview(interviewObjectId: String): Observable<IInterview[]> {
+        return this._http.get("/interviewServer/interview/screen/reject?id="+interviewObjectId,httpOptions)
+            // .do(data => console.log(JSON.stringify(data)))
+            .catch(this.handleError)
+       
+    }
+
+    nextRound(interviewObjectId: String,nextInterviewerId: String): Observable<IInterview[]> {
+        return this._http.get("/interviewServer/interview/screen/next?id="+interviewObjectId+"&nextInterviewId="+
+                                +"&nextInterviewerId="+nextInterviewerId+"&interviewerType=I",httpOptions)
+            // .do(data => console.log(JSON.stringify(data)))
+            .catch(this.handleError)
+       
+    }
+    
     publishInterview(id: String, experience: String, technologyStack: String) : Observable<IInterview>{
 
         return this._http.get("/interviewServer/interview/screen/publish/?candidateId="+id+"&candidateExp="+experience+"&technology="+technologyStack, httpOptions)
-                .do(data => console.log(" Data from Publish Interview : " + JSON.stringify(data)))    
+                // .do(data => console.log(" Data from Publish Interview : " + JSON.stringify(data)))    
             .catch(this.handleError);
     }
 

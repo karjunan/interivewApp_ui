@@ -95,6 +95,55 @@
     .topnav .search-container button:hover {
       background: #ccc;
     }
+
+  .fa-check-circle  {
+      color: green;
+      position: relative;
+      cursor: pointer;
+  }
+  
+  .fa-check-circle:hover {
+    background-color:yellowgreen}
+  
+  
+  .fa-check-circle:active.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .fa-times-circle {
+    position: relative;
+    cursor: pointer;
+
+  }
+
+  .fa-times-circle:hover {
+    background-color:yellowgreen}
+  
+  
+  .fa-times-circle:active.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .fa-arrow-circle-right {
+    position: relative;
+    cursor: pointer;
+
+  }
+
+  .fa-arrow-circle-right:hover {
+    background-color:yellowgreen}
+  
+  
+  .fa-arrow-circle-right:active.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
     
     @media screen and (max-width: 600px) {
       .topnav .search-container {

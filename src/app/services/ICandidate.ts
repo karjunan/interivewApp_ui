@@ -16,6 +16,7 @@ export interface ICandidate {
     interviewDate: String;
     interviewTime: String;
     interviewObjectID:String;
+    interviewerObjectID:String;
     nextInterviewerID:String;
     InterviewerType:String;
 
@@ -40,7 +41,8 @@ export class Candidate implements ICandidate {
         public interviewTime: '',
         public interviewObjectID:'',
         public nextInterviewerID:'',
-        public InterviewerType:'') 
+        public InterviewerType:'',
+        public interviewerObjectID:'') 
         {
     }
 

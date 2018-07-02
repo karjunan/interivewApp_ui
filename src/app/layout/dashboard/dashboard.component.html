@@ -119,7 +119,7 @@
                             <td class="hght_td">{{candidate.technologyStack}}</td> 
                             <td class="hght_td">{{candidate.experience}}</td> 
                             <td class="outer-brdr-tbl hght_td">
-                                <a (click)="acknowledge(candidate)" class="fa fa-check-square fa-2x" aria-hidden="true"></a>
+                                <a (click)="acknowledge(candidate)" class="fa fa-check-circle fa-2x" style="color: green" aria-hidden="true"></a>
                                 &nbsp; &nbsp;
                              </td>
                         </tr>
@@ -160,7 +160,7 @@
                         <th class="hght">Last Name</th>
                         <th class="hght">Technology</th>
                         <th class="hght">Experience</th>
-                        <th class="hght">Acknowledge</th>
+                        <th class="hght">Actions</th>
                         <!-- <th class="outer-brdr-tbl hght"></th> -->
                     </tr>
                     </thead>
@@ -173,7 +173,13 @@
                             <td class="hght_td">{{candidate.technologyStack}}</td> 
                             <td class="hght_td">{{candidate.experience}}</td> 
                             <td class="outer-brdr-tbl hght_td">
-                                <a (click)="approveInterview(candidate)" class="fa fa-check-square fa-2x" aria-hidden="true"></a>
+                                <a (click)="approveInterview(candidate)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a>
+                                &nbsp; &nbsp;
+                                <a (click)="rejectInterview(candidate)" class="fa fa-times-circle fa-2x " style="color: red" aria-hidden="true"></a>
+                                &nbsp; &nbsp;
+                                <a (click)="nextRound(candidate)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" aria-hidden="true">
+
+                                </a>
                                 &nbsp; &nbsp;
                              </td>
                         </tr>

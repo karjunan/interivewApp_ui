@@ -72,7 +72,7 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             email:this.candidate.email,
             phoneNumber:this.candidate.phoneNumber,
             technologyStack:this.candidate.technologyStack,
-            experiance:this.candidate.experience,
+            experience:this.candidate.experience,
             isActive:this.candidate.isActive,
             gender:this.candidate.gender
         });
@@ -98,7 +98,7 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             email: '',
             gender: '',
             phoneNumber: '',
-            experiance: '',
+            experience: '',
             technologyStack: '',
             isActive: ''
 

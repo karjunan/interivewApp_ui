@@ -20,6 +20,7 @@ export class ListCandidateComponent implements OnInit {
     listFilter: String = '';
     list: any [] = new  Array();
     conString : String = '';
+    published: boolean = false;
 
     filteredCandidates: ICandidate[];
 
@@ -39,8 +40,7 @@ export class ListCandidateComponent implements OnInit {
                 .subscribe(data => {
                     this.candidates = data,
                     error => this.errorMessage = <any>error;
-                 }
-                );
+                 });
     }
 
     private delete(id: String) {
@@ -50,17 +50,22 @@ export class ListCandidateComponent implements OnInit {
 
     }
 
-    private publishInterview(id: String, experience: String, technologyStack: String) {
-       this.interviewService.publishInterview(id, experience, technologyStack)
-            .subscribe(() => this.onSaveComplete(),
-                error => this.errorMessage = <any>error);
+    private publishInterview(candidate: ICandidate) {
+       this.interviewService.publishInterview(candidate.candidateId, candidate.experience, candidate.technologyStack)
+            .subscribe(data => {
+                        candidate.interviewObjectID = data.id,
+                        this.candidateService.updateCandidate(candidate,candidate.candidateId)
+                                        .subscribe(()=>   this.onSaveComplete()  
+                                         )
+                        error => this.errorMessage = <any>error
+            });
 
     }
-
 
     private onSaveComplete(): void {
         this.load();
 
     }
+
 
 }

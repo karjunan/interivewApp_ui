@@ -41,13 +41,15 @@
                         <td class="hght_td">{{candidate.technologyStack}}</td>
                         <td class="hght_td">{{candidate.experience}} </td>
                         <td class="hght_td">{{candidate.phoneNumber}} </td>
+                        <td class="hght_td" hidden >{{candidate.interviewObjectID}} </td>
                         <td class="outer-brdr-tbl hght_td">
-                            <a (click)="delete(candidate.candidateId)" class="fa fa-trash" aria-hidden="true"></a>
+                            <a data-toggle="tooltip" title="Delete"  (click)="delete(candidate.candidateId)" style="color:red" class="fa  fa-trash-o red" aria-hidden="true"></a>
                             &nbsp;
 
-                            <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/candidate/edit',candidate.candidateId]"></a>
+                            <a data-toggle="tooltip" title="Edit"  class="fa fa-edit" aria-hidden="true" [routerLink]="['/candidate/edit',candidate.candidateId]"></a>
                             &nbsp;
-                            <a (click)="publishInterview(candidate.candidateId, candidate.experience, candidate.technologyStack)" class="fa fa-bell" aria-hidden="true"></a>
+                            <a *ngIf="!candidate.interviewObjectID" data-toggle="tooltip"  title="Publish" (click)="publishInterview(candidate)" class="fa fa-bell" aria-hidden="true">
+                            </a>
                         </td>
                     </tr>
                     </tbody>

@@ -22,7 +22,7 @@ export class CandidateService {
 
   getCandidates(): Observable<ICandidate[]> {
     return this.http.get('/server/admin/candidateService/candidates')
-    .do(val => console.log("Finaly val  ::" + JSON.stringify(val)))
+    // .do(val => console.log("Finaly val  ::" + JSON.stringify(val)))
     .catch(this.handleError);
 
   }
@@ -39,7 +39,7 @@ export class CandidateService {
 
     saveCandidate(candidate: ICandidate) : Observable<ICandidate>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        console.log("Candidate from UI ::" + JSON.stringify(candidate));
+        // console.log("Candidate from UI ::" + JSON.stringify(candidate));
         return this.createCandidate(candidate);
     }
 

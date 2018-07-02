@@ -1,0 +1,21 @@
+{
+	"/server": {
+		"target": "http://localhost:8089",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/server" : ""
+    }
+  },
+  
+  "/interviewServer": {
+		"target": "http://localhost:8082",
+		"secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/interviewServer" : ""
+    }
+	}
+}

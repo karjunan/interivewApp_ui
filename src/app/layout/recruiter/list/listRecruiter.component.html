@@ -29,9 +29,9 @@
                         <td class="hght_td">{{recruiter.emailId}}</td>
                         <td class="hght_td">{{recruiter.contactNumber}} </td>
                         <td class="outer-brdr-tbl hght_td">
-                            <a (click)="delete(recruiter.id)" class="fa fa-trash" aria-hidden="true"></a>
+                            <a data-toggle="tooltip" title="Delete" style="color:red" (click)="delete(recruiter.id)" class="fa fa-trash-o red" aria-hidden="true"></a>
                             &nbsp; &nbsp;
-                            <a class="fa fa-edit" aria-hidden="true" [routerLink]="['/recruiter/edit',recruiter.id]"></a>
+                            <a   data-toggle="tooltip" title="Edit" class="fa fa-edit" aria-hidden="true" [routerLink]="['/recruiter/edit',recruiter.id]"></a>
                         </td>
                     </tr>
                 </tbody>

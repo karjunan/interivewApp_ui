@@ -144,7 +144,21 @@ export class DashboardComponent implements OnInit {
         .subscribe(() => this.onSaveComplete(),
                     error => this.errorMessage = <any>error);
 
-}   
+    }   
+
+    private rejectInterview(candidate: ICandidate) {
+        this._ipendingService.rejectInterview(candidate.interviewObjectID)
+        .subscribe(() => this.onSaveComplete(),
+                    error => this.errorMessage = <any>error);
+
+    }  
+    
+    private nextRound(candidate: ICandidate) {
+        this._ipendingService.nextRound(candidate.interviewObjectID,"6224")
+        .subscribe(() => this.onSaveComplete(),
+                    error => this.errorMessage = <any>error);
+
+    } 
 
     private onSaveComplete(): void {
         this.iPendingcandidateList = new Array();
