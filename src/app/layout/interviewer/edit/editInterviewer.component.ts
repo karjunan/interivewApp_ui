@@ -76,7 +76,7 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
         }
         this.interviewer = interviewer;
         this.editInterviewerForm.patchValue({
-            interviewerID: this.interviewer.interviewerID,
+            employeeId: this.interviewer.employeeId,
             firstName: this.interviewer.firstName,
             lastName:this.interviewer.lastName,
             emailId:this.interviewer.emailId,
@@ -101,7 +101,7 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
    
     ngOnInit():void {
         this.editInterviewerForm = this.fb.group({
-            interviewerID:'',
+            employeeId:'',
             firstName: '',
             lastName:'',
             emailId: '',

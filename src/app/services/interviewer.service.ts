@@ -25,14 +25,14 @@ export class InterviewerService {
     constructor(private _http: HttpClient) {}
 
     getInterviewers(): Observable<IInterviewer[]> {
-        return this._http.get("/server/admin/interviewer?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/interviewer?&size=10&sort=Asc&isDeleted=false",httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
     getInterviewer(id:String): Observable<IInterviewer> {
-        return this._http.get("/server/admin/interviewer/"+id,httpOptions)
+        return this._http.get("/server/admin/"+id,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -56,7 +56,7 @@ export class InterviewerService {
     updateInterviewer(interviewer: IInterviewer,id: String ): Observable<IInterviewer> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put("/server/admin/interviewer/"+id, interviewer, httpOptions)
+        return this._http.put("/server/admin/"+id, interviewer, httpOptions)
             // .map(() => interviewer)
             // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
