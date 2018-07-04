@@ -189,28 +189,35 @@
                 </table>
 
                 <ng-template #template>
-                    <div class="modal-header"  >
-                        <h6 class="modal-title pull-left">Search Interviewer</h6>
+                    <div>
+                     <div class="modal-header"  >
+                            <h6 class="modal-title pull-left">Search Interviewer</h6>
+                            <div class="search-container">             
+                                    <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                    <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
+                                    <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                    &nbsp;&nbsp;                 
+                            </div>                       
+                                
                         <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
                          <span aria-hidden="true">&times;</span>
-                    </button>
+                         </button>
                     </div>
-                    <div class="modal-body" *ngFor='let option of interviewers'>
-                            {{option}}
-                    <!-- <input [matAutocomplete] = "auto">
-                   
-                    <mat-autocomplete  #auto="matAutocomplete">
-                            <mat-option *ngFor='let option of test' [value]="option">
-                                {{ option }}
-                            </mat-option>
-                    </mat-autocomplete>     -->
-                    <!-- <mat-form-field>
-                            <input type="text" matInput [formControl]="myControl">
-                    </mat-form-field> -->
-                            <!-- <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
-                             {{listFilter}} -->
-                                   
+
+                    <div >                   
+                        <div *ngFor='let interviewer of interviewers | filter:listFilter'>
+                            <div *ngIf='listFilter.length > 0'>
+                                    {{interviewer.firstName | json}} 
+                            </div>
+
+                            <div *ngElse>
+                            </div>
+                
+                                <!-- {{listFilter}} -->                                                                
+                        </div>
                     </div>
+                    
+                </div>
                 </ng-template>
         </div>
         <p></p>

@@ -8,6 +8,7 @@ import {ListPendingComponent} from './pending/list/listPending.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
     imports: [
@@ -17,11 +18,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         TooltipModule.forRoot(),
         ModalModule.forRoot(),
         ReactiveFormsModule,
-        FormsModule,
+        FormsModule
+        
+        
     ],
     declarations: [
         DashboardComponent,
-        ListPendingComponent
+        ListPendingComponent,
+        FilterPipe
     ]
     
 

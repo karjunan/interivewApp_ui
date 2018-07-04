@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     iAckcandidateList: ICandidate[] = new  Array();
     iApprovedCandidateList: ICandidate[] = new  Array();
     iack :IInterview;
-    listFilter: string = '';
+    listFilter: String = '';
     list : any [] = new  Array();
     pendingCount: Number;
     ackCount:Number;
@@ -45,6 +45,8 @@ export class DashboardComponent implements OnInit {
     editedApproved:boolean = false;
     public modalRef: BsModalRef;
     interviewers: IInterviewer[];
+    isLoaded:boolean;
+    
     
     test:any[] = new Array();
 
@@ -218,9 +220,9 @@ export class DashboardComponent implements OnInit {
 
     public openModal(template: TemplateRef<any>) {
         this.loadInterviewers();
+        this.listFilter = '';
         this.modalRef = this.modalService.show(template);
     }
-
   
     
 }
