@@ -65,14 +65,18 @@ export class InterviewerService {
     deleteInterviewer(id:String) : Observable<IInterviewer>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.delete("/server/admin/interviewer/"+id,httpOptions)
+        return this._http.delete("/server/admin/"+id,httpOptions)
                     .catch(this.handleError);
     }
 
     private createInterviewer(interviewer: IInterviewer): Observable<IInterviewer> {
-        return this._http.post("/server/admin/interviewer/", interviewer,httpOptions)
+        
+        interviewer.employeeType='INTERVIEWER';
+        interviewer.interviewerType=localStorage.getItem('role');
+        console.log(" Interviewer  :: " + JSON.stringify(interviewer))
+        return this._http.post("/server/admin/",interviewer,httpOptions)
             // .map(this.extractData)
-            // .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
+            .do(data => console.log('createInterviewer: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 

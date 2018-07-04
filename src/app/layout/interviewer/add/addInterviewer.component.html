@@ -9,30 +9,30 @@
               <div class="row">
                  <div class="col-md-6">
                     <div class="form-group"
-                       [ngClass]="{'has-error': (addInterviewerForm.get('interviewerID').touched || 
-                       addInterviewerForm.get('interviewerID').dirty) &&
-                       !addInterviewerForm.get('interviewerID').valid }">
+                       [ngClass]="{'has-error': (addInterviewerForm.get('employeeId').touched || 
+                       addInterviewerForm.get('employeeId').dirty) &&
+                       !addInterviewerForm.get('employeeId').valid }">
                        <label class="col-md-12 control-label" 
-                          for="interviewerID">Employee ID <span class="help-block" *ngIf="(addInterviewerForm.get('interviewerID').touched || 
-                          addInterviewerForm.get('interviewerID').dirty) && 
-                          addInterviewerForm.get('interviewerID').errors">
-                       <span class="req-clr" *ngIf="addInterviewerForm.get('interviewerID').errors.required">
+                          for="employeeId">Employee ID <span class="help-block" *ngIf="(addInterviewerForm.get('employeeId').touched || 
+                          addInterviewerForm.get('employeeId').dirty) && 
+                          addInterviewerForm.get('employeeId').errors">
+                       <span class="req-clr" *ngIf="addInterviewerForm.get('employeeId').errors.required">
                        **
                        </span>
-                       <span class="req-clr" *ngIf="addInterviewerForm.get('interviewerID').errors.minlength">
+                       <span class="req-clr" *ngIf="addInterviewerForm.get('employeeId').errors.minlength">
                          Min Length is 4.
                        </span>
-                       <span class="req-clr" *ngIf="addInterviewerForm.get('interviewerID').errors.maxlength">
+                       <span class="req-clr" *ngIf="addInterviewerForm.get('employeeId').errors.maxlength">
                        Max Length is 4.
                        </span>
                        </span></label>
                        <div class="col-md-12">
                           <input class="form-control" 
-                             id="interviewerID" 
+                             id="employeeId" 
                              type="text" 
                              tabindex="1"
                              placeholder="Employee ID (required)" 
-                             formControlName="interviewerID" />
+                             formControlName="employeeId" />
                        </div>
                     </div>
                     <div class="form-group"
@@ -168,6 +168,19 @@
                           </select>
                        </div>
                     </div>
+                    <div class="form-group">
+                              <label class="col-md-12"> Interviewer Type</label>
+                              <div class="col-md-12">
+                                 <select class="form-control"
+                                 tabindex="6"
+                                    id="interviewerType"
+                                    formControlName="interviewerType">
+                                    <option value="" disabled selected hidden>Select a value...</option>
+                                    <option value="JAVA">Interviewer</option>
+                                    <option value="DOTNET">Manager</option>
+                                 </select>
+                              </div>
+                           </div>
                  </div>
               </div>
            </fieldset>

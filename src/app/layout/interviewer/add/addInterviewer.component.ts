@@ -18,7 +18,7 @@ export class AddInterviewerComponent implements OnInit {
     addInterviewerForm: FormGroup;
     errorMessage: string;
     interviewer: InterviewerForm = new InterviewerForm(
-        '','','','','','','','');
+        '','','','','','','','','');
 
     constructor(private fb: FormBuilder,
                 private router: Router,
@@ -53,13 +53,14 @@ export class AddInterviewerComponent implements OnInit {
    
     ngOnInit():void {
         this.addInterviewerForm = this.fb.group({
-            interviewerID:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
+            employeeId:['',[Validators.required,Validators.minLength(4),Validators.maxLength(5)]],
             firstName: ['', [Validators.required, Validators.maxLength(50)]],
             lastName: ['', [Validators.required,  Validators.maxLength(50)]],
             emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],
             contactNumber:  ['', [Validators.required, Validators.maxLength(10),Validators.pattern('[0-9]+')]],
             bandExperience:'',
-            technologyCommunity:''
+            technologyCommunity:'',
+            interviewerType:''
         })
     }
 }

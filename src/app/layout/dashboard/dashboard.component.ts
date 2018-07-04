@@ -228,9 +228,9 @@ export class DashboardComponent implements OnInit {
   
     private chooseManager(interviewer: IInterviewer){
         console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
-        console.log("Interviewer Choosen :: " + interviewer.interviewerID);
+        console.log("Interviewer Choosen :: " + interviewer.employeeId);
         this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
-            interviewer.interviewerID,"M")
+            interviewer.employeeId,"M")
                 .subscribe(() => {
                     this.onSaveComplete(),
                     error => this.errorMessage = <any>error;
@@ -242,9 +242,9 @@ export class DashboardComponent implements OnInit {
 
     private chooseInterviewer(interviewer: IInterviewer) {
         console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
-        console.log("Interviewer Choosen :: " + interviewer.interviewerID);
+        console.log("Interviewer Choosen :: " + interviewer.employeeId);
         this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
-            interviewer.interviewerID,"I")
+            interviewer.employeeId,"I")
             .subscribe(() => {
                 this.onSaveComplete(),
                 error => this.errorMessage = <any>error;
