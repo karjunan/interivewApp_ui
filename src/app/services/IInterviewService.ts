@@ -54,7 +54,7 @@ export class IInterviewService {
 
     approveInterview(interviewObjectId: String,nextInterviewerId: String,interviewerType: String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/approve?id="+interviewObjectId
-                                +"&nextInterviewerId="+nextInterviewerId+"&interviewerType=I",httpOptions)
+                                +"&nextInterviewerId="+nextInterviewerId+"&interviewerType="+interviewerType,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        
@@ -69,7 +69,7 @@ export class IInterviewService {
 
     nextRound(interviewObjectId: String,nextInterviewerId: String): Observable<IInterview[]> {
         return this._http.get("/interviewServer/interview/screen/next?id="+interviewObjectId+"&nextInterviewId="+
-                                +"&nextInterviewerId="+nextInterviewerId+"&interviewerType=I",httpOptions)
+                                +"&nextInterviewerId="+nextInterviewerId,httpOptions)
             // .do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError)
        

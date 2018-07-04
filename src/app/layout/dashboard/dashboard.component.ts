@@ -47,7 +47,10 @@ export class DashboardComponent implements OnInit {
     interviewers: IInterviewer[];
     isLoaded:boolean;
     template: TemplateRef<any>;
+ 
+    selectedCandidate:ICandidate;
     
+
     test:any[] = new Array();
 
     constructor(private router: Router,
@@ -76,11 +79,10 @@ export class DashboardComponent implements OnInit {
                          this._icandidateService.getCandidate(list.candidateId)
                             .subscribe(candidateData => {
                                 candidateData.interviewObjectID=list.id;
-                                console.log(" Candidate data : " + JSON.stringify(data));
+                                console.log(" Candidate data for Pending: " + JSON.stringify(data));
                                 this.iPendingcandidateList.push(candidateData);
                             });
                     }
-                    console.log("candidate data" + JSON.stringify(this.iPendingcandidateList))
                  }
 
             );
@@ -105,11 +107,10 @@ export class DashboardComponent implements OnInit {
                          this._icandidateService.getCandidate(list.candidateId)
                             .subscribe(candidateData => {
                                 candidateData.interviewObjectID=list.id;
-                                console.log(" Candidate data : " + JSON.stringify(data));
+                                console.log(" Candidate data for Acknowledge: " + JSON.stringify(data));
                                 this.iAckcandidateList.push(candidateData);
                             });
                     }
-                    console.log("candidate data" + JSON.stringify(this.iAckcandidateList))
                  }
 
             );
@@ -126,14 +127,13 @@ export class DashboardComponent implements OnInit {
                          console.log("List dataa  :: " + list.candidateId);
                          this._icandidateService.getCandidate(list.candidateId)
                             .subscribe(candidateData => {
-                                candidateData.interviewObjectID=list.interviewerId;
+                                candidateData.interviewerObjectID=list.interviewerId;
                                 // console.log(" Candidate data : " + JSON.stringify(data));
                                 this.iApprovedCandidateList.push(candidateData);
-                                console.log(" Candidate data : " + JSON.stringify(this.iApprovedCandidateList));
+                                console.log(" Candidate data for Approved : " + JSON.stringify(this.iApprovedCandidateList));
                                 
                             });
                     }
-                    console.log("candidate data" + JSON.stringify(this.iApprovedCandidateList))
                  }
 
             );
@@ -153,12 +153,13 @@ export class DashboardComponent implements OnInit {
 
     }   
 
-    private approveInterview(candidate: ICandidate) {
-        this._ipendingService.approveInterview(candidate.interviewObjectID,"6224","I")
-        .subscribe(() => this.onSaveComplete(),
-                    error => this.errorMessage = <any>error);
+    // private approveInterview() {
+    //     this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
+    //                     this.selectedManagerID,"M")
+    //     .subscribe(() => this.onSaveComplete(),
+    //                 error => this.errorMessage = <any>error);
 
-    }   
+    // }   
 
     private rejectInterview(candidate: ICandidate) {
         this._ipendingService.rejectInterview(candidate.interviewObjectID)
@@ -167,10 +168,11 @@ export class DashboardComponent implements OnInit {
 
     }  
     
-    private nextRound(candidate: ICandidate) {
-        this._ipendingService.nextRound(candidate.interviewObjectID,"6224")
-        .subscribe(() => this.onSaveComplete(),
-                    error => this.errorMessage = <any>error);
+    private nextRound() {
+        // this._ipendingService.nextRound(this.selectedCandidate.interviewObjectID,
+        //                         this.selectedInterviewerId)
+        // .subscribe(() => this.onSaveComplete(),
+        //             error => this.errorMessage = <any>error);
 
     } 
 
@@ -189,7 +191,6 @@ export class DashboardComponent implements OnInit {
         this.loadPending();
         this.loadAck();
         this.loadApproved();
-        
     }
 
     togglePending(): void {
@@ -218,11 +219,37 @@ export class DashboardComponent implements OnInit {
         }
     }
 
-    public openModal(template: TemplateRef<any>) {
+    public openModal(template: TemplateRef<any>,candidate: ICandidate) {
         this.loadInterviewers();
         this.listFilter = '';
+        this.selectedCandidate = candidate;
         this.modalRef = this.modalService.show(template);
     }
   
+    private chooseManager(interviewer: IInterviewer){
+        console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
+        console.log("Interviewer Choosen :: " + interviewer.interviewerID);
+        this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
+            interviewer.interviewerID,"M")
+                .subscribe(() => {
+                    this.onSaveComplete(),
+                    error => this.errorMessage = <any>error;
+                    this.modalRef.hide();
+                })
+                      
+        
+    }
+
+    private chooseInterviewer(interviewer: IInterviewer) {
+        console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
+        console.log("Interviewer Choosen :: " + interviewer.interviewerID);
+        this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
+            interviewer.interviewerID,"I")
+            .subscribe(() => {
+                this.onSaveComplete(),
+                error => this.errorMessage = <any>error;
+                this.modalRef.hide();
+            })
+    }
     
 }

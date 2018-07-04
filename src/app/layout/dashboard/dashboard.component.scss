@@ -171,12 +171,15 @@
     }
 
   input[type=text] {
-      width: 200px;
-      -webkit-transition: width 0.4s ease-in-out;
-      transition: width 0.4s ease-in-out;
-  }
-  
-  /* When the input field gets focus, change its width to 100% */
-  input[type=text]:focus {
       width: 400px;
+      // -webkit-transition: width 0.4s ease-in-out;
+      // transition: width 0.4s ease-in-out;
+  }
+
+  * > .fa.fa-hover-show,
+  *:hover > .fa.fa-hover-hidden {
+    display: none;
+  }
+  *:hover > .fa.fa-hover-show {
+    display: inline-block;
   }

@@ -56,7 +56,7 @@ export class InterviewerService {
     updateInterviewer(interviewer: IInterviewer,id: String ): Observable<IInterviewer> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put("/server/admin/interviewer/update/"+id, interviewer, httpOptions)
+        return this._http.put("/server/admin/interviewer/"+id, interviewer, httpOptions)
             // .map(() => interviewer)
             // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
             .catch(this.handleError);
