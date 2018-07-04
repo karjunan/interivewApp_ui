@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
     public modalRef: BsModalRef;
     interviewers: IInterviewer[];
     isLoaded:boolean;
-    
+    template: TemplateRef<any>;
     
     test:any[] = new Array();
 

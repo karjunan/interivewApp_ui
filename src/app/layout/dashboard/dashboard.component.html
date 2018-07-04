@@ -173,28 +173,25 @@
                             <td class="hght_td">{{candidate.technologyStack}}</td> 
                             <td class="hght_td">{{candidate.experience}}</td> 
                             <td class="outer-brdr-tbl hght_td">
-                                <a data-toggle="tooltip"  title="Approve" (click)="openModal(template)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a>
+                                <a data-toggle="tooltip"  title="Approve" (click)="openModal(mTemplate)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a>
                                 <!-- <a data-toggle="tooltip"  title="Approve" (click)="approveInterview(candidate)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a> -->
- 
-                                &nbsp; &nbsp;
+                                &nbsp; 
                                 <a data-toggle="tooltip"  title="Reject"  (click)="rejectInterview(candidate)" class="fa fa-times-circle fa-2x " style="color: red" aria-hidden="true">
-                                &nbsp; &nbsp;</a>
-                                <a data-toggle="popover"  data-placement="left" title="Next Round" (click)="openModal(template)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" 
+                                &nbsp;</a>
+                                <a data-toggle="tooltip"  title="Next Round" (click)="openModal(iTemplate)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" 
                                 aria-hidden="true"></a>
-                                &nbsp; &nbsp;
                                 
                              </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <ng-template #template>
-                    <div>
-                     <div class="modal-header"  >
-                            <h6 class="modal-title pull-left">Search Interviewer</h6>
+                <ng-template #iTemplate>
+                    <div class="modal-content">
+                     <div class="modal-header">
                             <div class="search-container">             
                                     <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
-                                    <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search..." name="search">
+                                    <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search Interviewer..." name="search">
                                     <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
                                     &nbsp;&nbsp;                 
                             </div>                       
@@ -212,13 +209,40 @@
 
                             <div *ngElse>
                             </div>
-                
-                                <!-- {{listFilter}} -->                                                                
                         </div>
                     </div>
                     
                 </div>
                 </ng-template>
+
+                <ng-template #mTemplate>
+                        <div>
+                         <div class="modal-header"  >
+                                <div >             
+                                        <!-- <input (keyup)="onKey($event)" class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                        <input [(ngModel)]='listFilter' class="brdr-rds" type="text" placeholder="&nbsp;&nbsp;Search Manager..." >
+                                        <!-- <input (input)="onKey(search.value)"  class="brdr-rds" type="text" name="search" placeholder="&nbsp;&nbsp;Search..."> -->
+                                        &nbsp;&nbsp;                 
+                                </div>                       
+                                    
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                             <span aria-hidden="true">&times;</span>
+                             </button>
+                        </div>
+    
+                        <div >                   
+                            <div *ngFor='let interviewer of interviewers | filter:listFilter'>
+                                <div *ngIf='listFilter.length > 0'>
+                                        {{interviewer.firstName | json}} 
+                                </div>
+    
+                                <div *ngElse>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </ng-template>
         </div>
         <p></p>
 
