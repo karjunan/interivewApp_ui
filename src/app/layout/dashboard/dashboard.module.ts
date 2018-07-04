@@ -9,7 +9,6 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
-
 @NgModule({
     imports: [
         CommonModule,
@@ -19,13 +18,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         ModalModule.forRoot(),
         ReactiveFormsModule,
         FormsModule,
-        
-
     ],
     declarations: [
         DashboardComponent,
         ListPendingComponent
     ]
+    
 
 })
 export class DashboardModule {

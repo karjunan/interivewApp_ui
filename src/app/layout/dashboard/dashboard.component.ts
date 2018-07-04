@@ -1,5 +1,5 @@
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, Directive } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { Router } from '@angular/router';
 import { CandidateService } from '../../services/candidate.service';
@@ -9,13 +9,15 @@ import { IInterviewService } from '../../services/IInterviewService';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Interviewer, IInterviewer } from '../../services/IInterviewer';
 import { InterviewerService } from '../../services/interviewer.service';
-import { ENGINE_METHOD_CIPHERS } from 'constants';
+
 
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss'],
+    styleUrls: ['./dashboard.component.scss']
 })
+
+
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
@@ -42,7 +44,9 @@ export class DashboardComponent implements OnInit {
     editedAck:boolean = false;
     editedApproved:boolean = false;
     public modalRef: BsModalRef;
-    interviewers:IInterviewer[]= new Array();
+    interviewers: IInterviewer[];
+    
+    test:any[] = new Array();
 
     constructor(private router: Router,
         private _ipendingService: IInterviewService,
@@ -168,11 +172,11 @@ export class DashboardComponent implements OnInit {
 
     } 
 
-    private loadInterviewes(listFilter:String) {
-        this._interviewerService.getInterviewers()
+    private loadInterviewers() {
+        return this._interviewerService.getInterviewers()
             .subscribe(data => {
                 this.interviewers = data;
-                console.log("Interviewer Data" + JSON.stringify(data))
+                console.log("Interviewer Data selected ::: " + JSON.stringify(data))
             } );
     }
 
@@ -213,6 +217,10 @@ export class DashboardComponent implements OnInit {
     }
 
     public openModal(template: TemplateRef<any>) {
+        this.loadInterviewers();
         this.modalRef = this.modalService.show(template);
-      }
+    }
+
+  
+    
 }
