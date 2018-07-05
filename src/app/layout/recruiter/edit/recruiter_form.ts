@@ -2,7 +2,7 @@ export class RecruiterForm {
 
     constructor(
         public id  = '',
-        public recruiterId ='',
+        public employeeId ='',
         public firstName = '',
         public lastName = '',
         public emailId = '',

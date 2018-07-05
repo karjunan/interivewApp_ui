@@ -25,12 +25,12 @@ export class RecruiterService {
     constructor(private _http: HttpClient) {}
 
     getRecruiter(id:String): Observable<IRecruiter> {
-        return this._http.get("/server/admin/recruiter/"+id,httpOptions)
+        return this._http.get("/server/admin/"+id,httpOptions)
             .catch(this.handleError);
     }
 
     getRecruiters(): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter?sort=ASC",httpOptions)
+        return this._http.get("/server/admin/recruiter?size=10&sort=Asc&isDeleted=false",httpOptions)
             .catch(this.handleError);
     }
 
@@ -43,19 +43,21 @@ export class RecruiterService {
     deleteRecruiter(id:String) : Observable<IRecruiter>{
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.delete("/server/admin/recruiter/"+id,httpOptions)
+        return this._http.delete("/server/admin/"+id,httpOptions)
                     .catch(this.handleError);
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        return this._http.post("/server/admin/recruiter", recruiter, httpOptions)
+        recruiter.employeeType='RECRUITER';
+        recruiter.interviewerType=localStorage.getItem('role');
+        return this._http.post("/server/admin/", recruiter, httpOptions)
             .catch(this.handleError);
     }
 
     updateRecruiter(recruiter: IRecruiter,id: String ): Observable<IRecruiter> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        return this._http.put("/server/admin/recruiter/"+id, recruiter, httpOptions)
+        return this._http.put("/server/admin/"+id, recruiter, httpOptions)
             .catch(this.handleError);
     }
 

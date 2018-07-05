@@ -74,7 +74,7 @@ export class EditRecruiterComponent implements OnInit, AfterViewInit, OnDestroy 
         }
         this.recruiter = recruiter;
         this.editRecruiterForm.patchValue({
-            recruiterId: this.recruiter.recruiterId,
+            employeeId: this.recruiter.employeeId,
             firstName: this.recruiter.firstName,
             lastName:this.recruiter.lastName,
             emailId:this.recruiter.emailId,
@@ -97,7 +97,7 @@ export class EditRecruiterComponent implements OnInit, AfterViewInit, OnDestroy 
    
     ngOnInit():void {
         this.editRecruiterForm = this.fb.group({
-            recruiterId:'',
+            employeeId:'',
             firstName: '',
             lastName:'',
             emailId: '',

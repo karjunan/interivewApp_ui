@@ -41,7 +41,7 @@
                             <td class="hght_td">{{interviewer.technologyCommunity}}</td>
                             <td class="hght_td">{{interviewer.contactNumber}} </td>
                             <td class="outer-brdr-tbl hght_td">
-                                    <a data-toggle="tooltip" title="Delete" style="color:red"  (click)="delete(interviewer.id)" class="fa fa-trash-o red" aria-hidden="true"></a>
+                                    <a data-toggle="tooltip" title="Delete" class="fa fa-trash-o red" style="color:red"  (click)="delete(interviewer.id)"  aria-hidden="true"></a>
                                     &nbsp; &nbsp;
                                     <a data-toggle="tooltip" title="Edit" class="fa fa-edit" aria-hidden="true" [routerLink]="['/interviewer/edit',interviewer.id]"></a>
                                     <!-- <a (click)="edit(interviewer.id)" class="fa fa-edit" aria-hidden="true"></a> -->

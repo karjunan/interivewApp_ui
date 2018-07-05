@@ -4,7 +4,7 @@ import { NumberFormatStyle } from "@angular/common";
 
 export interface IRecruiter {
     id:String,
-    recruiterId: String,
+    employeeId: String,
     firstName: String,
     lastName: String,
     emailId: String,
@@ -12,14 +12,17 @@ export interface IRecruiter {
     createdDate: String,
     modifiedDate: String,
     technologyCommunity: String,
-    bandExperience: number;   
+    bandExperience: number,
+    isDeleted:String, 
+    employeeType:String,
+    interviewerType:String;
 }
 
 export class Recruiter implements IRecruiter {
     
     constructor( 
         public id: String ='',
-        public recruiterId: String ='',
+        public employeeId: String ='',
         public firstName: String = '',
         public lastName: String = '',
         public emailId: String = '',
@@ -27,6 +30,9 @@ export class Recruiter implements IRecruiter {
         public createdDate: String ='',
         public modifiedDate: String = '',
         public technologyCommunity: String ='',
-        public bandExperience: number) { }
+        public bandExperience: number,
+        public isDeleted:String = '', 
+        public employeeType:String = 'I',
+        public interviewerType:String ='') { }
 
 }
