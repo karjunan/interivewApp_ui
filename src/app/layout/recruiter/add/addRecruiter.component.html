@@ -5,26 +5,26 @@
                   <fieldset>
                         <div class="row">
                               <div class="col-md-6">
-                                    <div class="form-group" [ngClass]="{'has-error': (addRecruiterForm.get('recruiterId').touched || 
-                       addRecruiterForm.get('recruiterId').dirty) &&
-                       !addRecruiterForm.get('recruiterId').valid }">
-                                          <label class="col-md-12 control-label" for="recruiterId">Employee ID
-                                                <span class="help-block" *ngIf="(addRecruiterForm.get('recruiterId').touched || 
-                          addRecruiterForm.get('recruiterId').dirty) && 
-                          addRecruiterForm.get('recruiterId').errors">
-                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('recruiterId').errors.required">
+                                    <div class="form-group" [ngClass]="{'has-error': (addRecruiterForm.get('employeeId').touched || 
+                       addRecruiterForm.get('employeeId').dirty) &&
+                       !addRecruiterForm.get('employeeId').valid }">
+                                          <label class="col-md-12 control-label" for="employeeId">Employee ID
+                                                <span class="help-block" *ngIf="(addRecruiterForm.get('employeeId').touched || 
+                          addRecruiterForm.get('employeeId').dirty) && 
+                          addRecruiterForm.get('employeeId').errors">
+                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('employeeId').errors.required">
                                                             **
                                                       </span>
-                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('recruiterId').errors.minlength">
+                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('employeeId').errors.minlength">
                                                             Min Length is 4.
                                                       </span>
-                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('recruiterId').errors.maxlength">
+                                                      <span class="req-clr" *ngIf="addRecruiterForm.get('employeeId').errors.maxlength">
                                                             Max Length is 4.
                                                       </span>
                                                 </span>
                                           </label>
                                           <div class="col-md-12">
-                                                <input  tabindex="1" class="form-control" id="recruiterId" type="text" placeholder="Employee ID (required)" formControlName="recruiterId"
+                                                <input  tabindex="1" class="form-control" id="employeeId" type="text" placeholder="Employee ID (required)" formControlName="employeeId"
                                                 />
                                           </div>
                                     </div>

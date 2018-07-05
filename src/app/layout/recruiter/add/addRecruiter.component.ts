@@ -48,7 +48,7 @@ export class AddRecruiterComponent implements OnInit {
 
     ngOnInit(): void {
         this.addRecruiterForm = this.fb.group({
-            recruiterId: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]],
+            employeeId: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(5)]],
             firstName: ['', [Validators.required, Validators.maxLength(50)]],
             lastName: ['', [Validators.required, Validators.maxLength(50)]],
             emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]],

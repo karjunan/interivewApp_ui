@@ -30,7 +30,7 @@ export class RecruiterService {
     }
 
     getRecruiters(): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter?size=10&sort=Asc&isDeleted=false",httpOptions)
+        return this._http.get("/server/admin/recruiter?size=10&sort=Asc&isDeleted=true",httpOptions)
             .catch(this.handleError);
     }
 
@@ -48,10 +48,11 @@ export class RecruiterService {
     }
 
     private createRecruiter(recruiter: IRecruiter, options: RequestOptions): Observable<IRecruiter> {
-        recruiter.employeeType='RECRUITER';
-        recruiter.interviewerType=localStorage.getItem('role');
-        return this._http.post("/server/admin/", recruiter, httpOptions)
-            .catch(this.handleError);
+        recruiter.employeeType='R';
+        // recruiter.interviewerType=localStorage.getItem('role');
+        console.log("Recuriter Data :::" + JSON.stringify(recruiter));
+        return this._http.post("/server/admin", recruiter, httpOptions)
+         .catch(this.handleError);
     }
 
     updateRecruiter(recruiter: IRecruiter,id: String ): Observable<IRecruiter> {
@@ -71,7 +72,7 @@ export class RecruiterService {
         return Observable.throw(error.json().error || 'Server error');
     }
     searchRecruiter(str:String): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter?str="+str,httpOptions)
+        return this._http.get("/server/admin/search?str="+str,httpOptions)
             .catch(this.handleError);
     }
 }

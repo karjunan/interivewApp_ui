@@ -25,9 +25,9 @@ export class InterviewerService {
     constructor(private _http: HttpClient) {}
 
     getInterviewers(): Observable<IInterviewer[]> {
-        return this._http.get("/server/admin/interviewer?&size=10&sort=Asc&isDeleted=false",httpOptions)
+        return this._http.get("/server/admin/interviewer/",httpOptions)
             // .map(this.extractData)
-            // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
+            .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
@@ -40,7 +40,7 @@ export class InterviewerService {
 
 
     searchInterviewer(str:String): Observable<IInterviewer[]> {
-        return this._http.get("/server/admin/interviewer/search?str="+str,httpOptions)
+        return this._http.get("/server/admin/search?str="+str,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
@@ -71,7 +71,7 @@ export class InterviewerService {
 
     private createInterviewer(interviewer: IInterviewer): Observable<IInterviewer> {
         
-        interviewer.employeeType='INTERVIEWER';
+        interviewer.employeeType='I';
         interviewer.interviewerType=localStorage.getItem('role');
         console.log(" Interviewer  :: " + JSON.stringify(interviewer))
         return this._http.post("/server/admin/",interviewer,httpOptions)

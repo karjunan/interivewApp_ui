@@ -25,7 +25,7 @@ export class LoginService {
     constructor(private _http: HttpClient) {}
 
     getUser(id:String,pass:String): Observable<ILogin> {
-        return this._http.get("/server/admin/login?name="+id+"&pass="+pass,httpOptions)
+        return this._http.get("/server/admin/login?email="+id+"&pass="+pass,httpOptions)
             // .map(data =>  data.json())
             .do(data => console.log('getUsers: ' + JSON.stringify(data)))
             .catch(this.handleError);

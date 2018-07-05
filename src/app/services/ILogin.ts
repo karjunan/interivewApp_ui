@@ -1,11 +1,13 @@
 
 
 export interface ILogin {
-    id:string,
-    userName:string,
-    password: string,
-    email:string,
-    employeeID: string,
-    role:any[]
+    id : string,
+    firstName : string,
+    lastName : string,
+    emailId : string,
+    isDeleted : string,
+    employeeType : string,
+    interviewerType : string,
+    password : string,
 
 }

@@ -44,11 +44,12 @@ export class LoginComponent implements OnInit {
                     } else {
                         console.log("data" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'true');
-                        localStorage.setItem('employeeID',this.iLogin.employeeID);
+                        localStorage.setItem('employeeID',this.iLogin.id);
                         localStorage.setItem('id',this.iLogin.id);
-                        localStorage.setItem('user',this.iLogin.userName);
-                        localStorage.setItem('role',this.iLogin.role[0]);
-                        console.log("Login role is  " + this.iLogin.role[0]);
+                        localStorage.setItem('emailId',this.iLogin.emailId);
+                        localStorage.setItem('user',this.iLogin.firstName);
+                        localStorage.setItem('role',this.iLogin.employeeType);
+                        console.log("Login role is  " + this.iLogin.employeeType);
                         console.log("Login details " + JSON.stringify(this.iLogin));
                         this.router.navigate(['/dashboard']);   
                     }

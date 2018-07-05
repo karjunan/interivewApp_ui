@@ -42,7 +42,7 @@ export class FilterPipe implements PipeTransform {
         return this.transformInterviewers.filter((inter) => {
             return inter.firstName.toLowerCase().includes(searchText)||
                      inter.lastName.toLowerCase().includes(searchText) ||
-                     inter.interviewerID.toLowerCase().includes(searchText) ||
+                     inter.employeeId.toLowerCase().includes(searchText) ||
                      inter.technologyCommunity.toLowerCase().includes(searchText);
         });
                
