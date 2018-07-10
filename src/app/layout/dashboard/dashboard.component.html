@@ -173,12 +173,12 @@
                             <td class="hght_td">{{candidate.technologyStack}}</td> 
                             <td class="hght_td">{{candidate.experience}}</td> 
                             <td class="outer-brdr-tbl hght_td">
-                                <a data-toggle="tooltip"  title="Approve" (click)="openModal(mTemplate,candidate)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a>
+                                <a data-toggle="tooltip"  title="Approve" (click)="openModal(mTemplate,candidate,'M')" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a>
                                 <!-- <a data-toggle="tooltip"  title="Approve" (click)="approveInterview(candidate)" class="fa fa-check-circle fa-2x"  style="color: green"  aria-hidden="true"></a> -->
                                 &nbsp; 
                                 <a data-toggle="tooltip"  title="Reject"  (click)="rejectInterview(candidate)" class="fa fa-times-circle fa-2x " style="color: red" aria-hidden="true">
                                 &nbsp;</a>
-                                <a data-toggle="tooltip"  title="Next Round" (click)="openModal(iTemplate,candidate)" class="fa fa-arrow-circle-right fa-2x" style="color:teal" 
+                                <a data-toggle="tooltip"  title="Next Round" (click)="openModal(iTemplate,candidate,'I')" class="fa fa-arrow-circle-right fa-2x" style="color:teal" 
                                 aria-hidden="true"></a>
                                 
                              </td>
@@ -207,7 +207,7 @@
                                     <table class="table outer-brdr table-sm table-hover">
                                         <tr (click)="chooseInterviewer(interviewer)">
                                             <td hidden>{{interviewer.id}}</td>
-                                            <td>{{interviewer.firstName }}  ({{interviewer.interviewerID}})</td>
+                                            <td>{{interviewer.firstName }}  ({{interviewer.employeeId}})</td>
                                         </tr>
                                     </table>
                             </div>
@@ -240,7 +240,7 @@
                                             <table class="table outer-brdr table-sm table-hover">
                                                 <tr (click)="chooseManager(interviewer)">
                                                     <td hidden>{{interviewer.id}}</td>
-                                                    <td>{{interviewer.firstName }}  ({{interviewer.interviewerID}})</td>
+                                                    <td>{{interviewer.firstName }}  ({{interviewer.employeeId}})</td>
                                                 </tr>
                                             </table>
                                     </div>

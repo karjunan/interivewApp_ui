@@ -31,6 +31,14 @@ export class InterviewerService {
             .catch(this.handleError);
     }
 
+    getInterviewersByType(technologyCommunity:String,interviewerType:String): Observable<IInterviewer[]> {
+        // http://localhost:8089/admin/interviewer/interviewertype?tc=JAVA&it=M
+        return this._http.get("server/admin/interviewer/interviewertype?tc="+technologyCommunity+"&it="+interviewerType,httpOptions)
+            // .map(this.extractData)
+            .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
     getInterviewer(id:String): Observable<IInterviewer> {
         return this._http.get("/server/admin/"+id,httpOptions)
             // .map(this.extractData)
@@ -40,7 +48,7 @@ export class InterviewerService {
 
 
     searchInterviewer(str:String): Observable<IInterviewer[]> {
-        return this._http.get("/server/admin/search?str="+str,httpOptions)
+        return this._http.get("/server/admin/interviewer/search?str="+str,httpOptions)
             // .map(this.extractData)
             // .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);

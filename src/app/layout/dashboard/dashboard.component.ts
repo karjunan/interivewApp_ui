@@ -47,6 +47,7 @@ export class DashboardComponent implements OnInit {
     interviewers: IInterviewer[];
     isLoaded:boolean;
     template: TemplateRef<any>;
+    interType:String;
  
     selectedCandidate:ICandidate;
     
@@ -176,13 +177,15 @@ export class DashboardComponent implements OnInit {
 
     } 
 
-    private loadInterviewers() {
-        return this._interviewerService.getInterviewers()
+    private loadInterviewers(candidate:ICandidate,interType:string) {
+        console.log("Interviewer Type : " + interType)
+        return this._interviewerService.getInterviewersByType(candidate.technologyStack,interType)
             .subscribe(data => {
                 this.interviewers = data;
                 console.log("Interviewer Data selected ::: " + JSON.stringify(data))
             } );
     }
+
 
     private onSaveComplete(): void {
         this.iPendingcandidateList = new Array();
@@ -219,8 +222,9 @@ export class DashboardComponent implements OnInit {
         }
     }
 
-    public openModal(template: TemplateRef<any>,candidate: ICandidate) {
-        this.loadInterviewers();
+    public openModal(template: TemplateRef<any>,candidate: ICandidate,interType:string) {
+        console.log("Modal Interview Type : ", interType)
+        this.loadInterviewers(candidate,interType);
         this.listFilter = '';
         this.selectedCandidate = candidate;
         this.modalRef = this.modalService.show(template);

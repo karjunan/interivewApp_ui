@@ -24,18 +24,19 @@ export class FilterPipe implements PipeTransform {
     if(!items) return [];
     if(!searchText) return items;
     searchText = searchText.toLowerCase();
-    if(searchText.length === 1 )  {
-        this.subscription =  this._interviewerService.searchInterviewer( searchText  )
-        .subscribe(data => {
-            this.dbInterviewers = data,
-           console.log("Items :" + this.dbInterviewers)
-           }); 
-     return this.dbInterviewers;
-    } else {
+    this.dbInterviewers = items;
+    // if(searchText.length === 1 )  {
+    //     this.subscription =  this._interviewerService.searchInterviewer( searchText  )
+    //     .subscribe(data => {
+    //         this.dbInterviewers = data,
+    //        console.log("Items :" + this.dbInterviewers)
+    //        }); 
+    //  return this.dbInterviewers;
+    // } else {
         console.log("total records :: " + this.dbInterviewers.length + ":::" + searchText);
         this.transformInterviewers = this.dbInterviewers;
         return this.filterRecords(this.dbInterviewers, searchText);       
-    }
+    // }
 }
 
     private filterRecords(interviewer: IInterviewer[] , searchText: string): IInterviewer[] {
