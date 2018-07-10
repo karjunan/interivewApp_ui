@@ -70,7 +70,7 @@ export class DashboardComponent implements OnInit {
     private loadPending() {
         this._ipendingService.getPendingInterviews(this.employeeID)
                 .subscribe(data => {
-                    // console.log("Employee ID: " + this.employeeID);
+                    console.log("Employee ID: " + this.employeeID);
                     this.ipendingList = data,
                     this.pendingCount = this.ipendingList.length,
                     error => this.errorMessage = <any>error;

@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
                     } else {
                         console.log("data" + this.iLogin);
                         localStorage.setItem('isLoggedin', 'true');
-                        localStorage.setItem('employeeID',this.iLogin.id);
+                        localStorage.setItem('employeeID',this.iLogin.employeeId);
                         localStorage.setItem('id',this.iLogin.id);
                         localStorage.setItem('emailId',this.iLogin.emailId);
                         localStorage.setItem('user',this.iLogin.firstName);

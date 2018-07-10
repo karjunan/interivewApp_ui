@@ -2,6 +2,7 @@
 
 export interface ILogin {
     id : string,
+    employeeId:string,
     firstName : string,
     lastName : string,
     emailId : string,
