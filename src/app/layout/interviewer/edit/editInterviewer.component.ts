@@ -75,14 +75,14 @@ export class EditInterviewerComponent implements OnInit, AfterViewInit, OnDestro
             this.editInterviewerForm.reset();
         }
         this.interviewer = interviewer;
-        this.editInterviewerForm.patchValue({
-            employeeId: this.interviewer.employeeId,
+        this.editInterviewerForm.setValue({
+             employeeId: this.interviewer.employeeId,
             firstName: this.interviewer.firstName,
             lastName:this.interviewer.lastName,
             emailId:this.interviewer.emailId,
             contactNumber:this.interviewer.contactNumber,
             technologyCommunity:this.interviewer.technologyCommunity,
-            bandExperience:this.interviewer.bandExperience
+            bandExperience:this.interviewer.bandExperience,
         });
     }
 

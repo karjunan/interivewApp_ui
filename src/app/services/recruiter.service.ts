@@ -30,7 +30,7 @@ export class RecruiterService {
     }
 
     getRecruiters(): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/recruiter?size=10&sort=Asc&isDeleted=true",httpOptions)
+        return this._http.get("/server/admin/recruiter",httpOptions)
             .catch(this.handleError);
     }
 
@@ -58,6 +58,7 @@ export class RecruiterService {
     updateRecruiter(recruiter: IRecruiter,id: String ): Observable<IRecruiter> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+        console.log("Update Recuriter : :: " + JSON.stringify(recruiter));
         return this._http.put("/server/admin/"+id, recruiter, httpOptions)
             .catch(this.handleError);
     }

@@ -56,6 +56,7 @@ export class InterviewerService {
     updateInterviewer(interviewer: IInterviewer,id: String ): Observable<IInterviewer> {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+        console.log("Update Interviewer : :: " + JSON.stringify(interviewer));
         return this._http.put("/server/admin/"+id, interviewer, httpOptions)
             // .map(() => interviewer)
             // .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
@@ -70,9 +71,7 @@ export class InterviewerService {
     }
 
     private createInterviewer(interviewer: IInterviewer): Observable<IInterviewer> {
-        
-        interviewer.employeeType='I';
-        interviewer.interviewerType=localStorage.getItem('role');
+        interviewer.employeeType="I";
         console.log(" Interviewer  :: " + JSON.stringify(interviewer))
         return this._http.post("/server/admin/",interviewer,httpOptions)
             // .map(this.extractData)

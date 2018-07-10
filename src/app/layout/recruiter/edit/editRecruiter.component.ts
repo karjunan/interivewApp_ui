@@ -73,7 +73,7 @@ export class EditRecruiterComponent implements OnInit, AfterViewInit, OnDestroy 
             this.editRecruiterForm.reset();
         }
         this.recruiter = recruiter;
-        this.editRecruiterForm.patchValue({
+        this.editRecruiterForm.setValue({
             employeeId: this.recruiter.employeeId,
             firstName: this.recruiter.firstName,
             lastName:this.recruiter.lastName,
