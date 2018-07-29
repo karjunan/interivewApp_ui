@@ -40,6 +40,9 @@ export class DashboardComponent implements OnInit {
     ackCount:Number;
     approvedCount:Number;
     employeeID:string;
+    interviewerType:string;
+    managerType:boolean;
+    nonManagerType:boolean;
     editedPending:boolean = false;
     editedAck:boolean = false;
     editedApproved:boolean = false;
@@ -62,7 +65,10 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.employeeID = localStorage.getItem('employeeID');
+        this.interviewerType = localStorage.getItem('interviewerType');
         console.log("Employee ID at init: " + this.employeeID);
+        console.log("InterviewerType at init: ["+this.interviewerType+"]");
+        this.validateInterviewerType();
         this.loadPending();
         this.loadAck();
         this.loadApproved();
@@ -220,6 +226,17 @@ export class DashboardComponent implements OnInit {
             this.editedPending = false;
             this.editedAck = false;
         }
+    }
+
+    validateInterviewerType():void {
+        if(this.interviewerType != 'M') {
+            this.nonManagerType = true;
+            this.managerType = false;
+        } else {
+            this.managerType = true;
+            this.nonManagerType = false;
+        }
+        
     }
 
     public openModal(template: TemplateRef<any>,candidate: ICandidate,interType:string) {

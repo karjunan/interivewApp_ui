@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('emailId',this.iLogin.emailId);
                         localStorage.setItem('user',this.iLogin.firstName);
                         localStorage.setItem('role',this.iLogin.employeeType);
+                        localStorage.setItem('interviewerType',this.iLogin.interviewerType);
+                        console.log("Interviewer Type   " + this.iLogin.interviewerType);
                         console.log("Login role is  " + this.iLogin.employeeType);
                         console.log("Login details " + JSON.stringify(this.iLogin));
                         this.router.navigate(['/dashboard']);   
