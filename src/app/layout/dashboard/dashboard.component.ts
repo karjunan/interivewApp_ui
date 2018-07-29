@@ -247,11 +247,11 @@ export class DashboardComponent implements OnInit {
         this.modalRef = this.modalService.show(template);
     }
   
-    private chooseManager(interviewer: IInterviewer){
-        console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
-        console.log("Interviewer Choosen :: " + interviewer.employeeId);
-        this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
-            interviewer.employeeId,"M")
+    private chooseManager(candidate: ICandidate,interType:string){
+        // console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
+        // console.log("Interviewer Choosen :: " + interviewer.employeeId);
+        this._ipendingService.approveInterview(candidate.interviewObjectID,
+            this.employeeID,"M")
                 .subscribe(() => {
                     this.onSaveComplete(),
                     error => this.errorMessage = <any>error;

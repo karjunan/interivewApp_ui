@@ -33,11 +33,12 @@ export class InterviewerService {
 
     getInterviewersByType(technologyCommunity:String,interviewerType:String): Observable<IInterviewer[]> {
         // http://localhost:8089/admin/interviewer/interviewertype?tc=JAVA&it=M
-        return this._http.get("server/admin/interviewer/interviewertype?tc="+technologyCommunity+"&it="+interviewerType,httpOptions)
+        return this._http.get("server/admin/interviewer/interviewertype?tc="+technologyCommunity+"&it=",httpOptions)
             // .map(this.extractData)
             .do(data => console.log('getInterviewers: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
+
 
     getInterviewer(id:String): Observable<IInterviewer> {
         return this._http.get("/server/admin/"+id,httpOptions)
