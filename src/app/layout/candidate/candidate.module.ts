@@ -10,6 +10,7 @@ import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
 import {FilterPipe} from './list/filter.pipe';
 import {AddCandidateComponent} from './add/addCandidate.component';
 import {EditCandidateComponent} from './edit/editCandidate.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 @NgModule({
     imports: [
@@ -17,6 +18,8 @@ import {EditCandidateComponent} from './edit/editCandidate.component';
         ReactiveFormsModule,
         FormsModule,
         CandidateRoutingModule,
+        OwlDateTimeModule, 
+        OwlNativeDateTimeModule,
         NgbDropdownModule.forRoot()
     ],
     declarations: [

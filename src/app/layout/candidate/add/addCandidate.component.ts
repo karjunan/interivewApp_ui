@@ -15,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     // animations: [routerTransition()]
 })
 export class AddCandidateComponent implements OnInit {
+    selectedMoment:Date;
     addCandidateForm: FormGroup;
     errorMessage: string;
     candidate: CandidateForm = new CandidateForm(
@@ -62,8 +63,9 @@ export class AddCandidateComponent implements OnInit {
             gender: '',
             isActive: '',
             resume: '',
-            interviewDate: '',
-            interviewTime: ''
+            // interviewDate: '',
+            interviewTime: '',
+            interviewDate: ['', [Validators.required]]
         });
     }
 }

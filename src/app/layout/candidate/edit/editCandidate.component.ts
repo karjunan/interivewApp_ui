@@ -74,7 +74,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             technologyStack:this.candidate.technologyStack,
             experience:this.candidate.experience,
             isActive:this.candidate.isActive,
-            gender:this.candidate.gender
+            gender:this.candidate.gender,
+            interviewDate:this.candidate.interviewDate
         });
     }
 
@@ -100,7 +101,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             phoneNumber: '',
             experience: '',
             technologyStack: '',
-            isActive: ''
+            isActive: '',
+            interviewDate:''
 
         })
 

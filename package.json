@@ -37,6 +37,7 @@
         "font-awesome": "^4.7.0",
         "md-autocomplete": "0.0.1-alpha.1",
         "ng-dialog": "^1.4.0",
+        "ng-pick-datetime": "^6.0.10",
         "ng2-charts": "^1.6.0",
         "ngx-bootstrap": "^3.0.1",
         "rxjs": "^6.2.1",
