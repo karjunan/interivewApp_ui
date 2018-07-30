@@ -48,6 +48,7 @@ export class DashboardComponent implements OnInit {
     interviewerType:string;
     managerType:boolean;
     nonManagerType:boolean;
+    roleType:string;
     editedPending:boolean = false;
     editedAck:boolean = false;
     editedApproved:boolean = false;
@@ -56,7 +57,7 @@ export class DashboardComponent implements OnInit {
     isLoaded:boolean;
     template: TemplateRef<any>;
     interType:String;
- 
+    roleTypeBool:boolean;
     selectedCandidate:ICandidate;
     
 
@@ -71,9 +72,11 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {
         this.employeeID = localStorage.getItem('employeeID');
         this.interviewerType = localStorage.getItem('interviewerType');
+        this.roleType = localStorage.getItem('role');
         console.log("Employee ID at init: " + this.employeeID);
         console.log("InterviewerType at init: ["+this.interviewerType+"]");
         this.validateInterviewerType();
+        this.validateRoleType();
         this.loadPending();
         this.loadAck();
         this.loadApproved();
@@ -245,6 +248,12 @@ export class DashboardComponent implements OnInit {
             this.nonManagerType = false;
         }
         
+    }
+
+    validateRoleType():void {
+        if(this.roleType == 'R') {
+            this.roleTypeBool = true;
+        }
     }
 
     public openModal(template: TemplateRef<any>,candidate: ICandidate,interType:string) {
