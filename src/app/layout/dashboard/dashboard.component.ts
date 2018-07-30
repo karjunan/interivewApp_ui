@@ -96,6 +96,14 @@ export class DashboardComponent implements OnInit {
                     this._icandidateService.getCandidatesByIds(candidateList)
                     .subscribe(candidateData => {
                         this.iPendingcandidateList = candidateData;
+                        for(let ipendingCandidate of this.iPendingcandidateList) {
+                            for(let iInterviewPending of this.ipendingList) {
+                                if(ipendingCandidate.candidateId == iInterviewPending.candidateId) {
+                                    ipendingCandidate.interviewObjectID = iInterviewPending.id;
+                                }
+                            }
+                        }
+                        console.log(" Pending candidate data"+JSON.stringify(this.iPendingcandidateList ));
                     });
                    
                  }
@@ -159,35 +167,6 @@ export class DashboardComponent implements OnInit {
             );
     }
 
-    // private loadApproved() {
-    //     this._ipendingService.getApprovedInterviews(this.employeeID)
-    //             .subscribe(data => {
-    //                 // console.log("Employee ID: " + this.employeeID);
-    //                 this.iapprovedList = data,
-    //                 this.approvedCount = this.iapprovedList.length,
-    //                 error => this.errorMessage = <any>error;
-    //                 for(let list of this.iapprovedList) {
-    //                     //  console.log("List dataa  :: " + list.candidateId);
-    //                      this._icandidateService.getCandidate(list.candidateId)
-    //                         .subscribe(candidateData => {
-    //                             candidateData.interviewerObjectID=list.interviewerId;
-    //                             // console.log(" Candidate data : " + JSON.stringify(data));
-    //                             this.iApprovedCandidateList.push(candidateData);
-    //                             // console.log(" Candidate data for Approved : " + JSON.stringify(this.iApprovedCandidateList));
-                                
-    //                         });
-    //                 }
-    //              }
-
-    //         );
-    // }
-
-
-    // private setDisplay(){
-    //     //this.display= view ;
-    //     this.editedPending = true;
-
-    // }
 
     private acknowledge(candidate: ICandidate) {
             this._ipendingService.acknowledgeInterview(candidate.interviewObjectID,this.employeeID)
@@ -195,14 +174,6 @@ export class DashboardComponent implements OnInit {
                                         error => this.errorMessage = <any>error);
 
     }   
-
-    // private approveInterview() {
-    //     this._ipendingService.approveInterview(this.selectedCandidate.interviewObjectID,
-    //                     this.selectedManagerID,"M")
-    //     .subscribe(() => this.onSaveComplete(),
-    //                 error => this.errorMessage = <any>error);
-
-    // }   
 
     private rejectInterview(candidate: ICandidate) {
         console.log("Rejected Interviews " + JSON.stringify(candidate));
@@ -285,14 +256,13 @@ export class DashboardComponent implements OnInit {
     }
   
     private chooseManager(candidate: ICandidate,interType:string){
-        // console.log("Interview Object Choosen :: " + this.selectedCandidate.interviewObjectID);
-        // console.log("Interviewer Choosen :: " + interviewer.employeeId);
+        // console.log("Interview Object Choosen :: " + candidate.interviewObjectID);
         this._ipendingService.approveInterview(candidate.interviewObjectID,
             this.employeeID,"M")
                 .subscribe(() => {
                     this.onSaveComplete(),
                     error => this.errorMessage = <any>error;
-                    this.modalRef.hide();
+                    // this.modalRef.hide();
                 })
                       
         
