@@ -63,9 +63,8 @@ export class AddCandidateComponent implements OnInit {
             gender: '',
             isActive: '',
             resume: '',
-            // interviewDate: '',
-            interviewTime: '',
-            interviewDate: ['', [Validators.required]]
+            interviewDate: ['', [Validators.required]],
+            // interviewTime: ['', [Validators.required]]
         });
     }
 }
