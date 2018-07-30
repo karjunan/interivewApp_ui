@@ -74,54 +74,92 @@ export class DashboardComponent implements OnInit {
         this.loadApproved();
     }
 
+
     private loadPending() {
+        var candidateList = new  Array();
         this._ipendingService.getPendingInterviews(this.employeeID)
                 .subscribe(data => {
-                    console.log("Employee ID: " + this.employeeID);
+                    // console.log("Employee ID: " + this.employeeID);
                     this.ipendingList = data,
                     this.pendingCount = this.ipendingList.length,
                     error => this.errorMessage = <any>error;
                     for(let list of this.ipendingList) {
-                         console.log("List dataa  :: " + list.id);
-                         this._icandidateService.getCandidate(list.candidateId)
-                            .subscribe(candidateData => {
-                                candidateData.interviewObjectID=list.id;
-                                console.log(" Candidate data for Pending: " + JSON.stringify(data));
-                                this.iPendingcandidateList.push(candidateData);
-                            });
+                        candidateList.push(list.candidateId);
+                        //  console.log("List dataa  :: " + list.id);
+                       
                     }
+                    this._icandidateService.getCandidatesByIds(candidateList)
+                    .subscribe(candidateData => {
+                        this.iPendingcandidateList =candidateData;
+                    });
                  }
 
             );
-
-        // this._ipendingService.getAcknowledgedInterviews(this.employeeID)
-        //         .subscribe(data => {
-        //             this.iackList = data,
-        //             this.ackCount = this.iackList.length,
-        //             error => this.errorMessage = <any>error;
-        //         });
     }
 
+    // private loadPending() {
+    //     this._ipendingService.getPendingInterviews(this.employeeID)
+    //             .subscribe(data => {
+    //                 // console.log("Employee ID: " + this.employeeID);
+    //                 this.ipendingList = data,
+    //                 this.pendingCount = this.ipendingList.length,
+    //                 error => this.errorMessage = <any>error;
+    //                 for(let list of this.ipendingList) {
+    //                     //  console.log("List dataa  :: " + list.id);
+    //                      this._icandidateService.getCandidate(list.candidateId)
+    //                         .subscribe(candidateData => {
+    //                             candidateData.interviewObjectID=list.id;
+    //                             // console.log(" Candidate data for Pending: " + JSON.stringify(data));
+    //                             this.iPendingcandidateList.push(candidateData);
+    //                         });
+    //                 }
+    //              }
+
+    //         );
+    // }
+
     private loadAck() {
+        var candidateList = new  Array();
         this._ipendingService.getAcknowledgedInterviews(this.employeeID)
                 .subscribe(data => {
-                    // console.log("Employee ID: " + this.employeeID);
                     this.iackList = data,
                     this.ackCount = this.iackList.length,
                     error => this.errorMessage = <any>error;
                     for(let list of this.iackList) {
-                         console.log("List dataa  :: " + list.id);
-                         this._icandidateService.getCandidate(list.candidateId)
-                            .subscribe(candidateData => {
-                                candidateData.interviewObjectID=list.id;
-                                console.log(" Candidate data for Acknowledge: " + JSON.stringify(data));
-                                this.iAckcandidateList.push(candidateData);
-                            });
+                        candidateList.push(list.candidateId);
+                         
                     }
+                    this._icandidateService.getCandidatesByIds(candidateList)
+                    .subscribe(candidateData => {
+                        this.iAckcandidateList =candidateData;
+                    });
                  }
-
+                
             );
+       
     }
+
+    //This was old code which feches one candiate after another . The above one is an improved version.
+
+    // private loadAck() {
+    //     this._ipendingService.getAcknowledgedInterviews(this.employeeID)
+    //             .subscribe(data => {
+    //                 this.iackList = data,
+    //                 this.ackCount = this.iackList.length,
+    //                 error => this.errorMessage = <any>error;
+    //                 for(let list of this.iackList) {
+    //                      console.log("List dataa  :: " + list.id);
+    //                      this._icandidateService.getCandidate(list.candidateId)
+    //                         .subscribe(candidateData => {
+    //                             candidateData.interviewObjectID=list.id;
+    //                             console.log(" Candidate data for Acknowledge: " + JSON.stringify(data));
+    //                             this.iAckcandidateList.push(candidateData);
+    //                         });
+    //                 }
+    //              }
+
+    //         );
+    // }
 
     private loadApproved() {
         this._ipendingService.getApprovedInterviews(this.employeeID)
@@ -131,13 +169,13 @@ export class DashboardComponent implements OnInit {
                     this.approvedCount = this.iapprovedList.length,
                     error => this.errorMessage = <any>error;
                     for(let list of this.iapprovedList) {
-                         console.log("List dataa  :: " + list.candidateId);
+                        //  console.log("List dataa  :: " + list.candidateId);
                          this._icandidateService.getCandidate(list.candidateId)
                             .subscribe(candidateData => {
                                 candidateData.interviewerObjectID=list.interviewerId;
                                 // console.log(" Candidate data : " + JSON.stringify(data));
                                 this.iApprovedCandidateList.push(candidateData);
-                                console.log(" Candidate data for Approved : " + JSON.stringify(this.iApprovedCandidateList));
+                                // console.log(" Candidate data for Approved : " + JSON.stringify(this.iApprovedCandidateList));
                                 
                             });
                     }

@@ -27,6 +27,14 @@ export class CandidateService {
 
   }
 
+  getCandidatesByIds(candidate:ICandidate[]): Observable<ICandidate[]> {
+    return this.http.post('/server/admin/candidateService/candidate/getCandidateBaseOnIDs',candidate,httpOptions)
+    // .do(val => console.log("Finaly val  ::" + JSON.stringify(val)))
+    .catch(this.handleError);
+
+  }
+
+
   getCandidate(id : String ): Observable<ICandidate> {
         return this.http.get("/server/admin/candidateService/candidate/"+id,httpOptions).catch(this.handleError);
 
