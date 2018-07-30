@@ -75,7 +75,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             experience:this.candidate.experience,
             isActive:this.candidate.isActive,
             gender:this.candidate.gender,
-            interviewDate:this.candidate.interviewDate
+            interviewDate:this.candidate.interviewDate,
+            interviewObjectID:this.candidate.interviewObjectID
         });
     }
 
@@ -102,7 +103,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             experience: '',
             technologyStack: '',
             isActive: '',
-            interviewDate:''
+            interviewDate:'',
+            interviewObjectID:''
 
         })
 
