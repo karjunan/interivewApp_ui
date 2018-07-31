@@ -73,7 +73,8 @@ export class RecruiterService {
         return Observable.throw(error.json().error || 'Server error');
     }
     searchRecruiter(str:String): Observable<IRecruiter[]> {
-        return this._http.get("/server/admin/search?str="+str,httpOptions)
+        console.log("String value"+ str);
+        return this._http.get("/server/admin/recruiter/search?str="+str,httpOptions)
             .catch(this.handleError);
     }
 }
