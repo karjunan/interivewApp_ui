@@ -9,7 +9,7 @@ import { IInterviewService } from '../../services/IInterviewService';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Interviewer, IInterviewer } from '../../services/IInterviewer';
 import { InterviewerService } from '../../services/interviewer.service';
-import { VirtualTimeScheduler } from '../../../../node_modules/rxjs';
+import { VirtualTimeScheduler } from 'rxjs';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';

@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import { IInterview } from './IInterview';
+import { ICandidateStatus } from './ICandidateStatus';
 
 
 
@@ -82,6 +83,11 @@ export class IInterviewService {
             .catch(this.handleError);
     }
 
+    getCandidateStatus(id:String): Observable<ICandidateStatus> {
+        return this._http.get("/interviewServer/interview/screen/candidatestatus/"+id,httpOptions)
+        .catch(this.handleError);
+
+    }
 
     private handleError(error: Response): Observable<any> {
         // in a real world app, we may send the server to some remote logging infrastructure

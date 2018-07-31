@@ -32,9 +32,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor='let candidate of candidates | candidateFilter : listFilter' data-toggle="tooltip" title="hello" (click)="viewDetails(candidate.candidateId)">
+                    <tr *ngFor='let candidate of candidates | candidateFilter : listFilter' >
 
-                        <td hidden >{{candidate.candidateId}} </td>
+                        <td hidden>{{candidate.candidateId}} </td>
                         <td class="hght_td">{{candidate.firstName}}</td>
                         <td class="hght_td">{{candidate.lastName}}</td>
                         <td class="hght_td">{{candidate.email}}</td>
@@ -48,12 +48,43 @@
 
                             <a data-toggle="tooltip" title="Edit"  class="fa fa-edit" style="color:blue"  aria-hidden="true" [routerLink]="['/candidate/edit',candidate.candidateId]"></a>
                             &nbsp;
+                            <a data-toggle="tooltip"  title="show details" (click)="openModal(iTemplate,candidate.candidateId)" class="fa fa-eye" style="color:blueviolet" aria-hidden="true">
+                            </a>
+                            &nbsp;
                             <a *ngIf="!candidate.interviewObjectID" data-toggle="tooltip"  title="Publish" (click)="publishInterview(candidate)" class="fa fa-bell" style="color:teal" aria-hidden="true">
                             </a>
+                           
                         </td>
                     </tr>
                     </tbody>
                 </table>
+
+                <ng-template #iTemplate>
+                        <div class="modal-content">
+                         <div class="modal-header">
+                                        <div>
+                                        <table style="width:100%" class="table-hover">
+                                            <thead>
+                                                <tr>
+                                                  <th class="hght">EmployeeID </th>
+                                                  <th class="hght">Status </th>
+                                                  <th class="hght">Interviewed By</th>
+                                                </tr>
+                                            </thead>
+                                            <tr *ngFor='let cs of candidateStatus'>
+                                                <td class="hght_td"> {{cs.interviewerId}}</td>
+                                                <td class="hght_td">{{cs.interviewStatus}}</td>
+                                                <td class="hght_td">{{cs.interviewerType}}</td>
+                                            </tr>
+                                        </table>
+                                        </div>
+                                    
+                            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                             <span aria-hidden="true">&times;</span>
+                             </button>
+                        </div>
+                    </div>
+                    </ng-template>
         </div>
         <p></p>
 

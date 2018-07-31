@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {Router} from '@angular/router';
 
 
 import {CandidateService} from '../../../services/candidate.service';
 import {ICandidate} from '../../../services/ICandidate';
 import { IInterviewService } from '../../../services/IInterviewService';
-
+import { ICandidateStatus } from '../../../services/ICandidateStatus';
+import { BsModalService } from '../../../../../node_modules/ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
     selector: 'list-candidate',
@@ -22,11 +24,13 @@ export class ListCandidateComponent implements OnInit {
     conString : String = '';
     published: boolean = false;
     employeeID:String;
+    candidateStatus = new Array();
+    public modalRef: BsModalRef;
 
     filteredCandidates: ICandidate[];
 
    constructor(  private router: Router,
-
+                private modalService: BsModalService,
                 private candidateService: CandidateService,
                 private interviewService: IInterviewService) {
 
@@ -64,8 +68,27 @@ export class ListCandidateComponent implements OnInit {
 
     }
 
+    public openModal(template: TemplateRef<any>,candidateId: String) {
+        this.viewDetails(candidateId);
+        this.modalRef = this.modalService.show(template);
+    }
+
     private viewDetails(candidateId:String) {
-        console.log("Candidate Detail "+ candidateId);
+        this.interviewService.getCandidateStatus(candidateId)
+            .subscribe(data => {
+                for(let cs of data.candidateStatus) {
+                    if(cs.interviewerType == 'I') {
+                        cs.interviewerType = 'Interviewer';
+                    } else if (cs.interviewerType == 'M'){
+                        cs.interviewerType = 'Manager';
+                    } else {
+                        cs.interviewerType ="";
+                    }
+                }
+                this.candidateStatus = data.candidateStatus;
+                console.log("Candidate Data"+ JSON.stringify(this.candidateStatus));
+            })
+        // console.log("Candidate Detail "+ candidateId);
         
     }
 
