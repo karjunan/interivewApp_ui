@@ -21,6 +21,7 @@ export class ListCandidateComponent implements OnInit {
     list: any [] = new  Array();
     conString : String = '';
     published: boolean = false;
+    employeeID:String;
 
     filteredCandidates: ICandidate[];
 
@@ -32,11 +33,12 @@ export class ListCandidateComponent implements OnInit {
    }
 
     ngOnInit() {
+        this.employeeID = localStorage.getItem('employeeID');
        this.load();
     }
 
     private load() {
-        this.candidateService.getCandidates()
+        this.candidateService.getAllCandidateBasedOnRecuriter(this.employeeID)
                 .subscribe(data => {
                     this.candidates = data,
                     error => this.errorMessage = <any>error;
