@@ -32,7 +32,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr *ngFor='let candidate of candidates | candidateFilter : listFilter'>
+                    <tr *ngFor='let candidate of candidates | candidateFilter : listFilter' data-toggle="tooltip" title="hello" (click)="viewDetails(candidate.candidateId)">
 
                         <td hidden >{{candidate.candidateId}} </td>
                         <td class="hght_td">{{candidate.firstName}}</td>

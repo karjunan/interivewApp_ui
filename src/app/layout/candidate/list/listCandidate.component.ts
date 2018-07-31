@@ -64,6 +64,11 @@ export class ListCandidateComponent implements OnInit {
 
     }
 
+    private viewDetails(candidateId:String) {
+        console.log("Candidate Detail "+ candidateId);
+        
+    }
+
     private onSaveComplete(): void {
         this.load();
 
