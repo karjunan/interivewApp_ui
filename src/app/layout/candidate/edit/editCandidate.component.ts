@@ -76,7 +76,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             isActive:this.candidate.isActive,
             gender:this.candidate.gender,
             interviewDate:this.candidate.interviewDate,
-            interviewObjectID:this.candidate.interviewObjectID
+            interviewObjectID:this.candidate.interviewObjectID,
+            recuriterID:this.candidate.recuriterID
         });
     }
 
@@ -104,7 +105,8 @@ export class EditCandidateComponent implements OnInit, AfterViewInit, OnDestroy 
             technologyStack: '',
             isActive: '',
             interviewDate:'',
-            interviewObjectID:''
+            interviewObjectID:'',
+            recuriterID:''
 
         })
 

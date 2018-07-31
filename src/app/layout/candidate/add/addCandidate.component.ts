@@ -15,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     // animations: [routerTransition()]
 })
 export class AddCandidateComponent implements OnInit {
+    employeeID:String;
     selectedMoment:Date;
     addCandidateForm: FormGroup;
     errorMessage: string;
@@ -27,13 +28,15 @@ export class AddCandidateComponent implements OnInit {
 
 
     }
+    
 
     addCandidate() {
         if (this.addCandidateForm.dirty && this.addCandidateForm.valid) {
             // Copy the form values over the product object values
             // let p = Object.assign({}, this.interviewer, this.addInterviewerForm.value);
             let p = Object.assign({}, this.addCandidateForm.value)
-
+            p.recuriterID = this.employeeID;
+            console.log("Candidate data to be persisted"+ JSON.stringify(p));    
             this.candidateService.saveCandidate(p)
                 .subscribe(
                     () => this.onSaveComplete(),
@@ -53,6 +56,7 @@ export class AddCandidateComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.employeeID = localStorage.getItem('employeeID');
         this.addCandidateForm = this.fb.group({
             firstName: ['', [Validators.required, Validators.maxLength(50)]],
             lastName: ['', [Validators.required, Validators.maxLength(50)]],
@@ -64,6 +68,7 @@ export class AddCandidateComponent implements OnInit {
             isActive: '',
             resume: '',
             interviewDate: ['', [Validators.required]],
+            recuriterID:''
             // interviewTime: ['', [Validators.required]]
         });
     }
